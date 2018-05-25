@@ -1,0 +1,67 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 60%;
+  transform: translateY(-60%);
+  height: 65%;
+  width: 65%;
+  border-radius: 6px;
+  padding-top: 20px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.4);
+  padding-bottom: 20px;
+  background: #9dc183; }
+  .dashboard-container .dashboard-item-container {
+    display: flex;
+    width: 30%;
+    align-items: flex-start;
+    justify-content: center;
+    height: 30%;
+    color: #fff;
+    border-radius: 4px; }
+    .dashboard-container .dashboard-item-container:hover {
+      cursor: pointer; }
+  .dashboard-container .dashboard-item {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 1em;
+    background: #fff;
+    text-transform: uppercase;
+    color: #000; }
+
+.dboard-item-ico, .dboard-item-icon-add-task, .dboard-item-icon-completed-tasks, .dboard-item-icon-my-tasks, .dboard-item-icon-missed-tasks, .dboard-item-icon-settings, .dboard-item-icon-help {
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  margin-right: 10px; }
+
+.dboard-item-icon-add-task {
+  background: url(../../assets/add.svg); }
+
+.dboard-item-icon-completed-tasks {
+  background: url(../../assets/checked.svg); }
+
+.dboard-item-icon-my-tasks {
+  background: url(../../assets/list.svg); }
+
+.dboard-item-icon-missed-tasks {
+  background: url(../../assets/warning.svg); }
+
+.dboard-item-icon-settings {
+  background: url(../../assets/settings.svg); }
+
+.dboard-item-icon-help {
+  background: url(../../assets/info.svg); }

@@ -1,0 +1,21 @@
+.product-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100px;
+
+    .product-title {
+        font-size: 1.2em;
+        color: #000;
+        margin-top: 20px;
+        margin-left: 20px;
+        text-transform: uppercase;
+        align-self: flex-start;
+    }
+    .product-logo-wrapper {
+        margin-left: auto;
+        margin-right: 20px;
+    }
+}
