@@ -9,8 +9,13 @@ const TextInput = props => (
         type="text"
         className="text-input"
         value={props.value}
+        name={props.id}
         id={`text-input-${props.name}`}
-        onChange={props.onChange}
+        onChange={(ev) => {
+            props.onChange(ev);
+            props.validate(ev.target.value);
+          }
+        }
       />
     </label>
   </div>
@@ -21,6 +26,8 @@ TextInput.propTypes = {
   onChange: PropType.func.isRequired,
   value: PropType.string,
   name: PropType.string.isRequired,
+  validate: PropType.func.isRequired,
+  id: PropType.string.isRequired,
 };
 
 TextInput.defaultProps = {

@@ -1,0 +1,52 @@
+.nots-container {
+  display: flex;
+  min-width: 200px;
+  max-width: 250px;
+  min-height: 80px;
+  max-height: 150px;
+  background: #679267;
+  color: #fff;
+  position: fixed;
+  bottom: 20px;
+  opacity: 1;
+  right: 20px;
+  animation-name: showNotification;
+  animation-duration: 0.5s;
+  padding: 10px;
+  border: 1px solid #679267;
+  border-radius: 4px; }
+  .nots-container .nots-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%; }
+    .nots-container .nots-wrapper .nots-hdr {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      font-size: 0.9em; }
+      .nots-container .nots-wrapper .nots-hdr .nots-close-btn {
+        margin-left: auto;
+        background: none;
+        border: none;
+        background: url(../../../assets/times.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50%;
+        width: 15px;
+        height: 15px;
+        cursor: pointer; }
+    .nots-container .nots-wrapper .nots-message {
+      font-size: 0.75em;
+      text-align: left;
+      margin-top: 10px;
+      width: 100%; }
+
+@keyframes showNotification {
+  0% {
+    bottom: -100px;
+    opacity: 0; }
+  100% {
+    bottom: 20px;
+    opacity: 1; } }

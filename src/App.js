@@ -8,7 +8,7 @@ import CompletedFrogs from './components/frogs/completedfrogs';
 import HelpFrog from './components/frogs/helpfrog';
 import MissedFrogs from './components/frogs/missedfrogs';
 import Settings from './components/frogs/settings';
-import MyFrogs from './components/frogs/myfrogs';
+import MyFrogs from './containers/myFrogs';
 
 
 const App = () => (

@@ -1,0 +1,12 @@
+.my-frogs-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
+  .my-frogs-wrapper .tasks-list-wrapper {
+    margin-right: 10px;
+    flex-basis: 40%; }
+  .my-frogs-wrapper .task-detail-wrapper {
+    flex-basis: 50%; }

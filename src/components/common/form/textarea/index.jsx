@@ -7,9 +7,14 @@ const TextArea = props => (
     <label className="textarea-label" htmlFor={`text-input-${props.name}`}>{props.label}
       <textarea
         className="textarea"
-        value={props.value}
-        onChange={props.onChange}
+        name={props.id}
         id={`text-input-${props.name}`}
+        value={props.value}
+        onChange={(ev) => {
+            props.onChange(ev);
+            props.validate(ev.target.value);
+          }
+        }
       />
     </label>
   </div>
@@ -17,9 +22,11 @@ const TextArea = props => (
 
 TextArea.propTypes = {
   label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string,
   name: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  validate: PropTypes.func.isRequired,
 };
 
 TextArea.defaultProps = {
