@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import _ from 'lodash';
 import TextInput from '../../common/form/textinput/withValidation';
 import TextArea from '../../common/form/textarea/withValidation';
 import Button from '../../common/form/button';
-import Notification from '../../common/notification';
+import Notification from '../../common/notification/withAutoClose';
 import './form.css';
 
 class Form extends Component {
@@ -95,12 +94,12 @@ class Form extends Component {
             <Button disable={formHasErrors} label="Save" onClick={this.handleSave} />
           </div>
         </div>
-        <Notification
+        {this.state.notificationVisible ? <Notification
           title="Task added"
           message="Task added Successfully"
-          visible={this.state.notificationVisible}
           close={this.closeNotification}
-        />
+          autoCloseTimeout={2500}
+        /> : null}
       </Fragment>
     );
   }

@@ -4,11 +4,15 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  margin: 10px 0; }
-  .with-validation.error input[type="text"], .with-validation.error textarea {
-    background: rgba(204, 0, 0, 0.1);
-    border-color: rgba(204, 0, 0, 0.4); }
-  .with-validation .error-info {
+  margin: 10px 0;
+
+  &.error {
+      input[type="text"], textarea {
+          background: rgba(204, 0, 0, 0.1);
+          border-color: rgba(204, 0, 0, 0.4);
+      }
+  }
+  .error-info {
     display: flex;
     align-items: center;
     width: 100%;
@@ -17,30 +21,37 @@
     padding-left: 20px;
     font-style: normal;
     font-size: 0.7em;
-    color: rgba(0, 0, 0, 0.7); }
-    .with-validation .error-info:after {
+    color: rgba(0,0,0,0.7);
+    &:after {
       content: '';
       width: 25px;
       height: 25px;
       display: block;
       position: absolute;
-      top: 0px;
-      left: 0;
-      background: url(../../../assets/exclamation-circle.svg);
+      top:0px;
+      left:0;
+      background: url(../../../../../assets/exclamation-circle.svg);
       background-position: 10% 75%;
       background-size: 60%;
-      background-repeat: no-repeat; }
+      background-repeat: no-repeat;
+    }
+  }
+}
 
 .err-message-enter {
-  opacity: 0.01; }
+  opacity: 0.01;
+}
 
 .err-message-enter.err-message-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in; }
+  transition: opacity 500ms ease-in;
+}
 
 .err-message-leave {
-  opacity: 1; }
+  opacity: 1;
+}
 
 .err-message-leave.err-message-leave-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in; }
+  transition: opacity 300ms ease-in;
+}
