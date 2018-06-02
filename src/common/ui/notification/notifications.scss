@@ -1,0 +1,92 @@
+.nots-container {
+  display: flex;
+  min-width: 200px;
+  max-width: 250px;
+  min-height: 50px;
+  max-height: 100px;
+  color: #fff;
+  position: fixed;
+  bottom: 20px;
+  opacity: 1;
+  right: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  
+  &.success {
+    background: #679267;
+    border: 1px solid #679267;
+  }
+
+  &.error {
+    background: rgb(204,0,0);
+    border: 1px solid rgb(204,0,0);
+  }
+
+  .nots-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+
+    .nots-hdr {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      font-size: 0.9em;
+
+      .nots-hdr-title {
+        margin-left: 10px;
+      }
+
+      .nots-close-btn {
+        margin-left: auto;
+        background: none;
+        border: none;
+        background: url(./assets/times.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50%;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+
+    .nots-message {
+      font-size: 0.75em;
+      text-align: left;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .nots-hdr-icon {
+      &.success {
+        width: 15px;
+        height:15px;
+        background: url(./assets/check.svg);
+        background-position: 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      &.error {
+        background-position: 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+
+@keyframes showNotification {
+  0% {
+    bottom: -100px;
+    opacity: 0;
+  }
+  100% {
+    bottom: 20px;
+    opacity: 1;
+  }
+}

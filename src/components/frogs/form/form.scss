@@ -30,9 +30,26 @@
 
 .form-wrapper {
     background: rgba(255,255,255,0.5);
-    // background: #A9BA9D;
     width: 80%;
     padding: 30px;
     border-radius: 4px;
     box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+}
+
+.transition-area-enter {
+    opacity: 0.01;
+}
+
+.transition-area-enter.transition-area-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.transition-area-leave {
+    opacity: 1;
+}
+
+.transition-area-leave.transition-area-leave-active {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
 }

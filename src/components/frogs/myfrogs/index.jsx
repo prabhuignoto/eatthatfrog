@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import List from '../../common/ui/list';
+import { List } from '../../imports';
 import './myfrogs.css';
 
 class MyFrogs extends Component {

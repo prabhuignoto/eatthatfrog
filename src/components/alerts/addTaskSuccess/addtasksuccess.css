@@ -1,0 +1,40 @@
+.alert-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 4%; }
+  .alert-wrapper a {
+    font-size: 1.5em;
+    list-style-image: none;
+    color: #679267;
+    text-decoration: none;
+    margin: 15px; }
+    .alert-wrapper a:hover {
+      text-decoration: underline; }
+
+.add-task-succ-alert {
+  width: 40%;
+  height: 40%;
+  padding: 8%;
+  margin: 0 auto;
+  border: 1px solid rgba(103, 146, 103, 0.15);
+  border-radius: 4px;
+  background: rgba(103, 146, 103, 0.1); }
+  .add-task-succ-alert .alert-message {
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+    .add-task-succ-alert .alert-message .alert-msg-icon {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      display: inline-block;
+      background-position: 50%;
+      background-size: contain;
+      background: url(./assets/check-circle.svg);
+      background-repeat: no-repeat;
+      margin-right: 10px; }

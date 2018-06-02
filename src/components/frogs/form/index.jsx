@@ -1,24 +1,32 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import TextInput from '../../common/form/textinput/withValidation';
-import TextArea from '../../common/form/textarea/withValidation';
-import Button from '../../common/form/button';
-import Notification from '../../common/notification/withAutoClose';
+import { Redirect } from 'react-router-dom';
+import TransitionGroup from 'react-addons-css-transition-group';
+import { TextInput, TextArea, Button, Notification } from '../../imports';
 import './form.css';
 
 class Form extends Component {
+  static hasErrors(formErrors) {
+    return _.chain(formErrors)
+      .some(x => x.success === false).value();
+  }
+
   constructor(props) {
     super(props);
     this.state = {
-      notificationVisible: false,
+      successNotifVisible: false,
+      errorNotifVisible: false,
       validateInput: false,
       name: '',
       description: '',
       formErrors: [],
+      redirectToSuccessPage: false,
+      disableSaveBtn: false,
     };
     this.handleSave = this.handleSave.bind(this);
-    this.closeNotification = this.closeNotification.bind(this);
+    this.closeSuccessNotification = this.closeSuccessNotification.bind(this);
+    this.closeErrorNotification = this.closeErrorNotification.bind(this);
     this.handleTextArea = this.handleTextArea.bind(this);
     this.handleTextInput = this.handleTextInput.bind(this);
     this.handleErrorPortal = this.handleErrorPortal.bind(this);
@@ -38,14 +46,22 @@ class Form extends Component {
 
   handleSave() {
     const { name, description } = this.state;
-    if (name && description) {
-      this.props.saveForm(name, description);
-      this.setState({
-        notificationVisible: true,
-      });
-    } else {
+    if (!name || !description) {
       this.setState({
         validateInput: true,
+        errorNotifVisible: true,
+      });
+    } else if (!Form.hasErrors(this.state.formErrors)) {
+      this.props.saveForm(name, description);
+      this.setState({
+        successNotifVisible: true,
+        disableSaveBtn: true,
+      }, () => {
+        setTimeout(() => {
+          this.setState({
+            redirectToSuccessPage: true,
+          });
+        }, 1000);
       });
     }
   }
@@ -57,23 +73,32 @@ class Form extends Component {
 
     this.setState({
       formErrors: updatedFormErrors,
+      errorNotifVisible: Form.hasErrors(updatedFormErrors),
     });
   }
 
-  closeNotification() {
+  closeSuccessNotification() {
     this.setState({
-      notificationVisible: false,
+      successNotifVisible: false,
+    });
+  }
+
+  closeErrorNotification() {
+    this.setState({
+      errorNotifVisible: false,
     });
   }
 
   render() {
-    const formHasErrors = _.chain(this.state.formErrors)
-      .filter(x => x.success === false)
-      .size() > 0;
+    const formHasErrors = Form.hasErrors(this.state.formErrors);
     return (
       <Fragment>
+        {this.state.redirectToSuccessPage ? <Redirect to="/addTaskSuccess" /> : null}
         <div className="form-container">
-          <h4>{this.props.heading}</h4>
+          <div className="form-header">
+            <i className="form-header-icon" />
+            <h4>{this.props.heading}</h4>
+          </div>
           <div className="form-wrapper">
             <TextInput
               label="Name"
@@ -91,15 +116,35 @@ class Form extends Component {
               value={this.state.description}
               errorPortal={this.handleErrorPortal}
             />
-            <Button disable={formHasErrors} label="Save" onClick={this.handleSave} />
+            <Button
+              disable={formHasErrors || this.state.disableSaveBtn}
+              label="Save"
+              onClick={this.handleSave}
+            />
           </div>
         </div>
-        {this.state.notificationVisible ? <Notification
-          title="Task added"
-          message="Task added Successfully"
-          close={this.closeNotification}
-          autoCloseTimeout={2500}
-        /> : null}
+        <TransitionGroup
+          transitionName="transition-area"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+        >
+          {this.state.successNotifVisible ?
+            <Notification
+              title="Task added"
+              message="Task added Successfully"
+              close={this.closeSuccessNotification}
+              type="success"
+              autoCloseTimeout={2500}
+            /> : null}
+          {this.state.errorNotifVisible ?
+            <Notification
+              title="Error"
+              message="Please correct the errors."
+              close={this.closeErrorNotification}
+              type="error"
+              autoCloseTimeout={3500}
+            /> : null}
+        </TransitionGroup>
       </Fragment>
     );
   }
