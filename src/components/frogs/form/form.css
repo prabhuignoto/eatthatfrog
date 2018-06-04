@@ -21,8 +21,8 @@
     flex-direction: row;
     align-items: center; }
     .form-container .form-header .form-header-icon {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       display: inline-block;
       background: url(./assets/bolt.svg);
       background-size: contain;

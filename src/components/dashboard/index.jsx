@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
 import DashboardItem from './dashboardItem';
+import DropdownFox from '../../common/ui/dropdown-fox';
 import './main.css';
 
 const Dashboard = () => (
   <Fragment>
-    <div className="dashboard-container">
+    <DropdownFox foxes={[{ name: 'pr' }, { name: 'ramya' },{ name: 'prabhu murthy' }, { name: 'ramya' },{ name: 'prabhu' }, { name: 'ramya muralidharan' }]} />
+    {/* <div className="dashboard-container">
       <DashboardItem
         name="add-task"
         label="Add a Task"
@@ -35,7 +37,7 @@ const Dashboard = () => (
         label="Help"
         path="/help"
       />
-    </div>
+    </div> */}
   </Fragment>
 );
 
