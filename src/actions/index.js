@@ -24,3 +24,9 @@ export function getAllTasksComplete() {
   };
 }
 
+export function checkForDuplicate(name) {
+  return {
+    type: 'CHECK_FOR_DUPLICATE',
+    name,
+  };
+}

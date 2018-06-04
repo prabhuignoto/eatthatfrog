@@ -15,21 +15,38 @@
   padding: 5px 0px 20px 0px;
   border-radius: 4px;
   font-family: 'Open Sans'; }
-  .form-container h4 {
-    margin: 15px;
-    width: 88%;
-    text-align: left;
-    color: #679267;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: 1em;
-    padding: 6px 8px;
-    border-radius: 2px; }
+  .form-container .form-header {
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .form-container .form-header .form-header-icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      background: url(./assets/bolt.svg);
+      background-size: contain;
+      background-position: 50%;
+      background-repeat: no-repeat; }
+    .form-container .form-header h4 {
+      margin: 15px;
+      width: 100%;
+      text-align: left;
+      color: #679267;
+      text-transform: uppercase;
+      font-weight: normal;
+      font-size: 1em;
+      padding: 6px 8px;
+      border-radius: 2px;
+      margin-left: 0; }
+
+.form-controls {
+  padding: 5px 0px; }
 
 .form-wrapper {
   background: rgba(255, 255, 255, 0.5);
   width: 80%;
-  padding: 30px;
+  padding: 20px 25px;
   border-radius: 4px;
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2); }
 

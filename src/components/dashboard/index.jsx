@@ -1,11 +1,9 @@
 import React, { Fragment } from 'react';
 import DashboardItem from './dashboardItem';
 import './main.css';
-import Popup from '../../common/ui/popup/hocs/withEsc';
 
 const Dashboard = () => (
   <Fragment>
-    <Popup title="this is a test"> This is another big test for the popup</Popup>
     <div className="dashboard-container">
       <DashboardItem
         name="add-task"
