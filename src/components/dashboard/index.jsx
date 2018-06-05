@@ -5,8 +5,8 @@ import './main.css';
 
 const Dashboard = () => (
   <Fragment>
-    <ListFox label="cool fox" foxes={[]} />
-    {/* <div className="dashboard-container">
+    {/* <ListFox label="cool fox" foxes={[]} /> */}
+    <div className="dashboard-container">
       <DashboardItem
         name="add-task"
         label="Add a Task"
@@ -37,7 +37,7 @@ const Dashboard = () => (
         label="Help"
         path="/help"
       />
-    </div> */}
+    </div>
   </Fragment>
 );
 

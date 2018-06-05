@@ -66,14 +66,11 @@ class ListFox extends Component {
             return null;
           }}
       >
-        <span className="listfox-label">
-          {this.props.label}
-        </span>
         <div className="listfox-container">
           <div className="foxes-container">
             {this.state.foxes.map(fox => (
               <Fox
-                {...fox} 
+                {...fox}
                 key={fox.id}
                 remove={this.handleRemoveFox}
               />
@@ -94,7 +91,6 @@ class ListFox extends Component {
 }
 
 ListFox.propTypes = {
-  label: PropTypes.string.isRequired,
   foxes: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
