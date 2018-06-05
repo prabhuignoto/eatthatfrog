@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import DashboardItem from './dashboardItem';
-import DropdownFox from '../../common/ui/dropdown-fox';
+import ListFox from '../../common/ui/list-fox';
 import './main.css';
 
 const Dashboard = () => (
   <Fragment>
-    <DropdownFox foxes={[{ name: 'pr' }, { name: 'ramya' },{ name: 'prabhu murthy' }, { name: 'ramya' },{ name: 'prabhu' }, { name: 'ramya muralidharan' }]} />
+    <ListFox label="cool fox" foxes={[]} />
     {/* <div className="dashboard-container">
       <DashboardItem
         name="add-task"
