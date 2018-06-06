@@ -8,7 +8,7 @@ import {
   TextArea,
   Button,
   Notification,
-  Popup
+  ListFox,
 } from '../../imports';
 import './form.css';
 
@@ -145,6 +145,17 @@ class Form extends Component {
               name="taskdescription"
               value={this.state.description}
               errorPortal={this.handleErrorPortal}
+            />
+            {/* foxy list */}
+            <div className="listfox-title">
+              Choose a category for your task
+            </div>
+            <ListFox
+              validateInput={this.state.validateInput}
+              validationMessages={{
+                itemsEmpty: 'Please create atleast one category',
+              }}
+              foxes={[{ name: 'Productivity' }, { name: 'Food' }]}
             />
             <div className="form-controls">
               <Button

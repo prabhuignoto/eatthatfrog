@@ -1,5 +1,5 @@
 .form-container {
-    width: 45%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,24 +23,24 @@
         align-items: center;
 
         .form-header-icon {
-            width: 18px;
-            height: 18px;
-            display: inline-block;
-            background: url(./assets/bolt.svg);
-            background-size: contain;
-            background-position: 50%;
-            background-repeat: no-repeat;
+            // width: 18px;
+            // height: 18px;
+            // display: inline-block;
+            // background: url(./assets/bolt.svg);
+            // background-size: contain;
+            // background-position: 50%;
+            // background-repeat: no-repeat;
         }
         
         h4{
-            margin: 15px;
+            margin: 10px 4px;
             width: 100%;
             text-align: left;
             color: #679267;
             text-transform: uppercase;
             font-weight: normal;
             font-size: 1em;
-            padding: 6px 8px;
+            padding: 6px 1px;
             border-radius: 2px;
             margin-left: 0;
         }
@@ -49,6 +49,7 @@
 
 .form-controls {
    padding: 5px 0px;
+   margin-top: 8px;
 }
 
 .form-wrapper {
@@ -57,6 +58,13 @@
     padding: 20px 25px;
     border-radius: 4px;
     box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+}
+
+.listfox-title {
+    text-align: left;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    font-size: 0.8em;
 }
 
 .transition-area-enter {
