@@ -38,6 +38,11 @@
       margin-left: 3px;
       background: transparent;
       height: 20px;
+      display: block;
+      
+      &.disabled {
+        display: none;
+      }
     }
   }
 }

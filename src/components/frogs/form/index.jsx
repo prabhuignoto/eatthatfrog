@@ -154,6 +154,7 @@ class Form extends Component {
               validateInput={this.state.validateInput}
               validationMessages={{
                 itemsEmpty: 'Please create atleast one category',
+                hasDuplicates: 'A Category with that name already exists',
               }}
               foxes={[{ name: 'Productivity' }, { name: 'Food' }]}
             />

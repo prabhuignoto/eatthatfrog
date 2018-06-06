@@ -1,5 +1,6 @@
 import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import './listfox.css';
 import Fox from './components/fox';
 
@@ -33,7 +34,9 @@ const ListFox = props => (
         <input
           ref={inputRef}
           type="text"
-          className="listfox-input"
+          className={classNames('listfox-input', {
+            disabled: props.disableInput,
+          })}
           value={props.input}
           onChange={props.onKeyInput}
           onKeyUp={props.onAddOrRemoveFox}
@@ -52,6 +55,11 @@ ListFox.propTypes = {
     name: PropTypes.string.isRequired,
     id: PropTypes.string,
   })).isRequired,
+  disableInput: PropTypes.bool,
+};
+
+ListFox.defaultProps = {
+  disableInput: false,
 };
 
 export default ListFox;

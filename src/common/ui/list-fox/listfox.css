@@ -28,4 +28,7 @@
       flex-wrap: nowrap;
       margin-left: 3px;
       background: transparent;
-      height: 20px; }
+      height: 20px;
+      display: block; }
+      .listfox-wrapper .listfox-container .listfox-input.disabled {
+        display: none; }

@@ -11,6 +11,7 @@ class ListFoxDefault extends Component {
         id: `listfox${uuid().replace(/-/g, '')}`,
       })) || [],
       input: '',
+      disableInput: false,
     };
     this.onKeyInput = this.onKeyInput.bind(this);
     this.onAddOrRemoveFox = this.onAddOrRemoveFox.bind(this);
@@ -30,15 +31,25 @@ class ListFoxDefault extends Component {
   }
 
   onAddOrRemoveFox(ev) {
-    if (ev.keyCode === 13) {
-      this.setState({
-        input: '',
-        foxes: this.state.foxes.concat([{
-          name: ev.target.value,
-          id: `listfox${uuid().replace(/-/g, '')}`,
-        }]),
-      });
-    } else if (ev.keyCode === 8 && !ev.target.value) {
+    const { value } = ev.target;
+    if (ev.keyCode === 13 && value) {
+      const foxes = this.state.foxes.concat([{
+        name: value,
+        id: `listfox${uuid().replace(/-/g, '')}`,
+      }]);
+      if (this.state.foxes.length < this.props.limit - 1) {
+        this.setState({
+          input: '',
+          foxes,
+          disableInput: false,
+        });
+      } else {
+        this.setState({
+          foxes,
+          disableInput: true,
+        });
+      }
+    } else if (ev.keyCode === 8 && !value) {
       const oldFoxes = this.state.foxes;
       const newFoxes = oldFoxes.slice(0, oldFoxes.length - 1);
       this.setState({
@@ -49,7 +60,9 @@ class ListFoxDefault extends Component {
 
   onRemoveFoxById(id) {
     this.setState({
+      input: '',
       foxes: this.state.foxes.filter(x => x.id !== id),
+      disableInput: false,
     });
   }
 
@@ -62,6 +75,7 @@ class ListFoxDefault extends Component {
         onKeyInput={this.onKeyInput}
         onAddOrRemoveFox={this.onAddOrRemoveFox}
         onRemoveFoxById={this.onRemoveFoxById}
+        disableInput={this.state.disableInput}
       />
     );
   }
@@ -73,10 +87,12 @@ ListFoxDefault.propTypes = {
     id: PropTypes.string,
   })).isRequired,
   onListFoxChanged: PropTypes.func,
+  limit: PropTypes.number,
 };
 
 ListFoxDefault.defaultProps = {
   onListFoxChanged: () => {},
+  limit: 10,
 };
 
 export default ListFoxDefault;

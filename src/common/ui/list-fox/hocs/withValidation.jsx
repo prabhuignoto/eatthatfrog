@@ -1,11 +1,17 @@
 import React, { Component, createRef, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import _ from 'lodash';
 import ListFoxDefault from '../listFoxDefault';
 import './withValidation.css';
 
 export default (function listFoxWithValidation(WrappedComponent) {
   class ListFox extends Component {
+    static hasDuplicates(collection) {
+      const uniqueValues = _.chain(collection).map(x => x.name.toLowerCase()).uniq().value();
+      return uniqueValues.length !== collection.length;
+    }
+
     constructor(props) {
       super(props);
       this.state = {
@@ -28,10 +34,23 @@ export default (function listFoxWithValidation(WrappedComponent) {
     }
 
     validate() {
-      const noFoxes = this.ref.current.state.foxes.length < 1;
+      const { foxes: allFoxes } = this.ref.current.state;
+      const noFoxes = allFoxes.length < 1;
+      const hasDuplicates = ListFox.hasDuplicates(allFoxes);
+      const isEmpty = _.some(allFoxes, x => !x.name);
+      let message = null;
+
+      if (hasDuplicates) {
+        message = this.props.validationMessages.hasDuplicates;
+      } else if (noFoxes) {
+        message = this.props.validationMessages.itemsEmpty;
+      } else if (isEmpty) {
+        message = 'Cannot be empty';
+      }
+
       this.setState({
         error: Object.assign({}, this.state.error, {
-          message: noFoxes ? this.props.validationMessages.itemsEmpty : null,
+          message,
         }),
       });
     }
@@ -64,6 +83,7 @@ export default (function listFoxWithValidation(WrappedComponent) {
     validateInput: PropTypes.bool.isRequired,
     validationMessages: PropTypes.shape({
       itemsEmpty: PropTypes.string,
+      hasDuplicates: PropTypes.string,
     }).isRequired,
   };
 
