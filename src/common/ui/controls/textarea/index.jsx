@@ -10,6 +10,7 @@ const TextArea = props => (
         name={props.id}
         id={`text-input-${props.name}`}
         value={props.value}
+        disabled={props.isReadOnly}
         onChange={(ev) => {
             props.onChange(ev);
             props.validate(ev.target.value);
@@ -27,10 +28,12 @@ TextArea.propTypes = {
   onChange: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
   validate: PropTypes.func.isRequired,
+  isReadOnly: PropTypes.bool,
 };
 
 TextArea.defaultProps = {
   value: '',
+  isReadOnly: false,
 };
 
 export default TextArea;

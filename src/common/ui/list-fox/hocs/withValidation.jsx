@@ -85,6 +85,11 @@ export default (function listFoxWithValidation(WrappedComponent) {
       itemsEmpty: PropTypes.string,
       hasDuplicates: PropTypes.string,
     }).isRequired,
+    isReadOnly: PropTypes.bool,
+  };
+
+  ListFox.defaultProps = {
+    isReadOnly: false,
   };
 
   return ListFox;

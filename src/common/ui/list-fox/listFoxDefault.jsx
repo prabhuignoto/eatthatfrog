@@ -88,11 +88,13 @@ ListFoxDefault.propTypes = {
   })).isRequired,
   onListFoxChanged: PropTypes.func,
   limit: PropTypes.number,
+  isReadOnly: PropTypes.bool,
 };
 
 ListFoxDefault.defaultProps = {
   onListFoxChanged: () => {},
   limit: 10,
+  isReadOnly: false,
 };
 
 export default ListFoxDefault;

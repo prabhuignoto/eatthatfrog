@@ -7,10 +7,10 @@ const Fox = props => (
     <span className="fox-label">
       {props.name}
     </span>
-    <button
+    {!props.isReadOnly ? <button
       className="fox-remove"
       onClick={() => props.remove(props.id)}
-    />
+    /> : null}
   </div>
 );
 
@@ -18,6 +18,11 @@ Fox.propTypes = {
   name: PropTypes.string.isRequired,
   remove: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
+  isReadOnly: PropTypes.bool,
+};
+
+Fox.defaultProps = {
+  isReadOnly: false,
 };
 
 export default Fox;

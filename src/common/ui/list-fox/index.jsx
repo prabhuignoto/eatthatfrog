@@ -29,6 +29,7 @@ const ListFox = props => (
             {...fox}
             key={fox.id}
             remove={props.onRemoveFoxById}
+            isReadOnly={props.isReadOnly}
           />
         ))}
         <input
@@ -40,6 +41,7 @@ const ListFox = props => (
           value={props.input}
           onChange={props.onKeyInput}
           onKeyUp={props.onAddOrRemoveFox}
+          disabled={props.isReadOnly}
         />
       </div>
     </div>
@@ -56,10 +58,12 @@ ListFox.propTypes = {
     id: PropTypes.string,
   })).isRequired,
   disableInput: PropTypes.bool,
+  isReadOnly: PropTypes.bool,
 };
 
 ListFox.defaultProps = {
   disableInput: false,
+  isReadOnly: false,
 };
 
 export default ListFox;

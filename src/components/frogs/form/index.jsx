@@ -4,15 +4,11 @@ import _ from 'lodash';
 import { Redirect } from 'react-router-dom';
 import TransitionGroup from 'react-addons-css-transition-group';
 import {
-  TextInput,
-  TextArea,
-  Button,
   Notification,
-  ListFox,
 } from '../../imports';
-import './form.css';
+import Form from './form';
 
-class Form extends Component {
+class FormDefault extends Component {
   static hasErrors(formErrors) {
     return _.chain(formErrors)
       .some(x => x.success === false).value();
@@ -67,7 +63,7 @@ class Form extends Component {
       });
       // check if the form controls have acceptable input and
       // invoke the save via sagas
-    } else if (!Form.hasErrors(this.state.formErrors)) {
+    } else if (!FormDefault.hasErrors(this.state.formErrors)) {
       this.props.saveForm(name, description);
       this.setState({
         successNotifVisible: true,
@@ -95,7 +91,7 @@ class Form extends Component {
     // update the state
     this.setState({
       formErrors: updatedFormErrors,
-      errorNotifVisible: Form.hasErrors(updatedFormErrors),
+      errorNotifVisible: FormDefault.hasErrors(updatedFormErrors),
     });
   }
 
@@ -115,58 +111,25 @@ class Form extends Component {
 
   // react renderer
   render() {
-    const formHasErrors = Form.hasErrors(this.state.formErrors);
+    const formHasErrors = FormDefault.hasErrors(this.state.formErrors);
     return (
       <Fragment>
         {this.state.redirectToSuccessPage ? <Redirect to="/addTaskSuccess" /> : null}
-        {/* main form container */}
-        <div className="form-container">
-          {/* form header/ */}
-          <div className="form-header">
-            <i className="form-header-icon" />
-            <h4>{this.props.heading}</h4>
-          </div>
-          {/* form wrapper */}
-          <div className="form-wrapper">
-            {/* text input */}
-            <TextInput
-              label="Name"
-              validateInput={this.state.validateInput}
-              name="taskname"
-              onChange={this.handleTextInput}
-              value={this.state.name}
-              errorPortal={this.handleErrorPortal}
-            />
-            {/* text area */}
-            <TextArea
-              label="Description"
-              validateInput={this.state.validateInput}
-              onChange={this.handleTextArea}
-              name="taskdescription"
-              value={this.state.description}
-              errorPortal={this.handleErrorPortal}
-            />
-            {/* foxy list */}
-            <div className="listfox-title">
-              Choose a category for your task
-            </div>
-            <ListFox
-              validateInput={this.state.validateInput}
-              validationMessages={{
-                itemsEmpty: 'Please create atleast one category',
-                hasDuplicates: 'A Category with that name already exists',
-              }}
-              foxes={[{ name: 'Productivity' }, { name: 'Food' }]}
-            />
-            <div className="form-controls">
-              <Button
-                disable={formHasErrors || this.state.disableSaveBtn}
-                label="Save"
-                onClick={this.handleSave}
-              />
-            </div>
-          </div>
-        </div>
+        {/* main form */}
+        <Form
+          handleSave={this.handleSave}
+          handleErrorPortal={this.handleErrorPortal}
+          handleTextArea={this.handleTextArea}
+          handleTextInput={this.handleTextInput}
+          heading={this.props.heading}
+          textInputLabel="Name"
+          textAreaLabel="Description"
+          textInputVal={this.state.name}
+          textAreaVal={this.state.description}
+          validateInput={this.state.validateInput}
+          disableSaveBtn={this.state.disableSaveBtn}
+          formHasErrors={formHasErrors}
+        />
         {/* transition group for the notifications starts */}
         <TransitionGroup
           transitionName="transition-area"
@@ -198,15 +161,12 @@ class Form extends Component {
   }
 }
 
-Form.propTypes = {
+FormDefault.propTypes = {
   // string for the form title
   heading: PropTypes.string.isRequired,
 
   // function to invoke the save via sagas
   saveForm: PropTypes.func.isRequired,
-
-  // checks for the duplicate name on the store via the sagas
-  // checkDuplicate: PropTypes.func.isRequired,
 };
 
-export default Form;
+export default FormDefault;

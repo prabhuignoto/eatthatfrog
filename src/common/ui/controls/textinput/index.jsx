@@ -11,6 +11,7 @@ const TextInput = props => (
         value={props.value}
         name={props.id}
         id={`text-input-${props.name}`}
+        disabled={props.isReadOnly}
         onChange={(ev) => {
             props.onChange(ev);
             props.validate(ev.target.value);
@@ -28,10 +29,12 @@ TextInput.propTypes = {
   name: PropType.string.isRequired,
   validate: PropType.func.isRequired,
   id: PropType.string.isRequired,
+  isReadOnly: PropType.bool,
 };
 
 TextInput.defaultProps = {
   value: '',
+  isReadOnly: false,
 };
 
 export default TextInput;
