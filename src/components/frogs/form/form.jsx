@@ -51,11 +51,11 @@ const TaskForm = props => (
         foxes={[{ name: 'Productivity' }, { name: 'Excercise' }]}
       />
       <div className="form-controls">
-        <Button
+        {!props.isReadOnly ? <Button
           disable={props.formHasErrors || props.disableSaveBtn}
           label="Save"
           onClick={props.handleSave}
-        />
+        /> : null}
       </div>
     </div>
   </div>

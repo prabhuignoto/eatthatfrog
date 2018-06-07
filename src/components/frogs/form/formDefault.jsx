@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { Redirect } from 'react-router-dom';
 import TransitionGroup from 'react-addons-css-transition-group';
 import {
-  Notification,
+  NotificationCenter,
 } from '../../imports';
 import Form from './form';
 
@@ -136,24 +136,20 @@ class FormDefault extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
         >
-          {/* display success notification */}
-          {this.state.successNotifVisible ?
-            <Notification
-              title="Task added"
-              message="Task added Successfully"
-              close={this.closeSuccessNotification}
-              type="success"
-              autoCloseTimeout={2500}
-            /> : null}
-          {/* display error notification   */}
-          {this.state.errorNotifVisible ?
-            <Notification
-              title="Error"
-              message="Please correct the errors."
-              close={this.closeErrorNotification}
-              type="error"
-              autoCloseTimeout={3500}
-            /> : null}
+          <NotificationCenter
+            success={{
+              title: 'Task added',
+              message: 'Task added Successfully',
+            }}
+            onCloseSuccess={this.closeSuccessNotification}
+            showSuccess={this.state.successNotifVisible}
+            error={{
+              title: 'Error',
+              message: 'Please correct the errors',
+            }}
+            showError={this.state.errorNotifVisible}
+            onCloseError={this.closeErrorNotification}
+          />
         </TransitionGroup>
         {/* transition group for the notifications ends */}
       </Fragment>

@@ -1,7 +1,4 @@
-import Form from '../form';
+import Form from '../form/formDefault';
 import './addfrog.css';
 
-class AddFrog extends Form {
-}
-
-export default AddFrog;
+export default class extends Form {}
