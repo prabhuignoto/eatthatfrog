@@ -1,5 +1,4 @@
 .form-container {
-  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +33,11 @@
 
 .form-controls {
   padding: 5px 0px;
-  margin-top: 8px; }
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start; }
 
 .form-wrapper {
   background: rgba(255, 255, 255, 0.5);
