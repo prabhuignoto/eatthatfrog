@@ -7,7 +7,11 @@
   .toggle-switch-container.on .toggle-switch-input-wrapper::after {
     left: 68%;
     animation-name: move-to-right;
-    background: #679267; }
+    background: #679267;
+    background-image: url(./assets/check.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 60%; }
   .toggle-switch-container.off .toggle-switch-input-wrapper::after {
     left: 15%;
     animation-name: move-to-left;
