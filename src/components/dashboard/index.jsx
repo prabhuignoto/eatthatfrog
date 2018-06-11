@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import DashboardItem from './dashboardItem';
-import ListFox from '../../common/ui/list-fox';
+import ToggleSwitch from '../../common/ui/toggle-switch/toggle-switch-default';
 import './main.css';
 
 const Dashboard = () => (
   <Fragment>
-    {/* <ListFox label="cool fox" foxes={[]} /> */}
+    <ToggleSwitch name="my-toggle" label="Mark as Completed" />
     <div className="dashboard-container">
       <DashboardItem
         name="add-task"

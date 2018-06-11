@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
-import ListItem from './listItem';
+import ListItem from './components/listItem';
 import './list.css';
 
 class List extends Component {

@@ -1,0 +1,100 @@
+.toggle-switch-container {
+  display: flex;
+  flex-direction: row;
+  min-width: 120px;
+  max-width: 250px;
+  padding: 4px;
+
+  &.on {
+    .toggle-switch-input {
+      &::after {
+        left: 65%;
+        animation-name: move-to-right;
+        background: #679267;
+      }
+    }
+  }
+  &.off {
+    .toggle-switch-input {
+      &::after {
+        left: 15%;
+        animation-name: move-to-left;
+        background: #ddd;
+      }
+    }
+  }
+
+  .toggle-switch-label {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    cursor: pointer;
+    text-transform: capitalize;
+
+    .label-text {
+      width: 100%;
+      font-weight: normal;
+      flex: 5;
+      user-select: none;
+    }
+    .toggle-switch-input {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+      pointer-events: none;
+      position: relative;
+      border-radius: 2px;
+      margin: 0;
+
+      &::after {
+        content: '';
+        visibility: visible;
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        animation-duration: 0.25s;
+        animation-timing-function: ease-in
+      }
+      &::before {
+        content: '';
+        visibility: visible;
+        display: block;
+        width: 120%;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 1px solid #679267;
+        border-radius: 25px;
+        position: absolute;
+        height: 120%;
+      }
+    }
+  }
+}
+
+@keyframes move-to-right {
+  0% {
+    left: 15%;
+    background: #ddd;
+  }
+  100% {
+    left: 65%;
+    background: #679267;
+  }
+}
+
+@keyframes move-to-left {
+  0% {
+    left: 65%;
+    background: #679267;
+  }
+  100% {
+    left: 15%;
+    background: #ddd;
+  }
+}
