@@ -18,12 +18,14 @@ const ToggleSwitch = (props) => {
         className="toggle-switch-label"
       >
         <span className="label-text">{props.label}</span>
-        <input
-          type="checkbox"
-          className="toggle-switch-input"
-          id={id}
-          onChange={props.onToggle}
-        />
+        <div className="toggle-switch-input-wrapper">
+          <input
+            type="checkbox"
+            className="toggle-switch-input"
+            id={id}
+            onChange={props.onToggle}
+          />
+        </div>
       </label>
     </div>
   );

@@ -4,18 +4,17 @@
   min-width: 120px;
   max-width: 250px;
   padding: 4px;
-
   &.on {
-    .toggle-switch-input {
+    .toggle-switch-input-wrapper {
       &::after {
-        left: 65%;
+        left: 68%;
         animation-name: move-to-right;
         background: #679267;
       }
     }
   }
   &.off {
-    .toggle-switch-input {
+    .toggle-switch-input-wrapper {
       &::after {
         left: 15%;
         animation-name: move-to-left;
@@ -23,29 +22,31 @@
       }
     }
   }
-
   .toggle-switch-label {
     display: flex;
     flex-direction: row;
     width: 100%;
     cursor: pointer;
     text-transform: capitalize;
-
     .label-text {
       width: 100%;
       font-weight: normal;
       flex: 5;
       user-select: none;
     }
-    .toggle-switch-input {
+    .toggle-switch-input-wrapper {
       flex: 1;
       width: 100%;
-      height: 100%;
-      visibility: hidden;
-      pointer-events: none;
       position: relative;
-      border-radius: 2px;
-      margin: 0;
+
+      .toggle-switch-input {
+        width: 100%;
+        height: 100%;
+        display: none;
+        pointer-events: none;
+        border-radius: 2px;
+        margin: 0;
+      }
 
       &::after {
         content: '';
@@ -60,6 +61,7 @@
         animation-duration: 0.25s;
         animation-timing-function: ease-in
       }
+
       &::before {
         content: '';
         visibility: visible;
@@ -83,14 +85,14 @@
     background: #ddd;
   }
   100% {
-    left: 65%;
+    left: 68%;
     background: #679267;
   }
 }
 
 @keyframes move-to-left {
   0% {
-    left: 65%;
+    left: 68%;
     background: #679267;
   }
   100% {
