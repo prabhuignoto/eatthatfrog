@@ -8,6 +8,7 @@ import Button from '../common/ui/controls/button';
 import TextInput from '../common/ui/controls/textinput/withValidation';
 import TextArea from '../common/ui/controls/textarea/withValidation';
 import ListFox from '../common/ui/list-fox/hocs/withValidation';
+import ToggleSwitch from '../common/ui/toggle-switch/toggle-switch-default';
 
 export { List,
   Alert,
@@ -17,4 +18,5 @@ export { List,
   TextArea,
   Popup,
   ListFox,
+  ToggleSwitch,
 };

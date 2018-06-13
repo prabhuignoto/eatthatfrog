@@ -5,16 +5,25 @@ ul.ui-list {
   width: 100%;
   padding: 8px;
   height: 400px;
-  overflow-y: scroll; }
+  overflow-y: hidden;
+  cursor: pointer; }
   ul.ui-list .ui-list-item {
     width: 100%;
     min-height: 40px;
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    margin: 1px 0; }
     ul.ui-list .ui-list-item:nth-child(odd) {
+      background: rgba(103, 146, 103, 0.3);
+      border-radius: 1px; }
+    ul.ui-list .ui-list-item:nth-child(even) {
       background: rgba(103, 146, 103, 0.2);
-      border-radius: 3px; }
+      border-radius: 1px; }
+    ul.ui-list .ui-list-item:nth-child(odd):hover {
+      border: 1px solid rgba(103, 146, 103, 0.5); }
+    ul.ui-list .ui-list-item:nth-child(even):hover {
+      border: 1px solid rgba(103, 146, 103, 0.5); }
     ul.ui-list .ui-list-item button {
       background: none;
       border: none; }

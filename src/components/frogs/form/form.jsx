@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import 'bulma/css/bulma.css';
-import classNames from 'classnames';
 import {
   TextInput,
   TextArea,
@@ -10,68 +9,59 @@ import {
 } from '../../imports';
 import './form.css';
 
-const formClass = classNames('form-container', {
-  column: true,
-  'is-half-desktop': true,
-  'is-one-third-widescreen': true,
-  'is-half-tablet': true,
-  'is-four-fifths-mobile': true,
-  'is-one-quarter-fullhd': true,
-});
-
 const TaskForm = props => (
-  <div className="columns">
-    <div className={formClass}>
-      {/* form header/ */}
+  <div className="form-container">
+    {/* form header/ */}
+    {props.heading.length > 0 ?
       <div className="form-header">
         <i className="form-header-icon" />
         <h4>{props.heading}</h4>
+      </div> : null}
+    {/* form wrapper */}
+    <div className="form-wrapper">
+      {/* text input */}
+      <TextInput
+        label={props.textInputLabel}
+        validateInput={props.validateInput}
+        name="taskname"
+        onChange={props.handleTextInput}
+        value={props.textInputVal}
+        errorPortal={props.handleErrorPortal}
+        isReadOnly={props.isReadOnly}
+      />
+      {/* text area */}
+      <TextArea
+        label={props.textAreaLabel}
+        validateInput={props.validateInput}
+        onChange={props.handleTextArea}
+        name="taskdescription"
+        value={props.textAreaVal}
+        errorPortal={props.handleErrorPortal}
+        isReadOnly={props.isReadOnly}
+      />
+      {/* foxy list */}
+      <div className="listfox-title">
+        Choose a category for your task
       </div>
-      {/* form wrapper */}
-      <div className="form-wrapper">
-        {/* text input */}
-        <TextInput
-          label={props.textInputLabel}
-          validateInput={props.validateInput}
-          name="taskname"
-          onChange={props.handleTextInput}
-          value={props.textInputVal}
-          errorPortal={props.handleErrorPortal}
-          isReadOnly={props.isReadOnly}
-        />
-        {/* text area */}
-        <TextArea
-          label={props.textAreaLabel}
-          validateInput={props.validateInput}
-          onChange={props.handleTextArea}
-          name="taskdescription"
-          value={props.textAreaVal}
-          errorPortal={props.handleErrorPortal}
-          isReadOnly={props.isReadOnly}
-        />
-        {/* foxy list */}
-        <div className="listfox-title">
-          Choose a category for your task
-        </div>
-        <ListFox
-          validateInput={props.validateInput}
-          validationMessages={{
-            itemsEmpty: 'Please create atleast one category',
-            hasDuplicates: 'A Category with that name already exists',
-          }}
-          isReadOnly={props.isReadOnly}
-          foxes={[{ name: 'Productivity' }, { name: 'Excercise' }]}
-        />
-        <div className="form-controls">
-          {!props.isReadOnly ? 
-            <Fragment>
-              <Button
-                disable={props.formHasErrors || props.disableSaveBtn}
-                label="Save &amp; Close"
-                onClick={props.handleSave}
-              />
-            </Fragment> : null}
-        </div>
+      <ListFox
+        validateInput={props.validateInput}
+        validationMessages={{
+          itemsEmpty: 'Please create atleast one category',
+          hasDuplicates: 'A Category with that name already exists',
+        }}
+        isReadOnly={props.isReadOnly}
+        foxes={[{ name: 'Productivity' }, { name: 'Excercise' }]}
+      />
+      <div className="form-controls">
+        <Fragment>
+          {!props.isReadOnly ?
+            <Button
+              disable={props.formHasErrors || props.disableSaveBtn}
+              label="Create Task"
+              onClick={props.handleSave}
+            /> : null
+          }
+        </Fragment>
       </div>
     </div>
   </div>

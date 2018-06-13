@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import Form from '../formDefault';
+import { ToggleSwitch } from '../../../imports';
+import './withEdit.css';
 
 export default (function withEdit(WrappedComponent) {
   return class extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        allowEdit: false,
+        disableEdit: true,
       };
       this.toggleEdit = this.toggleEdit.bind(this);
     }
 
     toggleEdit() {
       this.setState({
-        enableEdit: !this.state.enableEdit,
+        disableEdit: !this.state.disableEdit,
       });
     }
 
@@ -21,17 +23,21 @@ export default (function withEdit(WrappedComponent) {
       return (
         <div className="form-withedit-wrapper">
           <div className="withedit-container">
+            <ToggleSwitch label="Mark as completed" name="mark-completed" />
             <button
-              className="toggle-edit"
+              className="toggle-edit-btn"
               onClick={this.toggleEdit}
-            >Edit
+            >
+              <i className="edit-label-icon" />
+              <span className="edit-label" />
             </button>
           </div>
           <WrappedComponent
             {...this.props}
-            // isReadOnly={this.state.enableEdit}
-            isReadOnly
+            isReadOnly={this.state.disableEdit}
           />
+          { this.state.disableEdit ?
+            <div className="withedit-curtain" /> : null }
         </div>
       );
     }

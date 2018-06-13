@@ -129,6 +129,7 @@ class FormDefault extends Component {
           validateInput={this.state.validateInput}
           disableSaveBtn={this.state.disableSaveBtn}
           formHasErrors={formHasErrors}
+          isReadOnly={this.props.isReadOnly}
         />
         {/* transition group for the notifications starts */}
         <TransitionGroup
@@ -159,10 +160,17 @@ class FormDefault extends Component {
 
 FormDefault.propTypes = {
   // string for the form title
-  heading: PropTypes.string.isRequired,
+  heading: PropTypes.string,
 
   // function to invoke the save via sagas
   saveForm: PropTypes.func.isRequired,
+
+  isReadOnly: PropTypes.bool,
+};
+
+FormDefault.defaultProps = {
+  heading: '',
+  isReadOnly: false,
 };
 
 export default FormDefault;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import 'bulma/css/bulma.css';
 import { List } from '../../imports';
+import Form from '../form/hocs/withEdit';
 import './myfrogs.css';
 
 class MyFrogs extends Component {
@@ -23,11 +25,15 @@ class MyFrogs extends Component {
 
   render() {
     return (
-      <div className="my-frogs-wrapper">
-        <div className="tasks-list-wrapper">
-          <List items={this.state.items} />
+      <div className="container myfrogs-container">
+        <div className="columns is-multiline is-centered is-variable is-5">
+          <div className="column is-one-quarter-desktop">
+          </div>
+          <div className="column is-one-third-desktop">
+            <List items={this.state.items} />
+          </div>
+          <div className="column is-one-third-desktop"><Form /></div>
         </div>
-        <div className="task-detail-wrapper" />
       </div>
     );
   }

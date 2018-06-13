@@ -5,7 +5,7 @@
   height: 28px;
   border-radius: 2px;
   user-select: none;
-  margin: 20px 6px;
+  margin: 5px 0;
   outline: none; }
   .button-wrapper.disabled {
     pointer-events: none;
