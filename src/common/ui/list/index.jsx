@@ -8,13 +8,13 @@ class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listCount: 0,
+      // listCount: 0,
     };
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      listCount: _.size(nextProps.items),
+      // listCount: _.size(nextProps.items),
     });
   }
 
@@ -24,9 +24,9 @@ class List extends Component {
         <ul className="ui-list">
           {this.props.items.map(item => <ListItem {...item} key={item.id} />)}
         </ul>
-        <div className="pager">
+        {/* <div className="pager">
           <span className="total-records">{this.state.listCount}</span>
-        </div>
+        </div> */}
       </div>
     );
   }

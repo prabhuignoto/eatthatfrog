@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import 'bulma/css/bulma.css';
 import { List } from '../../imports';
 import Form from '../form/hocs/withEdit';
+import Filters from '../filter';
 import './myfrogs.css';
 
 class MyFrogs extends Component {
@@ -27,7 +28,8 @@ class MyFrogs extends Component {
     return (
       <div className="container myfrogs-container">
         <div className="columns is-multiline is-centered is-variable is-5">
-          <div className="column is-one-quarter-desktop">
+          <div className="column is-one-third-desktop">
+            <Filters />
           </div>
           <div className="column is-one-third-desktop">
             <List items={this.state.items} />

@@ -14,7 +14,7 @@ const Fox = (props) => {
   const foxId = props.id;
   const input = `fox-input${foxId}`;
   return (
-    <div className="fox-wrapper">
+    <div className="dfox-wrapper">
       <label
         className={foxClass}
         htmlFor={input}

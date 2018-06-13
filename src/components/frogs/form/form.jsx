@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import 'bulma/css/bulma.css';
+import classNames from 'classnames';
 import {
   TextInput,
   TextArea,
@@ -10,7 +11,7 @@ import {
 import './form.css';
 
 const TaskForm = props => (
-  <div className="form-container">
+  <div className={classNames('form-container', { readonly: props.isReadOnly })}>
     {/* form header/ */}
     {props.heading.length > 0 ?
       <div className="form-header">

@@ -1,38 +1,38 @@
-.fox-wrapper {
+.dfox-wrapper {
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: flex-start; }
-  .fox-wrapper .fox {
+  .dfox-wrapper .fox {
     align-items: center;
-    border-radius: 4px;
+    border-radius: 2px;
     color: #fff;
     cursor: pointer;
     display: flex;
     justify-content: center;
-    margin: 2px 4px;
-    padding: 5px;
+    margin: 2px 6px;
+    padding: 3px 6px;
     width: 100%;
     user-select: none;
-    background: #b7b7b7; }
-    .fox-wrapper .fox.selected {
+    background: #ccc; }
+    .dfox-wrapper .fox.selected {
       background: #679267;
       color: #fff; }
-      .fox-wrapper .fox.selected .fox-icon {
+      .dfox-wrapper .fox.selected .fox-icon {
         background: url(../assets/check-circle.svg);
         background-repeat: no-repeat;
         background-position: 50% 50%;
         visibility: visible; }
-    .fox-wrapper .fox:hover {
+    .dfox-wrapper .fox:hover {
       background: rgba(103, 146, 103, 0.75); }
-    .fox-wrapper .fox > span {
+    .dfox-wrapper .fox > span {
       font-size: 0.8em;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       width: 100%;
       text-transform: capitalize; }
-    .fox-wrapper .fox .fox-icon {
+    .dfox-wrapper .fox .fox-icon {
       display: block;
       width: 20px;
       height: 20px;
