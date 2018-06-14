@@ -13,18 +13,17 @@ class TaskFilter extends Component {
   render() {
     return (
       <div className="filters-container">
-        <h3>Apply Filters</h3>
         <div>
           <DropdownFox
-            label="Time"
+            label="Created"
             foxes={[{ name: 'Today', id: 'todays-tasks', selected: false },
             { name: 'Yesterday', id: 'yest-tasks', selected: false }, { name: 'Older', id: 'old-tasks', selected: false }]}
           />
         </div>
-        <br/>
+        <br />
         <div>
           <DropdownFox
-            label="Label"
+            label="Custom Labels"
             foxes={[{ name: 'Productivity', id: 'prod', selected: false },
             { name: 'Excercise', id: 'excer', selected: false }, { name: 'Yoga', id: 'yoga', selected: false }]}
           />

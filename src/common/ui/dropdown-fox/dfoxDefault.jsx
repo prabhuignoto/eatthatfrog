@@ -26,15 +26,16 @@ class DropdownFoxDefault extends Component {
           });
         }
         return x;
-      }).sort((x, y) => {
-        if (x.selected === y.selected) {
-          return 0;
-        } else if (x.selected) {
-          return -1;
-        }
-        return 1;
       }),
     });
+    // }).sort((x, y) => {
+    //   if (x.selected === y.selected) {
+    //     return 0;
+    //   } else if (x.selected) {
+    //     return -1;
+    //   }
+    //   return 1;
+    // }),
   }
 
   render() {
@@ -50,7 +51,7 @@ class DropdownFoxDefault extends Component {
 
 DropdownFoxDefault.propTypes = {
   foxes: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,  
+    name: PropTypes.string.isRequired,
     id: PropTypes.string,
     selected: PropTypes.bool,
   })),

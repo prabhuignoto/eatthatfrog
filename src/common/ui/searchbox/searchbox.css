@@ -1,0 +1,24 @@
+.searchbox-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 2px 0 5px;
+  padding: 5px 2px;
+  background: #fff;
+  border-radius: 2px; }
+  .searchbox-container .searchbox-icon {
+    flex: 1;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url(./assets/search.svg);
+    background-repeat: no-repeat;
+    background-position: 20% 50%;
+    background-size: contain; }
+  .searchbox-container input.searchbox-input {
+    flex: 10;
+    outline: none;
+    height: 100%;
+    border: none; }

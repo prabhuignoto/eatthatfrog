@@ -1,5 +1,5 @@
 // ui modules
-import List from '../common/ui/list';
+import List from '../common/ui/list/hocs/withSearch';
 import Alert from '../common/ui/alert';
 import Popup from '../common/ui/popup/hocs/withEsc';
 import NotificationCenter from '../common/ui/notification/withNotificationCenter';
@@ -10,6 +10,7 @@ import TextArea from '../common/ui/controls/textarea/withValidation';
 import ListFox from '../common/ui/list-fox/hocs/withValidation';
 import DropdownFox from '../common/ui/dropdown-fox/dfoxDefault';
 import ToggleSwitch from '../common/ui/toggle-switch/toggle-switch-default';
+import SearchBox from '../common/ui/searchbox';
 
 export { List,
   Alert,
@@ -21,4 +22,5 @@ export { List,
   ListFox,
   DropdownFox,
   ToggleSwitch,
+  SearchBox,
 };

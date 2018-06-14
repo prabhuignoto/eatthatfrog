@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import ListItem from './components/listItem';
 import './list.css';
@@ -12,21 +11,12 @@ class List extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      // listCount: _.size(nextProps.items),
-    });
-  }
-
   render() {
     return (
       <div className="ui-list-wrapper">
         <ul className="ui-list">
           {this.props.items.map(item => <ListItem {...item} key={item.id} />)}
         </ul>
-        {/* <div className="pager">
-          <span className="total-records">{this.state.listCount}</span>
-        </div> */}
       </div>
     );
   }

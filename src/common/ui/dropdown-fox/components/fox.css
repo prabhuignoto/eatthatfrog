@@ -14,31 +14,29 @@
     padding: 3px 6px;
     width: 100%;
     user-select: none;
-    background: #ccc; }
-    .dfox-wrapper .fox.selected {
-      background: #679267;
-      color: #fff; }
-      .dfox-wrapper .fox.selected .fox-icon {
-        background: url(../assets/check-circle.svg);
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        visibility: visible; }
-    .dfox-wrapper .fox:hover {
-      background: rgba(103, 146, 103, 0.75); }
+    background: #fff;
+    border: 1px solid #fff;
+    color: #679267; }
+    .dfox-wrapper .fox.selected .fox-icon {
+      background: url(../assets/check-circle.svg);
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      visibility: visible; }
     .dfox-wrapper .fox > span {
       font-size: 0.8em;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       width: 100%;
-      text-transform: capitalize; }
+      text-transform: capitalize;
+      margin-left: 3px; }
     .dfox-wrapper .fox .fox-icon {
       display: block;
-      width: 20px;
+      min-width: 17px;
       height: 20px;
       margin: 2px;
       background: url(../assets/circle.svg);
-      background-size: contain;
+      background-size: 80%;
       background-repeat: no-repeat;
       background-position: 50% 50%;
       display: flex;
