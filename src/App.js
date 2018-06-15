@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Dashboard from './components/dashboard';
 import Header from './common/header';
+import Footer from './common/footer';
 import AddFrog from './containers/addFrog';
 import CompletedFrogs from './components/frogs/completedfrogs';
 import HelpFrog from './components/frogs/helpfrog';
@@ -26,6 +27,7 @@ const App = () => (
         <Route path="/settings" component={Settings} />
 
         <Route path="/addTaskSuccess" component={AddTaskSuccessPage} />
+        <Footer />
       </div>
     </Fragment>
   </Router>);

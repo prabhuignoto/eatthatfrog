@@ -1,0 +1,37 @@
+.layoutmanager-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-end;
+  margin-bottom: 10px;
+  margin-right: 10px; }
+  .layoutmanager-container input {
+    display: none; }
+  .layoutmanager-container .icon, .layoutmanager-container .layout-control label .list-only, .layoutmanager-container .layout-control label .show-all, .layoutmanager-container .layout-control label .without-filters {
+    display: block;
+    height: 35px;
+    width: 35px;
+    cursor: pointer; }
+  .layoutmanager-container .layout-control {
+    width: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+    .layoutmanager-container .layout-control label {
+      cursor: pointer; }
+      .layoutmanager-container .layout-control label .list-only {
+        background: url(../assets/list-only.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50%; }
+      .layoutmanager-container .layout-control label .show-all {
+        background: url(../assets/layout-all.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50%; }
+      .layoutmanager-container .layout-control label .without-filters {
+        background: url(../assets/without-filters.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50%; }

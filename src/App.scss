@@ -3,7 +3,6 @@
   flex-direction: column;
   font-family: 'Open Sans';
   height: 100%;
-  border: 1px solid green;
 }
 
 .App-logo {
@@ -29,8 +28,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-html, body, #root {
-  height: 100%;
 }

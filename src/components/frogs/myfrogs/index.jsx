@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import 'bulma/css/bulma.css';
 import { List } from '../../imports';
 import Form from '../form/hocs/withEdit';
 import Filters from '../filter';
+import LayoutManager from './layoutmanager';
 import './myfrogs.css';
 
 class MyFrogs extends Component {
@@ -12,9 +13,10 @@ class MyFrogs extends Component {
     super(props);
     this.state = {
       items: props.items,
-      filtersVisible: true,
+      layoutType: 'showall',
     };
     this.hideFilters = this.hideFilters.bind(this);
+    this.changeLayout = this.changeLayout.bind(this);
   }
 
   componentDidMount() {
@@ -29,48 +31,59 @@ class MyFrogs extends Component {
 
   hideFilters() {
     this.setState({
-      filtersVisible: false,
+    });
+  }
+
+  changeLayout(ev) {
+    this.setState({
+      layoutType: ev.target.value,
     });
   }
 
   render() {
+    const { layoutType } = this.state;
+
     const filterWrapperClass = classNames(
       'my-frogs-filter-wrapper',
       'column',
-      'is-one-fifth-desktop', {
-        'is-hidden': !this.state.filtersVisible,
+      'is-one-third-desktop', {
+        'is-hidden': (layoutType === 'withoutfilters' || layoutType === 'listonly'),
       },
     );
     const listWrapperClass = classNames(
       'list-wrapper',
       'column', {
-        'is-two-fifths-desktop': this.state.filtersVisible,
-        'is-half-desktop': !this.state.filtersVisible,
+        'is-one-third-desktop': (layoutType === 'showall'),
+        'is-half-desktop': (layoutType === 'withoutfilters'),
       },
     );
     const formWrapperClass = classNames(
       'form-wrapper',
       'column', {
-        'is-two-fifths-desktop': this.state.filtersVisible,
-        'is-half-desktop': !this.state.filtersVisible,
+        'is-one-third-desktop': (layoutType === 'showall'),
+        'is-half-desktop': (layoutType === 'withoutfilters'),
+        'is-hidden': (layoutType === 'listonly'),
       },
     );
 
     return (
-      <div className="container myfrogs-container">
-        <div className="columns is-multiline is-centered is-variable is-3">
-          <div className={filterWrapperClass}>
-            {/* <button className="close-filters" onClick={this.hideFilters}>
-              <i className="close-filters-icon" />
-            </button> */}
-            <Filters />
+      <Fragment>
+        <div className="container myfrogs-container">
+          <LayoutManager changeLayout={this.changeLayout} />
+          <div className="columns is-multiline is-centered is-variable is-3">
+            <div className={filterWrapperClass}>
+              {/* <button className="close-filters" onClick={this.hideFilters}>
+                <i className="close-filters-icon" />
+              </button> */}
+              <Filters />
+            </div>
+            <div className={listWrapperClass}>
+              <List items={this.state.items} />
+            </div>
+            <div className={formWrapperClass}><Form /></div>
           </div>
-          <div className={listWrapperClass}>
-            <List items={this.state.items} />
-          </div>
-          <div className={formWrapperClass}><Form /></div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
