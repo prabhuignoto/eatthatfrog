@@ -7,30 +7,54 @@
   margin-right: 10px; }
   .layoutmanager-container input {
     display: none; }
-  .layoutmanager-container .icon, .layoutmanager-container .layout-control label .list-only, .layoutmanager-container .layout-control label .show-all, .layoutmanager-container .layout-control label .without-filters {
+  .layoutmanager-container .icon, .layoutmanager-container .layout-control label.layout-control-label .listonly, .layoutmanager-container .layout-control label.layout-control-label .showall, .layoutmanager-container .layout-control label.layout-control-label .withoutfilters {
     display: block;
     height: 35px;
     width: 35px;
-    cursor: pointer; }
+    cursor: pointer;
+    margin: 0 auto; }
   .layoutmanager-container .layout-control {
     width: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center; }
-    .layoutmanager-container .layout-control label {
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    margin: 1px 4px; }
+    .layoutmanager-container .layout-control label.layout-control-label {
       cursor: pointer; }
-      .layoutmanager-container .layout-control label .list-only {
+      .layoutmanager-container .layout-control label.layout-control-label:not(.selected)::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 80%;
+        height: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1;
+        background: rgba(221, 221, 221, 0.4);
+        cursor: pointer;
+        pointer-events: none; }
+      .layoutmanager-container .layout-control label.layout-control-label.selected {
+        box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        border-radius: 4px; }
+      .layoutmanager-container .layout-control label.layout-control-label .listonly {
         background: url(../assets/list-only.svg);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: 50%; }
-      .layoutmanager-container .layout-control label .show-all {
+      .layoutmanager-container .layout-control label.layout-control-label .showall {
         background: url(../assets/layout-all.svg);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: 50%; }
-      .layoutmanager-container .layout-control label .without-filters {
+      .layoutmanager-container .layout-control label.layout-control-label .withoutfilters {
         background: url(../assets/without-filters.svg);
         background-repeat: no-repeat;
         background-size: contain;

@@ -13,6 +13,7 @@
     height: 35px;
     width: 35px;
     cursor: pointer;
+    margin: 0 auto;
   }
   .layout-control {
     width: 40px;
@@ -20,24 +21,50 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    // border: 1px solid red;
-    label {
+    position: relative;
+    z-index: 0;
+    margin: 1px 4px;
+    label.layout-control-label {
       cursor: pointer;
-      .list-only {
+      &:not(.selected) {
+        &::after {
+          content: '';
+          position: absolute;
+          display: block;
+          width: 80%;
+          height: 50%;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          z-index: 1;
+          background: rgba(221, 221, 221, 0.4);
+          cursor: pointer;
+          pointer-events: none;
+        }
+      }
+      &.selected {
+        box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        border-radius: 4px;
+      }
+      .listonly {
         background: url(../assets/list-only.svg);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: 50%;
         @extend .icon;
       }
-      .show-all {
+      .showall {
         background: url(../assets/layout-all.svg);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: 50%;
         @extend .icon;
       }
-      .without-filters {
+      .withoutfilters {
         background: url(../assets/without-filters.svg);
         background-repeat: no-repeat;
         background-size: contain;

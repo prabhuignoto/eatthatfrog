@@ -5,7 +5,7 @@ import 'bulma/css/bulma.css';
 import { List } from '../../imports';
 import Form from '../form/hocs/withEdit';
 import Filters from '../filter';
-import LayoutManager from './layoutmanager';
+import LayoutManager from './layoutmanager/layoutManagerDefault';
 import './myfrogs.css';
 
 class MyFrogs extends Component {
@@ -15,7 +15,6 @@ class MyFrogs extends Component {
       items: props.items,
       layoutType: 'showall',
     };
-    this.hideFilters = this.hideFilters.bind(this);
     this.changeLayout = this.changeLayout.bind(this);
   }
 
@@ -29,14 +28,9 @@ class MyFrogs extends Component {
     });
   }
 
-  hideFilters() {
+  changeLayout(type) {
     this.setState({
-    });
-  }
-
-  changeLayout(ev) {
-    this.setState({
-      layoutType: ev.target.value,
+      layoutType: type,
     });
   }
 
@@ -55,6 +49,7 @@ class MyFrogs extends Component {
       'column', {
         'is-one-third-desktop': (layoutType === 'showall'),
         'is-half-desktop': (layoutType === 'withoutfilters'),
+        'is-four-fifths': (layoutType === 'listonly'),
       },
     );
     const formWrapperClass = classNames(
@@ -72,9 +67,6 @@ class MyFrogs extends Component {
           <LayoutManager changeLayout={this.changeLayout} />
           <div className="columns is-multiline is-centered is-variable is-3">
             <div className={filterWrapperClass}>
-              {/* <button className="close-filters" onClick={this.hideFilters}>
-                <i className="close-filters-icon" />
-              </button> */}
               <Filters />
             </div>
             <div className={listWrapperClass}>
