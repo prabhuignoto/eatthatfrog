@@ -1,0 +1,113 @@
+.list-with-controls {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  height: 42px; }
+  .list-with-controls.animation-enabled .list-item-wrapper.reduce-size {
+    animation-name: reduce-size;
+    left: -80px; }
+  .list-with-controls.animation-enabled .list-item-wrapper.original-size {
+    animation-name: original-size;
+    left: 0; }
+  .list-with-controls.animation-enabled .list-controls-wrapper.show {
+    animation-name: show;
+    right: 0; }
+  .list-with-controls.animation-enabled .list-controls-wrapper.hide {
+    animation-name: hide;
+    right: -80px; }
+  .list-with-controls .list-controls {
+    width: 100%;
+    height: 99%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    padding: 2px 4px;
+    z-index: 1;
+    box-shadow: inset 4px 0px 8px 0px rgba(0, 0, 0, 0.2); }
+
+.list-item-wrapper {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 96%;
+  background: rgba(157, 193, 131, 0.95);
+  animation-duration: 300ms;
+  animation-timing-function: ease-in;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .list-item-wrapper .open-list-control-config {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px; }
+
+.list-controls-wrapper {
+  position: absolute;
+  right: -80px;
+  top: 47%;
+  transform: translateY(-50%);
+  width: 80px;
+  animation-duration: 300ms;
+  animation-timing-function: ease-in;
+  height: 95%; }
+
+@keyframes reduce-size {
+  0% {
+    left: 0px; }
+  100% {
+    left: -80px; } }
+
+@keyframes original-size {
+  100% {
+    left: 0px; }
+  0% {
+    left: -80px; } }
+
+@keyframes show {
+  0% {
+    right: -80px; }
+  100% {
+    right: 0; } }
+
+@keyframes hide {
+  100% {
+    right: -80px; }
+  0% {
+    right: 0; } }
+
+.list-control-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none; }
+  .list-control-btn.list-control-delete {
+    background: url(../assets/trash.svg);
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat; }
+  .list-control-btn.mark-as-complete {
+    background: url(../assets/check-circle.svg);
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat; }
+
+.list-control-icon {
+  width: 15px;
+  height: 15px;
+  display: block; }
+
+.open-list-control-config-icon {
+  background: url(../assets/bars.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%; }

@@ -17,14 +17,15 @@ ul.ui-list {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
     margin: 2px 0;
     &:nth-child(odd) {
-      background: rgba(103, 146, 103, 0.3);
-      border-radius: 1px;
+      // background: rgba(103, 146, 103, 0.3);
+      // border-radius: 1px;
     }
     &:nth-child(even) {
-      background: rgba(103, 146, 103, 0.2);
-      border-radius: 1px;
+      // background: rgba(103, 146, 103, 0.2);
+      // border-radius: 1px;
     }
     &:nth-child(odd) {
       &:hover {

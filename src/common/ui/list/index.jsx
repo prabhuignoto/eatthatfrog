@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ListItem from './components/listItem';
+import ListItem from './components/withControls';
 import './list.css';
 
 class List extends Component {

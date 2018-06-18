@@ -16,13 +16,8 @@ ul.ui-list {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
     margin: 2px 0; }
-    ul.ui-list .ui-list-item:nth-child(odd) {
-      background: rgba(103, 146, 103, 0.3);
-      border-radius: 1px; }
-    ul.ui-list .ui-list-item:nth-child(even) {
-      background: rgba(103, 146, 103, 0.2);
-      border-radius: 1px; }
     ul.ui-list .ui-list-item button {
       background: none;
       border: none; }

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const ListItem = props => (
   <li
     className="ui-list-item"
+    name={props.id}
   >
     <div className="ui-list-item-wrapper">
       <button
@@ -19,6 +20,7 @@ const ListItem = props => (
 ListItem.propTypes = {
   name: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default ListItem;
