@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DropdownFox } from '../../imports';
+import { RadioGroup } from '../../imports';
 import './filter.css';
 
 class TaskFilter extends Component {
@@ -9,12 +9,11 @@ class TaskFilter extends Component {
     };
   }
 
-
   render() {
     return (
       <div className="filters-container">
         <div>
-          <DropdownFox
+          <RadioGroup
             label="Created"
             foxes={[{ name: 'Today', id: 'todays-tasks', selected: false },
             { name: 'Yesterday', id: 'yest-tasks', selected: false }, { name: 'Older', id: 'old-tasks', selected: false }]}
@@ -22,7 +21,7 @@ class TaskFilter extends Component {
         </div>
         <br />
         <div>
-          <DropdownFox
+          <RadioGroup
             label="Custom Labels"
             foxes={[{ name: 'Productivity', id: 'prod', selected: false },
             { name: 'Excercise', id: 'excer', selected: false }, { name: 'Yoga', id: 'yoga', selected: false }]}

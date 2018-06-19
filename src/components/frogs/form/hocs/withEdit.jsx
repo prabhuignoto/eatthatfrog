@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Form from '../formDefault';
-import { ToggleSwitch } from '../../../imports';
 import './withEdit.css';
 
 export default (function withEdit(WrappedComponent) {
@@ -23,7 +22,6 @@ export default (function withEdit(WrappedComponent) {
       return (
         <div className="form-withedit-wrapper">
           <div className="withedit-container">
-            <ToggleSwitch label="Mark as completed" name="mark-completed" />
             <button
               className="toggle-edit-btn"
               onClick={this.toggleEdit}

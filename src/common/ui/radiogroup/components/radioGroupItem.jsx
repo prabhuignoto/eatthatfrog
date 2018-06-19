@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cNames from 'classnames';
-import './fox.css';
+import './radioGroupItem.css';
 
 const Fox = (props) => {
   const { selected } = props;

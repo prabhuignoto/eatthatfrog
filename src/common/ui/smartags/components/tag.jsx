@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './fox.css';
+import './tag.css';
 
 const Fox = props => (
   <div className="fox-wrapper" id={props.id}>

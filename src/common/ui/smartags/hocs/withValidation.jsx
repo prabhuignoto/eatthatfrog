@@ -2,7 +2,7 @@ import React, { Component, createRef, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import _ from 'lodash';
-import ListFoxDefault from '../listFoxDefault';
+import SmartagsDefault from '../smartagsDefault';
 import './withValidation.css';
 
 export default (function listFoxWithValidation(WrappedComponent) {
@@ -93,4 +93,4 @@ export default (function listFoxWithValidation(WrappedComponent) {
   };
 
   return ListFox;
-}(ListFoxDefault));
+}(SmartagsDefault));

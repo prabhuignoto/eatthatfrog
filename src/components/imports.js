@@ -7,8 +7,8 @@ import NotificationCenter from '../common/ui/notification/withNotificationCenter
 import Button from '../common/ui/controls/button';
 import TextInput from '../common/ui/controls/textinput/withValidation';
 import TextArea from '../common/ui/controls/textarea/withValidation';
-import ListFox from '../common/ui/list-fox/hocs/withValidation';
-import DropdownFox from '../common/ui/dropdown-fox/dfoxDefault';
+import Smartags from '../common/ui/smartags/hocs/withValidation';
+import RadioGroup from '../common/ui/radiogroup/radioGroupDefault';
 import ToggleSwitch from '../common/ui/toggle-switch/toggle-switch-default';
 import SearchBox from '../common/ui/searchbox';
 
@@ -19,8 +19,8 @@ export { List,
   TextInput,
   TextArea,
   Popup,
-  ListFox,
-  DropdownFox,
+  Smartags,
+  RadioGroup,
   ToggleSwitch,
   SearchBox,
 };

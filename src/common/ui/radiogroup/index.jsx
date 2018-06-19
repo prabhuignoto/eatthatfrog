@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Fox from './components/fox';
-import './dfox.css';
+import Fox from './components/radioGroupItem';
+import './radioGroup.css';
 
 const DropdownFox = props => (
   <div className="dfox-container">

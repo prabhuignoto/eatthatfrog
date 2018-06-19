@@ -3,11 +3,10 @@
   flex-direction: row;
   align-items: center;
   padding: 4px;
+  margin: 10px 0;
   &.on {
     .toggle-switch-input-wrapper {
       &::after {
-        left: 53%;
-        animation-name: move-to-right;
         background: #679267;
         background-image: url(./assets/check.svg);
         background-repeat: no-repeat;
@@ -19,9 +18,25 @@
   &.off {
     .toggle-switch-input-wrapper {
       &::after {
-        left: -1px;
-        animation-name: move-to-left;
         background: #ddd;
+      }
+    }
+  }
+  &.animation-enabled {
+    &.on {
+      .toggle-switch-input-wrapper {
+        &::after {
+          left: 53%;
+          animation-name: move-to-right;
+        }
+      }
+    }
+    &.off {
+      .toggle-switch-input-wrapper {
+        &::after {
+          left: -1px;
+          animation-name: move-to-left;
+        }
       }
     }
   }
@@ -78,14 +93,14 @@
         visibility: visible;
         display: block;
         width: 100%;
-        left: 0;
+        left: -1;
         top: 50%;
         transform: translateY(-50%);
         // border: 1px solid rgba(103, 146, 103, 0.5);
         background: rgba(103, 146, 103, 0.5);
         border-radius: 10px;
         position: absolute;
-        height: 50%;
+        height: 40%;
       }
     }
   }

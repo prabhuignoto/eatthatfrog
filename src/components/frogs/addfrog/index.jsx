@@ -9,7 +9,7 @@ export default (function AddFrog(WrappedComponent) {
     return (
       <div className="container">
         <div className="columns is-centered">
-          <div className="column is-one-third-desktop is-half-tablet">
+          <div className="column is-one-third-desktop is-half-desktop add-task-form-container">
             <WrappedComponent {...props} />
           </div>
         </div>

@@ -1,8 +1,8 @@
 import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './listfox.css';
-import Fox from './components/fox';
+import './smartags.css';
+import Fox from './components/tag';
 
 const inputRef = createRef();
 

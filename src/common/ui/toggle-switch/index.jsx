@@ -10,6 +10,7 @@ const ToggleSwitch = (props) => {
   const toggleSwitchClass = classNames('toggle-switch-container', {
     on: props.active,
     off: props.inActive,
+    'animation-enabled': props.animationEnabled,
   });
   return (
     <div className={toggleSwitchClass}>
@@ -37,6 +38,7 @@ ToggleSwitch.propTypes = {
   onToggle: PropTypes.func.isRequired,
   active: PropTypes.bool.isRequired,
   inActive: PropTypes.bool.isRequired,
+  animationEnabled: PropTypes.bool.isRequired,
 };
 
 export default ToggleSwitch;

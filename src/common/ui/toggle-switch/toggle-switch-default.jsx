@@ -10,23 +10,34 @@ class ToggleSwitchDefault extends Component {
       inActive: props.inActive,
       label: props.label,
       name: props.name,
+      animationEnabled: false,
     };
     this.onToggle = this.onToggle.bind(this);
+    this.toggleRef = React.createRef();
   }
+
+  // componentDidMount() {
+  //   window.setTimeout(() => {
+  //     this.toggleRef.current.firstChild.className += ' animation-enabled';
+  //   }, 300);
+  // }
 
   onToggle() {
     this.setState({
       active: !this.state.active,
       inActive: !this.state.inActive,
+      animationEnabled: true,
     });
   }
 
   render() {
     return (
-      <ToggleSwitch
-        {...this.state}
-        onToggle={this.onToggle}
-      />
+      <div className="toggle-switch-default" ref={this.toggleRef}>
+        <ToggleSwitch
+          {...this.state}
+          onToggle={this.onToggle}
+        />
+      </div>
     );
   }
 }

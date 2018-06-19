@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid-random';
 import DropdownFox from './index';
-import './dfox.css';
+import './radioGroup.css';
 
 class DropdownFoxDefault extends Component {
   constructor(props) {

@@ -6,8 +6,8 @@ import {
   TextInput,
   TextArea,
   Button,
-  ListFox,
-  ToggleSwitch
+  Smartags,
+  ToggleSwitch,
 } from '../../imports';
 import './form.css';
 
@@ -45,7 +45,7 @@ const TaskForm = props => (
       <div className="listfox-title">
         Choose a category for your task
       </div>
-      <ListFox
+      <Smartags
         validateInput={props.validateInput}
         validationMessages={{
           itemsEmpty: 'Please create atleast one category',
