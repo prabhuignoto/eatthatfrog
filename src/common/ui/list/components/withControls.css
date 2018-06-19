@@ -27,7 +27,7 @@
     justify-content: space-around;
     padding: 2px 4px;
     z-index: 1;
-    box-shadow: inset 4px 0px 8px 0px rgba(0, 0, 0, 0.2); }
+    box-shadow: inset 4px 0px 8px 0px rgba(0, 0, 0, 0.3); }
 
 .list-item-wrapper {
   position: absolute;
@@ -36,8 +36,8 @@
   transform: translateY(-50%);
   width: 100%;
   height: 96%;
-  background: rgba(157, 193, 131, 0.95);
-  animation-duration: 300ms;
+  background: #d3d3d3;
+  animation-duration: 250ms;
   animation-timing-function: ease-in;
   display: flex;
   flex-direction: row;
@@ -54,7 +54,7 @@
   top: 47%;
   transform: translateY(-50%);
   width: 80px;
-  animation-duration: 300ms;
+  animation-duration: 250ms;
   animation-timing-function: ease-in;
   height: 95%; }
 
@@ -91,11 +91,16 @@
   justify-content: center;
   outline: none; }
   .list-control-btn.list-control-delete {
-    background: url(../assets/trash.svg);
+    background: url(../assets/trash-outline.svg);
     background-size: contain;
     background-position: 50% 50%;
     background-repeat: no-repeat; }
   .list-control-btn.mark-as-complete {
+    background: url(../assets/check-circle-outline.svg);
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat; }
+  .list-control-btn:hover.mark-as-complete {
     background: url(../assets/check-circle.svg);
     background-size: contain;
     background-position: 50% 50%;
