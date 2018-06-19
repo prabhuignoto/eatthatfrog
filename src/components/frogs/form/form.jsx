@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import 'bulma/css/bulma.css';
 import classNames from 'classnames';
@@ -7,6 +7,7 @@ import {
   TextArea,
   Button,
   ListFox,
+  ToggleSwitch
 } from '../../imports';
 import './form.css';
 
@@ -53,16 +54,15 @@ const TaskForm = props => (
         isReadOnly={props.isReadOnly}
         foxes={[{ name: 'Productivity' }, { name: 'Excercise' }]}
       />
+      <ToggleSwitch label="Set a Reminder" name="form-reminder" />
       <div className="form-controls">
-        <Fragment>
-          {!props.isReadOnly ?
-            <Button
-              disable={props.formHasErrors || props.disableSaveBtn}
-              label="Create Task"
-              onClick={props.handleSave}
-            /> : null
-          }
-        </Fragment>
+        {!props.isReadOnly ?
+          <Button
+            disable={props.formHasErrors || props.disableSaveBtn}
+            label="Create Task"
+            onClick={props.handleSave}
+          /> : null
+        }
       </div>
     </div>
   </div>

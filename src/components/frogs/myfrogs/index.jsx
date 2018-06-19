@@ -40,14 +40,14 @@ class MyFrogs extends Component {
     const filterWrapperClass = classNames(
       'my-frogs-filter-wrapper',
       'column',
-      'is-one-third-desktop', {
+      'is-one-fifth-desktop', {
         'is-hidden': (layoutType === 'withoutfilters' || layoutType === 'listonly'),
       },
     );
     const listWrapperClass = classNames(
       'list-wrapper',
       'column', {
-        'is-one-third-desktop': (layoutType === 'showall'),
+        'is-two-fifths-desktop': (layoutType === 'showall'),
         'is-half-desktop': (layoutType === 'withoutfilters'),
         'is-four-fifths': (layoutType === 'listonly'),
       },
@@ -55,7 +55,7 @@ class MyFrogs extends Component {
     const formWrapperClass = classNames(
       'form-wrapper',
       'column', {
-        'is-one-third-desktop': (layoutType === 'showall'),
+        'is-two-fifths-desktop': (layoutType === 'showall'),
         'is-half-desktop': (layoutType === 'withoutfilters'),
         'is-hidden': (layoutType === 'listonly'),
       },
