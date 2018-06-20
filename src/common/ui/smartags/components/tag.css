@@ -23,7 +23,9 @@
     text-align: center;
     width: 100%;
     text-transform: capitalize;
-    margin-left: 1px; }
+    margin-left: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
   .fox-wrapper .fox-remove {
     position: absolute;
     right: 2px;

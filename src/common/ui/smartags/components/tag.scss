@@ -30,6 +30,8 @@
     width: 100%;
     text-transform: capitalize;
     margin-left: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .fox-remove {

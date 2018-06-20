@@ -14,13 +14,15 @@
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: flex-start; }
+    justify-content: flex-start;
+    width: 100%; }
     .listfox-wrapper .listfox-container .foxes-container {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: flex-start;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+      width: 100%; }
     .listfox-wrapper .listfox-container .listfox-input {
       border: none;
       width: 30%;

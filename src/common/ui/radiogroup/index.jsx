@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Fox from './components/radioGroupItem';
+import RadioGroupItem from './hocs/radioGroupItem';
 import './radioGroup.css';
 
-const DropdownFox = props => (
+const DropdownFox = ({ label, foxes, toggleSelection }) => (
   <div className="dfox-container">
-    {props.label.length > 0 ?
+    {label.length > 0 ?
       <div className="dfox-label">
         <span className="dfox-label-text">
-          {props.label}
+          {label}
         </span>
       </div> : null}
-    {props.foxes.map(fox => (
-      <Fox
+    {foxes.map(fox => (
+      <RadioGroupItem
         {...fox}
         key={fox.id}
-        toggleSelection={props.toggleSelection}
+        toggleSelection={toggleSelection}
       />))}
   </div>
 );

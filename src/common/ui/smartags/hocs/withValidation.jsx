@@ -2,7 +2,7 @@ import React, { Component, createRef, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import _ from 'lodash';
-import SmartagsDefault from '../smartagsDefault';
+import SmartagsDefault from '../smartagsnew';
 import './withValidation.css';
 
 export default (function listFoxWithValidation(WrappedComponent) {
@@ -19,7 +19,7 @@ export default (function listFoxWithValidation(WrappedComponent) {
           message: null,
         },
       };
-      this.ref = createRef();
+      // this.ref = createRef();
       this.validate = this.validate.bind(this);
     }
 
@@ -69,7 +69,7 @@ export default (function listFoxWithValidation(WrappedComponent) {
           <div className={wrapperClass}>
             <WrappedComponent
               {...this.props}
-              ref={this.ref}
+              // ref={this.ref}
               onListFoxChanged={this.validate}
             />
           </div>
@@ -86,10 +86,12 @@ export default (function listFoxWithValidation(WrappedComponent) {
       hasDuplicates: PropTypes.string,
     }).isRequired,
     isReadOnly: PropTypes.bool,
+    limit: PropTypes.number,
   };
 
   ListFox.defaultProps = {
     isReadOnly: false,
+    limit: 10,
   };
 
   return ListFox;

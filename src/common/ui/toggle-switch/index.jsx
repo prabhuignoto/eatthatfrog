@@ -5,12 +5,14 @@ import './toggle-switch.css';
 
 const getId = name => `toggle-switch-${name}`;
 
-const ToggleSwitch = (props) => {
-  const id = getId(props.name);
+const ToggleSwitch = ({
+  active, inActive, animationEnabled, label, onToggle, name,
+}) => {
+  const id = getId(name);
   const toggleSwitchClass = classNames('toggle-switch-container', {
-    on: props.active,
-    off: props.inActive,
-    'animation-enabled': props.animationEnabled,
+    on: active,
+    off: inActive,
+    'animation-enabled': animationEnabled,
   });
   return (
     <div className={toggleSwitchClass}>
@@ -18,13 +20,13 @@ const ToggleSwitch = (props) => {
         htmlFor={id}
         className="toggle-switch-label"
       >
-        <span className="label-text">{props.label}</span>
+        <span className="label-text">{label}</span>
         <div className="toggle-switch-input-wrapper">
           <input
             type="checkbox"
             className="toggle-switch-input"
             id={id}
-            onChange={props.onToggle}
+            onChange={onToggle}
           />
         </div>
       </label>

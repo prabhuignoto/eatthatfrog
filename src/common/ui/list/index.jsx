@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ListItem from './components/withControls';
+import ListItem from './hocs/withControls';
 import './list.css';
 
 class List extends Component {
@@ -14,9 +14,9 @@ class List extends Component {
   render() {
     return (
       <div className="ui-list-wrapper">
-        <ul className="ui-list">
+        <div className="ui-list" role="list">
           {this.props.items.map(item => <ListItem {...item} key={item.id} />)}
-        </ul>
+        </div>
       </div>
     );
   }

@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './listItem.css';
 
-const ListItem = props => (
-  <li
+const ListItem = ({ id, onSelect, name }) => (
+  <div
     className="ui-list-item"
-    name={props.id}
+    name={id}
+    role="listitem"
   >
-    <div className="ui-list-item-wrapper">
+    <div className="ui-list-item-wrapper" style={{ width: '100%', height: '100%' }}>
       <button
-        onClick={props.onSelect}
-        onKeyPress={props.onSelect}
+        onClick={onSelect}
+        onKeyPress={onSelect}
       >
-        {props.name}
+        {name}
       </button>
     </div>
-  </li>
+  </div>
 );
 
 ListItem.propTypes = {

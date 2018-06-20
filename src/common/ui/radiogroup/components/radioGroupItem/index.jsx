@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cNames from 'classnames';
 import './radioGroupItem.css';
 
-const Fox = (props) => {
-  const { selected } = props;
-  const foxClass = cNames('fox', {
-    selected,
-  });
-  const foxIcon = cNames('fox-icon', {
-    selected,
-  });
-  const foxId = props.id;
-  const input = `fox-input${foxId}`;
+const Fox = ({
+  id, name, toggleSelection, foxClass, foxIcon,
+}) => {
+  // const foxClass = cNames('fox', {
+  //   selected,
+  // });
+  // const foxIcon = cNames('fox-icon', {
+  //   selected,
+  // });
+  const foxId = id;
+  const input = `fox-input-${foxId}`;
   return (
     <div className="dfox-wrapper">
       <label
@@ -21,16 +21,16 @@ const Fox = (props) => {
       >
         <i className={foxIcon} />
         <span>
-          {props.name}
+          {name}
         </span>
       </label>
       <input
         type="checkbox"
         className="fox-html-input"
-        onClick={() => props.toggleSelection(foxId)}
+        onClick={() => toggleSelection(foxId)}
         onKeyUp={(ev) => {
           if (ev.keyCode === 13) {
-            return () => props.toggleSelection(foxId);
+            return () => toggleSelection(foxId);
           }
           return null;
         }}
@@ -42,9 +42,10 @@ const Fox = (props) => {
 
 Fox.propTypes = {
   name: PropTypes.string.isRequired,
-  selected: PropTypes.bool.isRequired,
   toggleSelection: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
+  foxClass: PropTypes.string.isRequired,
+  foxIcon: PropTypes.string.isRequired,
 };
 
 export default Fox;

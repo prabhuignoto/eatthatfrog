@@ -8,7 +8,9 @@ const inputRef = createRef();
 
 const handleWrapperClick = () => inputRef.current.focus();
 
-const ListFox = props => (
+const ListFox = ({
+  foxes, disableInput, input, onKeyInput, onAddOrRemoveFox, isReadOnly, onRemoveFoxById,
+}) => (
   <div
     title="Type anything you want and press enter to add it to the list."
     role="button"
@@ -16,32 +18,32 @@ const ListFox = props => (
     className="listfox-wrapper"
     onClick={handleWrapperClick}
     onKeyPress={() => (ev) => {
-        if (ev.keyCode === 13) {
-          handleWrapperClick();
-        }
-        return null;
-      }}
+      if (ev.keyCode === 13) {
+        handleWrapperClick();
+      }
+      return null;
+    }}
   >
     <div className="listfox-container">
       <div className="foxes-container">
-        {props.foxes.map(fox => (
+        {foxes.map(fox => (
           <Fox
             {...fox}
             key={fox.id}
-            remove={props.onRemoveFoxById}
-            isReadOnly={props.isReadOnly}
+            remove={onRemoveFoxById}
+            isReadOnly={isReadOnly}
           />
         ))}
         <input
           ref={inputRef}
           type="text"
           className={classNames('listfox-input', {
-            disabled: props.disableInput,
+            disabled: disableInput,
           })}
-          value={props.input}
-          onChange={props.onKeyInput}
-          onKeyUp={props.onAddOrRemoveFox}
-          disabled={props.isReadOnly}
+          value={input}
+          onChange={onKeyInput}
+          onKeyUp={onAddOrRemoveFox}
+          disabled={isReadOnly}
         />
       </div>
     </div>
