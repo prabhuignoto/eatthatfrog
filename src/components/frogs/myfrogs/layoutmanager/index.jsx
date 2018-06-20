@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './layoutmanager.css';
 
-const LayoutManager = props => (
+const LayoutManager = ({ layouts, onLayoutChange, selected }) => (
   <div className="layoutmanager-container">
-    {props.layouts.map(x => (
+    {layouts.map(x => (
       <div className="layout-control" key={x.id}>
         <label
           htmlFor={x.id}
@@ -20,8 +20,8 @@ const LayoutManager = props => (
             className="layout-control-input"
             id={x.id}
             value={x.id}
-            onChange={props.onChange}
-            selected={props.selected}
+            onChange={onLayoutChange}
+            selected={selected}
           />
           <i className={`layout-control-icon ${x.id}`} />
         </label>
@@ -30,7 +30,7 @@ const LayoutManager = props => (
 );
 
 LayoutManager.propTypes = {
-  onChange: PropTypes.func.isRequired,
+  onLayoutChange: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
   layouts: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,

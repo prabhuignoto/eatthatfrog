@@ -5,7 +5,7 @@ import 'bulma/css/bulma.css';
 import { List } from '../../imports';
 import Form from '../form/hocs/withEdit';
 import Filters from '../filter';
-import LayoutManager from './layoutmanager/layoutManagerDefault';
+import LayoutManager from './layoutmanager/hocs/layoutManager';
 import './myfrogs.css';
 
 class MyFrogs extends Component {
