@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './listItem.css';
+import '../css/listItem.css';
 
 const ListItem = ({ id, onSelect, name }) => (
   <div

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import List from '../index';
-import ListControls from '../components/list-edit/list-edit';
-import SearchBox from '../../searchbox';
+// import List from '../index';
+// import ListControls from '../components/list-edit/list-edit';
+import SearchBox from '../../../../searchbox';
 
 const style = {
   background: '#ffffff',
@@ -20,7 +20,7 @@ const controlStyles = {
   width: '92%',
 };
 
-export default (function withSearch(WrappedComponent) {
+export default function withSearch(BaseComponent) {
   const ListWithSearch = props => (
     <div className="list-withsearch-wrapper" style={style} >
       <div className="list-withsearch-n-controls" style={controlStyles}>
@@ -28,9 +28,9 @@ export default (function withSearch(WrappedComponent) {
           onChange={props.onSearchboxChange}
           onSearchboxComplete={props.onSearchboxComplete}
         />
-        <ListControls />
+        {/* <ListControls /> */}
       </div>
-      <WrappedComponent {...props} />
+      <BaseComponent {...props} />
     </div>
   );
 
@@ -40,4 +40,4 @@ export default (function withSearch(WrappedComponent) {
   };
 
   return ListWithSearch;
-}(List));
+}

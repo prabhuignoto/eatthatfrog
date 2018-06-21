@@ -1,0 +1,14 @@
+.indicator-wrapper {
+  padding: 4px;
+  margin: 5px; }
+  .indicator-wrapper .indicator {
+    display: block;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 10px rgba(0, 0, 0, 0.5); }
+    .indicator-wrapper .indicator.on {
+      background: green; }
+    .indicator-wrapper .indicator.off {
+      background: #fff; }

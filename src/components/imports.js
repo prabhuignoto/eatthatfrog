@@ -1,5 +1,6 @@
 // ui modules
-import List from '../common/ui/list/hocs/withSearch';
+// import List from '../common/ui/list/hocs/withSearch';
+import List from '../common/ui/list/defaultList';
 import Alert from '../common/ui/alert';
 import Popup from '../common/ui/popup/hocs/withEsc';
 import NotificationCenter from '../common/ui/notification/notificationCenter';

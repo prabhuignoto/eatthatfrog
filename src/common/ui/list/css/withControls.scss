@@ -118,20 +118,20 @@
   justify-content: center;
   outline: none;
   &.list-control-delete {
-    background: url(../../assets/trash-outline.svg);
+    background: url(../assets/trash-outline.svg);
     background-size: contain;
     background-position: 50% 50%;
     background-repeat: no-repeat;
   }
   &.mark-as-complete {
-    background: url(../../assets/check-circle-outline.svg);
+    background: url(../assets/check-circle-outline.svg);
     background-size: contain;
     background-position: 50% 50%;
     background-repeat: no-repeat;
   }
   &:hover {
     &.mark-as-complete {
-      background: url(../../assets/check-circle.svg);
+      background: url(../assets/check-circle.svg);
       background-size: contain;
       background-position: 50% 50%;
       background-repeat: no-repeat;
@@ -146,7 +146,7 @@
 }
 
 .open-list-control-config-icon {
-  background: url(../../assets/bars.svg);
+  background: url(../assets/bars.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50% 50%;
