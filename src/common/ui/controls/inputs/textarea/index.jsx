@@ -6,8 +6,8 @@ const intialState = ({ value = '' }) => ({
 });
 
 const stateHandlers = {
-  onChange: (state, { onValidation }) => ({ target: { value } }) => {
-    onValidation(value);
+  onChange: (state, { validate }) => ({ target: { value } }) => {
+    validate(value);
     return {
       value,
     };

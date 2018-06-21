@@ -5,20 +5,20 @@ import PropTypes from 'prop-types';
 import '../../../../hocs/form/withValidation/withValidation.css';
 
 export default function (TextComponent) {
-  const defaultWithValidation = ({ validation, validate }) => {
+  const defaultWithValidation = (props) => {
     const className = classNames('with-validation', {
-      error: !validation.success,
+      error: !props.validation.success,
     });
     return (
       <div className={className}>
-        <TextComponent onValidation={validate} />
+        <TextComponent {...props} />
         <ReactCSSTransitionGroup
           transitionName="err-message"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
         >
-          {validation.error.reason !== '' ?
-            <i className="error-info">{validation.error.reason}
+          {props.validation.error.reason !== '' ?
+            <i className="error-info">{props.validation.error.reason}
             </i> : null}
         </ReactCSSTransitionGroup>
       </div>
