@@ -2,18 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './searchbox.css';
 
-const SearchBox = props => (
+const SearchBox = ({
+  placeholder, onComplete, onChange,
+}) => (
   <div className="searchbox-container">
     <i className="searchbox-icon" />
     <input
       type="text"
       className="searchbox-input"
-      placeholder={props.placeholder}
+      placeholder={placeholder}
       onInput={(ev) => {
         if (ev.keyCode === 13) {
-          props.onComplete();
+          onComplete();
         } else {
-          props.onChange(ev.target.value)
+          onChange(ev.target.value);
         }
       }}
     />

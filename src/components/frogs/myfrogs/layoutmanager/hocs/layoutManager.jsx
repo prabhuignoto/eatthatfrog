@@ -1,5 +1,7 @@
 import { compose, withStateHandlers } from 'recompose';
+import { connect } from 'react-redux';
 import Layout from '../index';
+import UpdateLayoutType from '../actions';
 
 const dLayouts = [{
   title: 'List Only',
@@ -20,18 +22,30 @@ const initialState = ({ layouts = dLayouts }) => ({
 });
 
 const stateHandlers = {
-  onLayoutChange: ({ layouts }) => ({ target: { value: id } }) => ({
-    layouts: layouts.map((x) => {
-      if (x.id === id) {
+  onLayoutChange: ({ layouts }, { updateLayoutType }) => ({ target: { value: layoutType } }) => {
+    updateLayoutType(layoutType);
+    return {
+      layouts: layouts.map((x) => {
+        if (x.id === layoutType) {
+          return Object.assign({}, x, {
+            selected: true,
+          });
+        }
         return Object.assign({}, x, {
-          selected: true,
+          selected: false,
         });
-      }
-      return Object.assign({}, x, {
-        selected: false,
-      });
-    }),
-  }),
+      }),
+    };
+  },
 };
 
-export default compose(withStateHandlers(initialState, stateHandlers))(Layout);
+const mapStateToProps = null;
+const mapDispatchToProps = dispatch => ({
+  updateLayoutType: type => dispatch(UpdateLayoutType(type)),
+});
+
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withStateHandlers(initialState, stateHandlers),
+)(Layout);

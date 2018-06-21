@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Notification from '../withDialog';
+import Notification from './withDialog';
 
 export default (function withCenter(WrappedComponent) {
   class NotificationCenter extends Component {

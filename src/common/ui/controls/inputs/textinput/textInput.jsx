@@ -2,21 +2,19 @@ import React from 'react';
 import PropType from 'prop-types';
 import './textinput.css';
 
-const TextInput = props => (
+const TextInput = ({
+  name, label, id, isReadOnly, value, onChange,
+}) => (
   <div className="text-input-wrapper">
-    <label className="text-input-label" htmlFor={`textarea-${props.name}`}>{props.label}
+    <label className="text-input-label" htmlFor={`textarea-${name}`}>{label}
       <input
         type="text"
         className="text-input"
-        value={props.value}
-        name={props.id}
-        id={`text-input-${props.name}`}
-        disabled={props.isReadOnly}
-        onChange={(ev) => {
-            props.onChange(ev);
-            props.validate(ev.target.value);
-          }
-        }
+        value={value}
+        name={id}
+        id={`text-input-${name}`}
+        disabled={isReadOnly}
+        onChange={onChange}
       />
     </label>
   </div>
@@ -27,7 +25,6 @@ TextInput.propTypes = {
   onChange: PropType.func.isRequired,
   value: PropType.string,
   name: PropType.string.isRequired,
-  validate: PropType.func.isRequired,
   id: PropType.string.isRequired,
   isReadOnly: PropType.bool,
 };
