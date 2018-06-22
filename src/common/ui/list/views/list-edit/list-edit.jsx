@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './list-edit.css';
+import '../css/list-edit.css';
 
 const ListEdit = ({
   selectAllEnabled, deselectAllEnabled, onSelectAll, onDeselectAll,

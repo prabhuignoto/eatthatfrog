@@ -1,71 +1,51 @@
-import React, { createRef } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import './smartags.css';
-import Fox from './components/tag';
+import { compose, withStateHandlers, defaultProps } from 'recompose';
+import uuid from 'uuid-random';
+import Smartag from './views/tags';
 
-const inputRef = createRef();
+const initialState = ({ foxes = [], input = '', disableInput = false }) => ({
+  foxes: foxes.length > 0 ? foxes.map(x => Object.assign(x, {
+    id: `listfox${uuid().replace(/-/g, '')}`,
+  })) : null,
+  input,
+  disableInput,
+});
 
-const handleWrapperClick = () => inputRef.current.focus();
-
-const ListFox = ({
-  foxes, disableInput, input, onKeyInput, onAddOrRemoveFox, isReadOnly, onRemoveFoxById,
-}) => (
-  <div
-    title="Type anything you want and press enter to add it to the list."
-    role="button"
-    tabIndex="0"
-    className="listfox-wrapper"
-    onClick={handleWrapperClick}
-    onKeyPress={() => (ev) => {
-      if (ev.keyCode === 13) {
-        handleWrapperClick();
-      }
-      return null;
-    }}
-  >
-    <div className="listfox-container">
-      <div className="foxes-container">
-        {foxes.map(fox => (
-          <Fox
-            {...fox}
-            key={fox.id}
-            remove={onRemoveFoxById}
-            isReadOnly={isReadOnly}
-          />
-        ))}
-        <input
-          ref={inputRef}
-          type="text"
-          className={classNames('listfox-input', {
-            disabled: disableInput,
-          })}
-          value={input}
-          onChange={onKeyInput}
-          onKeyUp={onAddOrRemoveFox}
-          disabled={isReadOnly}
-        />
-      </div>
-    </div>
-  </div>
-);
-
-ListFox.propTypes = {
-  onRemoveFoxById: PropTypes.func.isRequired,
-  onAddOrRemoveFox: PropTypes.func.isRequired,
-  onKeyInput: PropTypes.func.isRequired,
-  input: PropTypes.string.isRequired,
-  foxes: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    id: PropTypes.string,
-  })).isRequired,
-  disableInput: PropTypes.bool,
-  isReadOnly: PropTypes.bool,
+const stateHandlers = {
+  onKeyInput: () => ev => ({ input: ev.target.value }),
+  onAddOrRemoveFox: ({ foxes }) => (ev) => {
+    const { value } = ev.target;
+    if (ev.keyCode === 13 && value) {
+      const nFoxes = foxes.concat([{
+        name: value,
+        id: `listfox${uuid().replace(/-/g, '')}`,
+      }]);
+      return {
+        input: '',
+        foxes: nFoxes,
+        disableInput: false,
+      };
+    } else if (ev.keyCode === 8 && !value) {
+      const oldFoxes = foxes;
+      const newFoxes = oldFoxes.slice(0, oldFoxes.length - 1);
+      return {
+        foxes: newFoxes,
+      };
+    }
+    return undefined;
+  },
+  onRemoveFoxById: ({ foxes }) => id => ({
+    input: '',
+    foxes: foxes.filter(x => x.id !== id),
+    disableInput: false,
+  }),
 };
 
-ListFox.defaultProps = {
-  disableInput: false,
+const props = {
+  limit: 10,
   isReadOnly: false,
 };
 
-export default ListFox;
+export default compose(
+  withStateHandlers(initialState, stateHandlers),
+  defaultProps(props),
+)(Smartag);

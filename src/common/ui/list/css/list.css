@@ -1,5 +1,6 @@
 .ui-list-wrapper {
-  width: 100%; }
+  width: 100%;
+  background: #fff; }
 
 .ui-list {
   list-style: none;
@@ -21,9 +22,6 @@
     justify-content: center;
     color: #fff;
     margin: 2px 0; }
-    .ui-list .ui-list-item .ui-list-item-wrapper {
-      width: 100%;
-      height: 100%; }
     .ui-list .ui-list-item button {
       background: none;
       border: none;

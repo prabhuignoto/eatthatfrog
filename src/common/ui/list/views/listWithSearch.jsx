@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import List from '../index';
 // import ListControls from '../components/list-edit/list-edit';
-import SearchBox from '../../../../searchbox';
+import SearchBox from '../../searchbox';
 
 const style = {
   background: '#ffffff',

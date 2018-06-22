@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import Smartags from '../smartagsnew';
+import Smartags from '../index';
 
 const withValidationNew = ({ validate, error }) => {
   const validationResult = (

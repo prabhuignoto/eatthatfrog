@@ -1,44 +1,45 @@
 import { compose, withStateHandlers, withProps } from 'recompose';
 import classNames from 'classnames';
-import withControls from '../views/decorators/listItemWithControls';
+import ListItemWithControls from '../views/listItemWithControls';
 
+const intialState = ({ showControls = false, animationEnabled = false }) => ({
+  showControls,
+  animationEnabled,
+});
 
-export default function listWithControls(BaseComponent) {
-  const intialState = ({ showControls = false, animationEnabled = false }) => ({
-    showControls,
-    animationEnabled,
-  });
+const stateHandlers = {
+  toggleControls: ({ showControls }) => () => ({
+    showControls: !showControls,
+    animationEnabled: true,
+  }),
+  onSelectableChange: ({ on }) => () => {
+    return {
+      on: !on,
+    };
+  },
+};
 
-  const stateHandlers = {
-    toggleControls: ({ showControls }) => () => ({
-      showControls: !showControls,
-      animationEnabled: true,
-    }),
-  };
+const props = ({
+  showControls, animationEnabled, toggleControls, onComplete, onDelete, name,
+}) => ({
+  listItemWrapperClass: classNames('list-item-wrapper', {
+    'reduce-size': showControls,
+    'original-size': !showControls,
+  }),
+  listControlsWrapper: classNames('list-controls-wrapper', {
+    show: showControls,
+    hide: !showControls,
+  }),
+  mainClass: classNames('list-with-controls', {
+    'animation-enabled': animationEnabled,
+  }),
+  toggleControls,
+  onComplete,
+  onDelete,
+  name,
+});
 
-  const props = ({
-    showControls, animationEnabled, toggleControls, onComplete, onDelete, name,
-  }) => ({
-    listItemWrapperClass: classNames('list-item-wrapper', {
-      'reduce-size': showControls,
-      'original-size': !showControls,
-    }),
-    listControlsWrapper: classNames('list-controls-wrapper', {
-      show: showControls,
-      hide: !showControls,
-    }),
-    mainClass: classNames('list-with-controls', {
-      'animation-enabled': animationEnabled,
-    }),
-    toggleControls,
-    onComplete,
-    onDelete,
-    name,
-  });
-
-  return compose(
-    withStateHandlers(intialState, stateHandlers),
-    withProps(props),
-  )(withControls(BaseComponent));
-
-}
+export default compose(
+  withStateHandlers(intialState, stateHandlers),
+  withProps(props),
+)(ListItemWithControls);

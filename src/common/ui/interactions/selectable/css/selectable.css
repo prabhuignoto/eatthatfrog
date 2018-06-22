@@ -1,0 +1,27 @@
+.selectable-wrapper .sel-label {
+  display: flex;
+  flex-direction: row;
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  padding: 2px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #fff;
+  margin: 1px 6px; }
+
+.selectable-wrapper .selectable-input {
+  display: none; }
+
+.selectable-wrapper .selectable {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; }
+  .selectable-wrapper .selectable.on {
+    background: url(../assets/check.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%; }
+  .selectable-wrapper .selectable.off {
+    background: transparent; }

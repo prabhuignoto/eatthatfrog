@@ -8,14 +8,12 @@ const ListItem = ({ id, onSelect, name }) => (
     name={id}
     role="listitem"
   >
-    <div className="ui-list-item-wrapper" style={{ width: '100%', height: '100%' }}>
-      <button
-        onClick={onSelect}
-        onKeyPress={onSelect}
-      >
-        {name}
-      </button>
-    </div>
+    <button
+      onClick={onSelect}
+      onKeyPress={onSelect}
+    >
+      {name}
+    </button>
   </div>
 );
 
