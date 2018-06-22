@@ -9,13 +9,13 @@
 
     .text-input {
         border: 1px solid rgba(103, 146, 103, 0.25);
-        background: rgba(103, 146, 103, 0.1);
+        // background: rgba(103, 146, 103, 0.1);
         outline: none;
         width: 70%;
-        height: 25px;
+        height: 30px;
         border-radius: 2px;
         padding-left: 8px;
-        font-size: 1em;
+        font-size: 0.8em;
         font-family: 'Open sans';
         margin-top: 8px;
         &:focus {
@@ -24,7 +24,7 @@
     }
 
     .text-input-label {
-        font-size: 0.8em;
+        font-size: 1em;
         display: flex;
         flex-direction: column;
         align-items: flex-start;

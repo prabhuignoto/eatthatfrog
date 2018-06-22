@@ -12,13 +12,7 @@ import {
 import './form.css';
 
 const TaskForm = props => (
-  <div className={classNames('form-container', { readonly: props.isReadOnly })}>
-    {/* form header/ */}
-    {props.heading.length > 0 ?
-      <div className="form-header">
-        <i className="form-header-icon" />
-        <h4>{props.heading}</h4>
-      </div> : null}
+  <div className={classNames('form-container', { readonly: props.disabled })}>
     {/* form wrapper */}
     <div className="form-wrapper">
       {/* text input */}
@@ -29,7 +23,7 @@ const TaskForm = props => (
         onChange={props.handleTextInput}
         value={props.textInputVal}
         errorPortal={props.handleErrorPortal}
-        isReadOnly={props.isReadOnly}
+        disabled={props.disabled}
       />
       {/* text area */}
       <TextArea
@@ -39,27 +33,24 @@ const TaskForm = props => (
         name="taskdescription"
         value={props.textAreaVal}
         errorPortal={props.handleErrorPortal}
-        isReadOnly={props.isReadOnly}
+        disabled={props.disabled}
       />
-      {/* foxy list */}
-      <div className="listfox-title">
-        Choose a category for your task
-      </div>
+      <ToggleSwitch label="Remind me" name="form-reminder" disabled={props.disabled} />
       <Smartags
+        label="Tag your task"
         validateInput={props.validateInput}
         validationMessages={{
           itemsEmpty: 'Please create atleast one category',
           hasDuplicates: 'A Category with that name already exists',
         }}
-        isReadOnly={props.isReadOnly}
-        foxes={[{ name: 'Productivity' }, { name: 'Excercise' }]}
+        isReadOnly={props.disabled}
+        tags={[{ name: 'Productivity' }, { name: 'Excercise' }]}
       />
-      <ToggleSwitch label="Set a Reminder" name="form-reminder" />
       <div className="form-controls">
-        {!props.isReadOnly ?
+        {!props.disabled ?
           <Button
             disable={props.formHasErrors || props.disableSaveBtn}
-            label="Create Task"
+            label="Create"
             onClick={props.handleSave}
           /> : null
         }
@@ -79,16 +70,15 @@ TaskForm.propTypes = {
   textInputVal: PropTypes.string.isRequired,
   textAreaVal: PropTypes.string.isRequired,
 
-  heading: PropTypes.string.isRequired,
   validateInput: PropTypes.bool.isRequired,
   disableSaveBtn: PropTypes.bool.isRequired,
   formHasErrors: PropTypes.bool.isRequired,
 
-  isReadOnly: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 TaskForm.defaultProps = {
-  isReadOnly: false,
+  disabled: false,
 };
 
 export default TaskForm;

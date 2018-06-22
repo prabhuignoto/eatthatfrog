@@ -3,7 +3,7 @@ import PropType from 'prop-types';
 import './textinput.css';
 
 const TextInput = ({
-  name, label, isReadOnly, value, onChange,
+  name, label, disabled, value, onChange,
 }) => (
   <div className="text-input-wrapper">
     <label className="text-input-label" htmlFor={`textarea-${name}`}>{label}
@@ -13,7 +13,7 @@ const TextInput = ({
         value={value}
         name={name}
         id={`text-input-${name}`}
-        disabled={isReadOnly}
+        disabled={disabled}
         onChange={onChange}
       />
     </label>
@@ -25,12 +25,12 @@ TextInput.propTypes = {
   onChange: PropType.func.isRequired,
   value: PropType.string,
   name: PropType.string.isRequired,
-  isReadOnly: PropType.bool,
+  disabled: PropType.bool,
 };
 
 TextInput.defaultProps = {
   value: '',
-  isReadOnly: false,
+  disabled: false,
 };
 
 export default TextInput;

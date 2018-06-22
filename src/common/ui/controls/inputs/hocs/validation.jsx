@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import PropTypes from 'prop-types';
-import '../../../../hocs/form/withValidation/withValidation.css';
+import '../css/withValidation.css';
 
 export default function (TextComponent) {
   const defaultWithValidation = (props) => {

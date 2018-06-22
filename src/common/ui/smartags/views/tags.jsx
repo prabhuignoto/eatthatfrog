@@ -2,70 +2,70 @@ import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import '../css/smartags.css';
-import Fox from './tag';
+import Tag from './tag';
 
 const inputRef = createRef();
 
 const handleWrapperClick = () => inputRef.current.focus();
 
-const ListFox = ({
-  foxes, disableInput, input, onKeyInput, onAddOrRemoveFox, isReadOnly, onRemoveFoxById,
+const Smartags = ({
+  tags, disableInput, input, onKeyInput, onAddOrRemoveTag, isReadOnly, onRemoveTagById, label,
 }) => (
   <div
     title="Type anything you want and press enter to add it to the list."
     role="button"
     tabIndex="0"
-    className="listfox-wrapper"
+    className="smartags-wrapper"
     onClick={handleWrapperClick}
     onKeyPress={() => (ev) => {
-      if (ev.keyCode === 13) {
-        handleWrapperClick();
-      }
-      return null;
-    }}
+        if (ev.keyCode === 13) {
+          handleWrapperClick();
+        }
+        return null;
+      }}
   >
-    <div className="listfox-container">
-      <div className="foxes-container">
-        {foxes.map(fox => (
-          <Fox
-            {...fox}
-            key={fox.id}
-            remove={onRemoveFoxById}
-            isReadOnly={isReadOnly}
-          />
+    <label>{label}</label>
+    <div className="smartags-container">
+      {tags.map(tag => (
+        <Tag
+          {...tag}
+          key={tag.id}
+          remove={onRemoveTagById}
+          isReadOnly={isReadOnly}
+        />
         ))}
-        <input
-          ref={inputRef}
-          type="text"
-          className={classNames('listfox-input', {
+      <input
+        ref={inputRef}
+        type="text"
+        className={classNames('smartags-input', {
             disabled: disableInput,
           })}
-          value={input}
-          onChange={onKeyInput}
-          onKeyUp={onAddOrRemoveFox}
-          disabled={isReadOnly}
-        />
-      </div>
+        value={input}
+        onChange={onKeyInput}
+        onKeyUp={onAddOrRemoveTag}
+        disabled={isReadOnly}
+      />
     </div>
   </div>
 );
 
-ListFox.propTypes = {
-  onRemoveFoxById: PropTypes.func.isRequired,
-  onAddOrRemoveFox: PropTypes.func.isRequired,
+Smartags.propTypes = {
+  onRemoveTagById: PropTypes.func.isRequired,
+  onAddOrRemoveTag: PropTypes.func.isRequired,
   onKeyInput: PropTypes.func.isRequired,
   input: PropTypes.string.isRequired,
-  foxes: PropTypes.arrayOf(PropTypes.shape({
+  tags: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     id: PropTypes.string,
   })).isRequired,
   disableInput: PropTypes.bool,
   isReadOnly: PropTypes.bool,
+  label: PropTypes.string,
 };
 
-ListFox.defaultProps = {
+Smartags.defaultProps = {
   disableInput: false,
   isReadOnly: false,
 };
 
-export default ListFox;
+export default Smartags;

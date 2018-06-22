@@ -2,7 +2,7 @@
   background: #679267;
   min-width: 50px;
   max-width: 250px;
-  height: 28px;
+  height: 35px;
   border-radius: 2px;
   user-select: none;
   margin: 5px 0;
@@ -21,4 +21,4 @@
     cursor: pointer;
     font-family: 'Open Sans';
     text-transform: uppercase;
-    font-size: 0.7em; }
+    font-size: 0.9em; }

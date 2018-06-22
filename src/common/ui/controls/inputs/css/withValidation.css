@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  margin: 5px 0; }
+  margin: 5px 0 15px; }
   .with-validation.error input[type="text"], .with-validation.error textarea {
     background: rgba(204, 0, 0, 0.1);
     border-color: rgba(204, 0, 0, 0.4); }
@@ -27,7 +27,7 @@
       position: absolute;
       top: 0px;
       left: 0;
-      background: url(./assets/exclamation-circle.svg);
+      background: url(../assets/exclamation-circle.svg);
       background-position: 10% 25%;
       background-size: 60%;
       background-repeat: no-repeat; }

@@ -2,9 +2,9 @@ import { compose, withStateHandlers, defaultProps } from 'recompose';
 import uuid from 'uuid-random';
 import Smartag from './views/tags';
 
-const initialState = ({ foxes = [], input = '', disableInput = false }) => ({
-  foxes: foxes.length > 0 ? foxes.map(x => Object.assign(x, {
-    id: `listfox${uuid().replace(/-/g, '')}`,
+const initialState = ({ tags = [], input = '', disableInput = false }) => ({
+  tags: tags.length > 0 ? tags.map(x => Object.assign(x, {
+    id: `smartags${uuid().replace(/-/g, '')}`,
   })) : null,
   input,
   disableInput,
@@ -12,30 +12,30 @@ const initialState = ({ foxes = [], input = '', disableInput = false }) => ({
 
 const stateHandlers = {
   onKeyInput: () => ev => ({ input: ev.target.value }),
-  onAddOrRemoveFox: ({ foxes }) => (ev) => {
+  onAddOrRemoveTag: ({ tags }) => (ev) => {
     const { value } = ev.target;
     if (ev.keyCode === 13 && value) {
-      const nFoxes = foxes.concat([{
+      const lTags = tags.concat([{
         name: value,
-        id: `listfox${uuid().replace(/-/g, '')}`,
+        id: `smartag${uuid().replace(/-/g, '')}`,
       }]);
       return {
         input: '',
-        foxes: nFoxes,
+        tags: lTags,
         disableInput: false,
       };
     } else if (ev.keyCode === 8 && !value) {
-      const oldFoxes = foxes;
-      const newFoxes = oldFoxes.slice(0, oldFoxes.length - 1);
+      const oldTags = tags;
+      const newTags = oldTags.slice(0, oldTags.length - 1);
       return {
-        foxes: newFoxes,
+        tags: newTags,
       };
     }
     return undefined;
   },
-  onRemoveFoxById: ({ foxes }) => id => ({
+  onRemoveTagById: ({ tags }) => id => ({
     input: '',
-    foxes: foxes.filter(x => x.id !== id),
+    tags: tags.filter(x => x.id !== id),
     disableInput: false,
   }),
 };

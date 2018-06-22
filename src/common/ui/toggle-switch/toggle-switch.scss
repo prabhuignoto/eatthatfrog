@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 4px;
-  margin: 10px 0;
+  padding: 4px 0;
+  margin: 5px 0 20px;
   &.on {
     .toggle-switch-input-wrapper {
       &::after {
@@ -26,7 +26,7 @@
     &.on {
       .toggle-switch-input-wrapper {
         &::after {
-          left: 53%;
+          left: 55%;
           animation-name: move-to-right;
         }
       }
@@ -47,11 +47,9 @@
     align-items: center;
     width: 100%;
     cursor: pointer;
-    text-transform: capitalize;
+    font-size: 1em;
 
     .label-text {
-      // width: 80%;
-      font-size: 0.8em;
       font-weight: normal;
       // flex: 1;
       user-select: none;
@@ -80,8 +78,8 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
         animation-duration: 0.25s;
         animation-timing-function: ease-in;
@@ -112,14 +110,14 @@
     background: #ddd;
   }
   100% {
-    left: 53%;
+    left: 55%;
     background: #679267;
   }
 }
 
 @keyframes move-to-left {
   0% {
-    left: 53%;
+    left: 55%;
     background: #679267;
   }
   100% {

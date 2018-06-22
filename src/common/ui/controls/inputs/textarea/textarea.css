@@ -6,23 +6,22 @@
   width: 100%;
   margin-bottom: 5px; }
   .textarea-wrapper .textarea-label {
-    font-size: 0.8em;
+    font-size: 1em;
     text-align: left;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%; }
   .textarea-wrapper .textarea {
-    min-height: 60px;
+    height: 60px;
     width: 85%;
     resize: none;
     border: 1px solid rgba(103, 146, 103, 0.25);
-    background: rgba(103, 146, 103, 0.1);
     outline: none;
     border-radius: 2px;
     padding-left: 8px;
     padding-top: 8px;
-    font-size: 1em;
+    font-size: 0.8em;
     font-family: 'Open sans';
     margin-top: 8px; }
     .textarea-wrapper .textarea:focus {
