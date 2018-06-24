@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Form from '../formDefault';
+import Form from '../index';
 import './withEdit.css';
 
 export default (function withEdit(WrappedComponent) {

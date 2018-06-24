@@ -34,11 +34,13 @@ export default class Storage {
    * @param {string} description
    * @memberof Storage
    */
-  addTask(id, name, description) {
+  addTask(id, name, description, reminderEnabled, tags) {
     this.store.tasks.push({
       id,
       name,
       description,
+      reminderEnabled,
+      tags,
     });
     Helper.saveStore(this.store);
   }

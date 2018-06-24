@@ -3,18 +3,21 @@ import PropTypes from 'prop-types';
 import './textarea.css';
 
 const TextArea = ({
-  name, label, id, value, disabled, onChange,
+  name, label, id, value, disabled, onChange, required,
 }) => (
   <div className="textarea-wrapper">
     <label className="textarea-label" htmlFor={`text-input-${name}`}>{label}
-      <textarea
-        className="textarea"
-        name={id}
-        id={`text-input-${name}`}
-        value={value}
-        disabled={disabled}
-        onChange={onChange}
-      />
+      <div className="textarea-label-wrapper">
+        <textarea
+          className="textarea"
+          name={id}
+          id={`text-input-${name}`}
+          value={value}
+          disabled={disabled}
+          onChange={onChange}
+        />
+        {required ? <span className="textarea-required-ico" /> : null}
+      </div>
     </label>
   </div>
 );
@@ -26,11 +29,13 @@ TextArea.propTypes = {
   onChange: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  required: PropTypes.bool,
 };
 
 TextArea.defaultProps = {
   value: '',
   disabled: false,
+  required: false,
 };
 
 export default TextArea;

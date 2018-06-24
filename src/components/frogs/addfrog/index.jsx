@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bulma/css/bulma.css';
-import Form from '../form/formDefault';
+import Form from '../form/index';
 import './addfrog.css';
 
 

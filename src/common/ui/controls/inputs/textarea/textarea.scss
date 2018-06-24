@@ -35,4 +35,25 @@
             font-size: 1em;
         }
     }
+
+    .textarea-label-wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        .textarea-required-ico {
+            display: block;
+            width: 5px;
+            height: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            &::after {
+                content: '*';
+                font-size: 1em;
+                color: red;
+            }
+        }
+    }
 }

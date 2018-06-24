@@ -12,26 +12,28 @@ const initialState = ({ tags = [], input = '', disableInput = false }) => ({
 
 const stateHandlers = {
   onKeyInput: () => ev => ({ input: ev.target.value }),
-  onAddOrRemoveTag: ({ tags }) => (ev) => {
+  onAddOrRemoveTag: ({ tags }, { onTagsEdited }) => (ev) => {
     const { value } = ev.target;
+    let result = null;
     if (ev.keyCode === 13 && value) {
       const lTags = tags.concat([{
         name: value,
         id: `smartag${uuid().replace(/-/g, '')}`,
       }]);
-      return {
+      result = {
         input: '',
         tags: lTags,
         disableInput: false,
       };
+      onTagsEdited(result);
     } else if (ev.keyCode === 8 && !value) {
       const oldTags = tags;
       const newTags = oldTags.slice(0, oldTags.length - 1);
-      return {
+      result = {
         tags: newTags,
       };
     }
-    return undefined;
+    return result;
   },
   onRemoveTagById: ({ tags }) => id => ({
     input: '',

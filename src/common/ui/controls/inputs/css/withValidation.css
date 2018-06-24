@@ -16,7 +16,7 @@
     position: relative;
     padding-left: 20px;
     font-style: normal;
-    font-size: 0.7em;
+    font-size: 0.8em;
     color: rgba(204, 0, 0, 0.94);
     user-select: none; }
     .with-validation .error-info:after {

@@ -1,5 +1,5 @@
 import { compose, withStateHandlers } from 'recompose';
-import Validation from './validation';
+import ValidationView from './validation';
 
 function containsAllowedCharacters(value) {
   return /^[a-zA-Z0-9 ]*$/.test(value);
@@ -16,9 +16,10 @@ const initialState = () => ({
 
 export default function withValidation(input) {
   return compose(withStateHandlers(initialState, {
-    validate: () => (value) => {
+    validate: (state, { onValidation }) => (value) => {
       let success = true;
       let error = {};
+      let result = {};
 
       if (!value) {
         success = false;
@@ -36,13 +37,15 @@ export default function withValidation(input) {
           reason: '',
         };
       }
-
-      return {
+      result = {
+        value,
         validation: {
           success,
           error,
         },
       };
+      onValidation(result);
+      return result;
     },
-  }))(Validation(input));
+  }))(ValidationView(input));
 }

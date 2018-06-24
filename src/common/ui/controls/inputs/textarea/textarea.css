@@ -28,3 +28,19 @@
       box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1); }
     .textarea-wrapper .textarea textarea {
       font-size: 1em; }
+  .textarea-wrapper .textarea-label-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%; }
+    .textarea-wrapper .textarea-label-wrapper .textarea-required-ico {
+      display: block;
+      width: 5px;
+      height: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 5px; }
+      .textarea-wrapper .textarea-label-wrapper .textarea-required-ico::after {
+        content: '*';
+        font-size: 1em;
+        color: red; }

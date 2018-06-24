@@ -9,49 +9,58 @@ import {
   Smartags,
   ToggleSwitch,
 } from '../../imports';
-import './form.css';
+import './css/form.css';
 
-const TaskForm = props => (
-  <div className={classNames('form-container', { readonly: props.disabled })}>
+const TaskForm = ({
+  nameProp: { name: taskName, label: taskLabel },
+  descProp: { name: descName, label: descLabel },
+  reminderProp: { label: reminderLabel },
+  tagsProp: { label: tagsLabel },
+  taskTags,
+  disabled,
+  handleSave,
+  disableSaveBtn,
+  onNameValidation,
+  onDescriptionValidation,
+  onTagsEdited,
+  onReminderChanged,
+}) => (
+  <div className={classNames('form-container', { readonly: disabled })}>
     {/* form wrapper */}
     <div className="form-wrapper">
       {/* text input */}
       <TextInput
-        label={props.textInputLabel}
-        validateInput={props.validateInput}
-        name="taskname"
-        onChange={props.handleTextInput}
-        value={props.textInputVal}
-        errorPortal={props.handleErrorPortal}
-        disabled={props.disabled}
+        label={taskLabel}
+        onValidation={onNameValidation}
+        name={taskName}
+        disabled={disabled}
+        required
       />
       {/* text area */}
       <TextArea
-        label={props.textAreaLabel}
-        validateInput={props.validateInput}
-        onChange={props.handleTextArea}
-        name="taskdescription"
-        value={props.textAreaVal}
-        errorPortal={props.handleErrorPortal}
-        disabled={props.disabled}
+        label={descLabel}
+        onValidation={onDescriptionValidation}
+        name={descName}
+        disabled={disabled}
+        required
       />
-      <ToggleSwitch label="Remind me" name="form-reminder" disabled={props.disabled} />
+      <ToggleSwitch
+        label={reminderLabel}
+        disabled={disabled}
+        onToggleChanged={onReminderChanged}
+      />
       <Smartags
-        label="Tag your task"
-        validateInput={props.validateInput}
-        validationMessages={{
-          itemsEmpty: 'Please create atleast one category',
-          hasDuplicates: 'A Category with that name already exists',
-        }}
-        isReadOnly={props.disabled}
-        tags={[{ name: 'Productivity' }, { name: 'Excercise' }]}
+        label={tagsLabel}
+        disabled={disabled}
+        tags={taskTags}
+        onTagsEdited={onTagsEdited}
       />
       <div className="form-controls">
-        {!props.disabled ?
+        {!disabled ?
           <Button
-            disable={props.formHasErrors || props.disableSaveBtn}
+            disable={disableSaveBtn}
             label="Create"
-            onClick={props.handleSave}
+            onClick={handleSave}
           /> : null
         }
       </div>
@@ -59,20 +68,27 @@ const TaskForm = props => (
   </div>
 );
 
+const attrShape = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+});
+
 TaskForm.propTypes = {
   handleSave: PropTypes.func.isRequired,
-  handleErrorPortal: PropTypes.func.isRequired,
-  handleTextArea: PropTypes.func.isRequired,
-  handleTextInput: PropTypes.func.isRequired,
 
-  textAreaLabel: PropTypes.string.isRequired,
-  textInputLabel: PropTypes.string.isRequired,
-  textInputVal: PropTypes.string.isRequired,
-  textAreaVal: PropTypes.string.isRequired,
+  nameProp: attrShape.isRequired,
+  descProp: attrShape.isRequired,
+  reminderProp: attrShape.isRequired,
+  tagsProp: attrShape.isRequired,
+  taskTags: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  })).isRequired,
 
-  validateInput: PropTypes.bool.isRequired,
+  onNameValidation: PropTypes.func.isRequired,
+  onDescriptionValidation: PropTypes.func.isRequired,
+  onTagsEdited: PropTypes.func.isRequired,
+  onReminderChanged: PropTypes.func.isRequired,
   disableSaveBtn: PropTypes.bool.isRequired,
-  formHasErrors: PropTypes.bool.isRequired,
 
   disabled: PropTypes.bool,
 };

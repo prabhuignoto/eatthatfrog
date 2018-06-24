@@ -1,21 +1,25 @@
-import { takeEvery, put, all, fork } from 'redux-saga/effects';
+import {
+  takeEvery,
+  put,
+  all,
+  fork,
+} from 'redux-saga/effects';
 import uuid from 'uuid-random';
 import Storage from '../../utils/storage';
 
-function* watchAddTask() {
-  yield takeEvery('ADD_TASK', function* addTask({ name, description }) {
-    Storage.get().addTask(uuid(), name, description);
-    yield put('ADD_TASK_COMPLETED');
-  });
-}
-
-function* watchTaskComplete() {
-  yield takeEvery('ADD_TASK_COMPLETED', function* taskComplete() {
-    yield true;
+function* watchSaveTaskToDB() {
+  yield takeEvery('SAVE_TASK_TO_DB', function* saveTask({
+    name,
+    description,
+    reminderEnabled,
+    tags,
+  }) {
+    Storage.get().addTask(uuid, name, description, reminderEnabled, tags);
+    yield put('SAVE_TASK_TO_DB_COMPLETE');
   });
 }
 
 export default function* () {
-  yield all([fork(watchAddTask), fork(watchTaskComplete)]);
+  yield all([fork(watchSaveTaskToDB)]);
 }
 
