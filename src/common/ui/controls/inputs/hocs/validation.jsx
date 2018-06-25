@@ -11,7 +11,7 @@ export default function (TextComponent) {
     });
     return (
       <div className={className}>
-        <TextComponent {...props} />
+        <TextComponent {...props} textInputValue={props.textInputValue} />
         <ReactCSSTransitionGroup
           transitionName="err-message"
           transitionEnterTimeout={500}
@@ -33,11 +33,13 @@ export default function (TextComponent) {
       }),
     }),
     validate: PropTypes.func,
+    textInputValue: PropTypes.string,
   };
 
   defaultWithValidation.defaultProps = {
     validate: () => { },
     validation: {},
+    textInputValue: '',
   };
 
   return defaultWithValidation;

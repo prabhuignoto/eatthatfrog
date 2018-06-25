@@ -1,32 +1,33 @@
 import { compose, withStateHandlers } from 'recompose';
 import ValidationView from './validation';
 
-function containsAllowedCharacters(value) {
-  return /^[a-zA-Z0-9 ]*$/.test(value);
+function containsAllowedCharacters(val) {
+  return /^[a-zA-Z0-9 ]*$/.test(val);
 }
 
-const initialState = () => ({
+const initialState = ({ value }) => ({
   validation: {
     success: true,
     error: {
       reason: '',
     },
   },
+  textInputValue: value,
 });
 
 export default function withValidation(input) {
   return compose(withStateHandlers(initialState, {
-    validate: (state, { onValidation }) => (value) => {
+    onChange: (state, { onValidation }) => ({ target: { value: val } }) => {
       let success = true;
       let error = {};
       let result = {};
 
-      if (!value) {
+      if (!val) {
         success = false;
         error = {
           reason: 'Field cannot be empty.',
         };
-      } else if (!containsAllowedCharacters(value)) {
+      } else if (!containsAllowedCharacters(val)) {
         success = false;
         error = {
           reason: 'Field cannot contain special characters.',
@@ -38,11 +39,11 @@ export default function withValidation(input) {
         };
       }
       result = {
-        value,
         validation: {
           success,
           error,
         },
+        textInputValue: val,
       };
       onValidation(result);
       return result;
