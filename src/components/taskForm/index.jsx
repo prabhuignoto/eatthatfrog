@@ -8,7 +8,7 @@ import {
   ToggleSwitch,
   TextInputWithValidation as TextInput,
   TextAreaWithValidation as TextArea,
-} from '../../imports';
+} from '../imports';
 import './css/form.css';
 
 const TaskForm = ({

@@ -1,7 +1,7 @@
 import { compose, withStateHandlers } from 'recompose';
 import { connect } from 'react-redux';
-import Layout from '../index';
-import UpdateLayoutType from '../actions';
+import Layout from '../../components/myTasks/views/layoutManager';
+import UpdateLayoutType from '../../actions';
 
 const dLayouts = [{
   title: 'List Only',

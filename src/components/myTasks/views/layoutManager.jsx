@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './layoutmanager.css';
+import '../css/layoutmanager.css';
 
 const LayoutManager = ({ layouts, onLayoutChange, selected }) => (
   <div className="layoutmanager-container">
@@ -35,7 +35,11 @@ LayoutManager.propTypes = {
   layouts: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-  })).isRequired,
+  })),
+};
+
+LayoutManager.defaultProps = {
+  layouts: [],
 };
 
 export default LayoutManager;

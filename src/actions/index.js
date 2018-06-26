@@ -42,3 +42,11 @@ export function getTaskDetails(id) {
     id,
   };
 }
+
+export function updateLayoutType(type) {
+  return {
+    type: 'UPDATE_LAYOUT_TYPE',
+    layoutType: type,
+  };
+}
+
