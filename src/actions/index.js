@@ -1,8 +1,20 @@
-export function addTask(name, description) {
+export function saveTask(name, description, reminderEnabled, tags) {
   return {
-    type: 'ADD_TASK',
+    type: 'SAVE_TASK_TO_DB',
     name,
     description,
+    reminderEnabled,
+    tags,
+  };
+}
+
+export function editTask(name, description, reminderEnabled, tags) {
+  return {
+    type: 'EDIT_TASK',
+    name,
+    description,
+    reminderEnabled,
+    tags,
   };
 }
 
@@ -24,9 +36,9 @@ export function getAllTasksComplete() {
   };
 }
 
-export function checkForDuplicate(name) {
+export function getTaskDetails(id) {
   return {
-    type: 'CHECK_FOR_DUPLICATE',
-    name,
+    type: 'GET_TASK_DETAILS',
+    id,
   };
 }

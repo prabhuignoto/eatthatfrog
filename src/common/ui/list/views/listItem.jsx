@@ -5,11 +5,11 @@ import '../css/listItem.css';
 const ListItem = ({ id, onSelect, name }) => (
   <div
     className="ui-list-item"
-    name={id}
+    name={`list-item-${id}`}
     role="listitem"
   >
     <button
-      onClick={onSelect}
+      onClick={() => onSelect(id)}
       onKeyPress={onSelect}
     >
       {name}

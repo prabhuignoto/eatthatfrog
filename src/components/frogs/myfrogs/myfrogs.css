@@ -24,13 +24,16 @@
   height: 50%;
   margin-top: auto;
   margin-bottom: auto;
-  padding: 10px 20px 30px 20px;
+  padding: 20px 30px 40px 30px;
   z-index: 1;
   position: relative;
   background: #9dc183; }
   .myfrogs-container .columns {
     height: 100%;
     width: 100%; }
+
+.myfrogs-form-wrapper {
+  padding: 10px; }
 
 .my-frogs-filter-wrapper {
   position: relative;

@@ -4,7 +4,7 @@ import './App.css';
 import Dashboard from './components/dashboard';
 import Header from './common/header';
 import Footer from './common/footer';
-import AddFrog from './containers/addFrog';
+import AddTask from './containers/addTask/addTask';
 import CompletedFrogs from './components/frogs/completedfrogs';
 import HelpFrog from './components/frogs/helpfrog';
 import MissedFrogs from './components/frogs/missedfrogs';
@@ -19,7 +19,7 @@ const App = () => (
       <div className="App">
         <Header />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/add" component={() => <AddFrog heading="Add Task" />} />
+        <Route path="/add" component={() => <AddTask heading="Add Task" />} />
         <Route path="/completed" component={CompletedFrogs} />
         <Route path="/help" component={HelpFrog} />
         <Route path="/missed" component={MissedFrogs} />

@@ -2,14 +2,14 @@ import { compose, withStateHandlers } from 'recompose';
 import TextArea from './textarea';
 
 const intialState = ({ value = '' }) => ({
-  value,
+  textInputValue: value,
 });
 
 const stateHandlers = {
   onChange: (state, { validate }) => ({ target: { value } }) => {
     validate(value);
     return {
-      value,
+      textInputValue: value,
     };
   },
 };

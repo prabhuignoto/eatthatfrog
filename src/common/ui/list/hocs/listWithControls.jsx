@@ -12,15 +12,13 @@ const stateHandlers = {
     showControls: !showControls,
     animationEnabled: true,
   }),
-  onSelectableChange: ({ on }) => () => {
-    return {
-      on: !on,
-    };
-  },
+  onSelectableChange: ({ on }) => () => ({
+    on: !on,
+  }),
 };
 
 const props = ({
-  showControls, animationEnabled, toggleControls, onComplete, onDelete, name,
+  showControls, animationEnabled, toggleControls, onComplete, onDelete, name, id,
 }) => ({
   listItemWrapperClass: classNames('list-item-wrapper', {
     'reduce-size': showControls,
@@ -37,6 +35,7 @@ const props = ({
   onComplete,
   onDelete,
   name,
+  id,
 });
 
 export default compose(

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import 'bulma/css/bulma.css';
 import classNames from 'classnames';
 import {
-  TextInput,
-  TextArea,
   Button,
   Smartags,
   ToggleSwitch,
+  TextInputWithValidation as TextInput,
+  TextAreaWithValidation as TextArea,
 } from '../../imports';
 import './css/form.css';
 
@@ -20,10 +20,15 @@ const TaskForm = ({
   disabled,
   handleSave,
   disableSaveBtn,
-  onNameValidation,
-  onDescriptionValidation,
   onTagsEdited,
   onReminderChanged,
+
+  onNameChanged,
+  onDescriptionChanged,
+  name,
+  description,
+  nameValidation,
+  descValidation,
 }) => (
   <div className={classNames('form-container', { readonly: disabled })}>
     {/* form wrapper */}
@@ -31,18 +36,22 @@ const TaskForm = ({
       {/* text input */}
       <TextInput
         label={taskLabel}
-        onValidation={onNameValidation}
         name={taskName}
         disabled={disabled}
         required
+        onChange={onNameChanged}
+        value={name}
+        validation={nameValidation}
       />
       {/* text area */}
       <TextArea
         label={descLabel}
-        onValidation={onDescriptionValidation}
         name={descName}
         disabled={disabled}
         required
+        onChange={onDescriptionChanged}
+        value={description}
+        validation={descValidation}
       />
       <ToggleSwitch
         label={reminderLabel}
@@ -56,17 +65,14 @@ const TaskForm = ({
         onTagsEdited={onTagsEdited}
       />
       <div className="form-controls">
-        {!disabled ?
-          <Button
-            disable={disableSaveBtn}
-            label="Create"
-            onClick={handleSave}
-          /> : null
-        }
+        <Button
+          disable={disableSaveBtn}
+          label="Create"
+          onClick={handleSave}
+        />
       </div>
     </div>
-  </div>
-);
+  </div>);
 
 const attrShape = PropTypes.shape({
   name: PropTypes.string.isRequired,
@@ -75,6 +81,11 @@ const attrShape = PropTypes.shape({
 
 TaskForm.propTypes = {
   handleSave: PropTypes.func.isRequired,
+  onNameChanged: PropTypes.func.isRequired,
+  onDescriptionChanged: PropTypes.func.isRequired,
+
+  name: PropTypes.string,
+  description: PropTypes.string,
 
   nameProp: attrShape.isRequired,
   descProp: attrShape.isRequired,
@@ -83,9 +94,6 @@ TaskForm.propTypes = {
   taskTags: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
   })).isRequired,
-
-  onNameValidation: PropTypes.func.isRequired,
-  onDescriptionValidation: PropTypes.func.isRequired,
   onTagsEdited: PropTypes.func.isRequired,
   onReminderChanged: PropTypes.func.isRequired,
   disableSaveBtn: PropTypes.bool.isRequired,
@@ -95,6 +103,8 @@ TaskForm.propTypes = {
 
 TaskForm.defaultProps = {
   disabled: false,
+  name: '',
+  description: '',
 };
 
 export default TaskForm;

@@ -6,7 +6,8 @@ import '../css/withControls.css';
 
 const Controls = ({
   mainClass, listItemWrapperClass,
-  toggleControls, listControlsWrapper, onComplete, onDelete, name, onSelectableChange, on,
+  toggleControls, listControlsWrapper, onComplete,
+  onDelete, name, onSelectableChange, on, id, onSelect,
 }) =>
   (
     <div
@@ -14,7 +15,7 @@ const Controls = ({
     >
       <div className={listItemWrapperClass}>
         <Selectable onChange={onSelectableChange} on={on} name={`selectable-${name}`} />
-        <ListItem name={name} />
+        <ListItem name={name} id={id} onSelect={onSelect} />
         <button
           className="open-list-control-config list-control-btn"
           onClick={toggleControls}
@@ -41,9 +42,11 @@ Controls.propTypes = {
   onDelete: PropTypes.func.isRequired,
   toggleControls: PropTypes.func.isRequired,
   onSelectableChange: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
 
   listControlsWrapper: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   mainClass: PropTypes.string.isRequired,
   listItemWrapperClass: PropTypes.string.isRequired,
   on: PropTypes.bool.isRequired,

@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import 'bulma/css/bulma.css';
-import { List, Selectable } from '../../imports';
-import Form from '../form/hocs/withEdit';
+import { List } from '../../imports';
+import Form from '../../../containers/myTasks/editTask';
 import Filters from '../filter';
 import LayoutManager from './layoutmanager/hocs/layoutManager';
 import './myfrogs.css';
@@ -53,7 +53,7 @@ class MyFrogs extends Component {
       },
     );
     const formWrapperClass = classNames(
-      'form-wrapper',
+      'myfrogs-form-wrapper',
       'column', {
         'is-two-fifths-desktop': (layoutType === 'showall'),
         'is-half-desktop': (layoutType === 'withoutfilters'),

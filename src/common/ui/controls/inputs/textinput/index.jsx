@@ -1,17 +1,14 @@
 import { compose, withStateHandlers } from 'recompose';
-import Text from './textInput';
+import TextInput from './textInput';
 
 const initialState = ({ value = '' }) => ({
-  value,
+  textInputValue: value,
 });
 
 const stateHandlers = {
-  onChange: (state, { validate }) => ({ target: { value } }) => {
-    validate(value);
-    return {
-      value,
-    };
-  },
+  onChange: () => ({ target: { value } }) => ({
+    textInputValue: value,
+  }),
 };
 
-export default compose(withStateHandlers(initialState, stateHandlers))(Text);
+export default compose(withStateHandlers(initialState, stateHandlers))(TextInput);
