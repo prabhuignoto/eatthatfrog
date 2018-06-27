@@ -9,7 +9,9 @@ import Filters from './filter';
 import '../css/myTasks.css';
 
 
-const myTasks = ({ items, layoutType }) => {
+const myTasks = ({
+  items, layoutType, layouts, onLayoutChange,
+}) => {
   const filterWrapperClass = classNames(
     'mytasks-filter-wrapper',
     'column',
@@ -35,7 +37,7 @@ const myTasks = ({ items, layoutType }) => {
   );
   return (
     <div className="container mytasks-container">
-      <LayoutManager changeLayout={this.changeLayout} />
+      <LayoutManager onLayoutChange={onLayoutChange} layouts={layouts} />
       <div className="columns is-multiline is-centered is-variable is-3">
         <div className={filterWrapperClass}>
           <Filters />
@@ -54,6 +56,12 @@ myTasks.propTypes = {
     description: PropTypes.string.isRequired,
   })),
   layoutType: PropTypes.string.isRequired,
+  onLayoutChange: PropTypes.func.isRequired,
+  layouts: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    id: PropTypes.string,
+    selected: PropTypes.bool,
+  })).isRequired,
 };
 
 myTasks.defaultProps = {
