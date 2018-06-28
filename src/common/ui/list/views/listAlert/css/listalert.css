@@ -1,0 +1,40 @@
+.listalert-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  animation-duration: 250ms; }
+  .listalert-wrapper.visible {
+    animation-name: show-listalert;
+    animation-timing-function: linear;
+    left: 0;
+    opacity: 1; }
+  .listalert-wrapper.hidden {
+    animation-name: hide-listalert;
+    animation-timing-function: linear;
+    left: 120%;
+    opacity: 0; }
+  .listalert-wrapper .listalert-body {
+    color: #fff;
+    width: 100%;
+    height: 100%; }
+
+@keyframes show-listalert {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes hide-listalert {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }

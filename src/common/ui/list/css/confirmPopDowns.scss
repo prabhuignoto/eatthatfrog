@@ -1,0 +1,36 @@
+.conf-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  h5 {
+    font-size: 1em;
+    margin-left: 10px;
+  }
+  .conf-button-controls {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+
+    button {
+      border: none;
+      background: #e4e4e4;
+      border-radius: 3px;
+      padding: 3px 8px;
+      margin: 2px 4px;
+      min-width: 50px;
+      text-align: center;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+  }
+  &.conf-task {
+    background: #9dc183;
+    color: #fff;
+  }
+  &.conf-delete {
+    background: #C21807;
+    color: #fff;
+  }
+}

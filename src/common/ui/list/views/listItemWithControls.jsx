@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListItem from './listItem';
+import {
+  taskCompleteAlertBtn as TaskCompleteBtn,
+  taskDeleteAlertBtn as TaskDelBtn,
+} from './listItemButtons';
 import '../css/withControls.css';
 
 const Controls = ({
@@ -11,8 +15,11 @@ const Controls = ({
   (
     <div
       className={mainClass}
+      id={`list-controls-${id}`}
     >
-      <div className={listItemWrapperClass}>
+      <div
+        className={listItemWrapperClass}
+      >
         <ListItem name={name} id={id} onSelect={onSelect} selected={selected} />
         <button
           className="open-list-control-config list-control-btn"
@@ -23,13 +30,9 @@ const Controls = ({
       </div>
 
       <div className={listControlsWrapper}>
-        <div className="list-controls">
-          <button className="mark-as-complete list-control-btn" onClick={onComplete}>
-            <i className="list-control-icon" />
-          </button>
-          <button className="list-control-delete list-control-btn" onClick={onDelete}>
-            <i className="list-control-icon" />
-          </button>
+        <div className="list-controls" >
+          <TaskCompleteBtn portalTarget={`list-controls-${id}`} />
+          <TaskDelBtn portalTarget={`list-controls-${id}`} />
         </div>
       </div>
     </div>
