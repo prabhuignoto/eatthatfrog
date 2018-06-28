@@ -1,6 +1,7 @@
 import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import uuid from 'uuid-random';
 import '../css/smartags.css';
 import Tag from './tag';
 
@@ -26,10 +27,11 @@ const Smartags = ({
   >
     <label>{label}</label>
     <div className="smartags-container">
-      {tags.map(tag => (
+      {tags.map(({ name, id }) => (
         <Tag
-          {...tag}
-          key={tag.id}
+          name={name}
+          id={id}
+          key={id}
           remove={onRemoveTagById}
           isReadOnly={isReadOnly}
         />
@@ -46,8 +48,7 @@ const Smartags = ({
         disabled={isReadOnly}
       />
     </div>
-  </div>
-);
+  </div>);
 
 Smartags.propTypes = {
   onRemoveTagById: PropTypes.func.isRequired,

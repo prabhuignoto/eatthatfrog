@@ -1,6 +1,9 @@
 .ui-list-wrapper {
   width: 100%;
-  background: #fff; }
+  background: #fff;
+  border-radius: 4px;
+  padding: 10px 0;
+  box-shadow: inset 0px 0px 25px 3px rgba(0, 0, 0, 0.2); }
 
 .ui-list {
   list-style: none;
@@ -21,9 +24,16 @@
     align-items: center;
     justify-content: center;
     color: #fff;
-    margin: 2px 0; }
+    margin: 2px 0;
+    cursor: pointer;
+    font-size: 1em; }
+    .ui-list .ui-list-item.selected button {
+      color: #fff;
+      font-size: 1em; }
     .ui-list .ui-list-item button {
       background: none;
       border: none;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      cursor: pointer;
+      outline: none; }

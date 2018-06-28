@@ -29,6 +29,8 @@ const TaskForm = ({
   description,
   nameValidation,
   descValidation,
+  reminderEnabled,
+  formMode,
 }) => (
   <div className={classNames('form-container', { readonly: disabled })}>
     {/* form wrapper */}
@@ -57,6 +59,7 @@ const TaskForm = ({
         label={reminderLabel}
         disabled={disabled}
         onToggleChanged={onReminderChanged}
+        active={reminderEnabled}
       />
       <Smartags
         label={tagsLabel}
@@ -67,7 +70,7 @@ const TaskForm = ({
       <div className="form-controls">
         <Button
           disable={disableSaveBtn}
-          label="Create"
+          label={formMode === 'edit' ? 'Save changes' : 'Create'}
           onClick={handleSave}
         />
       </div>
@@ -99,12 +102,14 @@ TaskForm.propTypes = {
   disableSaveBtn: PropTypes.bool.isRequired,
 
   disabled: PropTypes.bool,
+  formMode: PropTypes.string,
 };
 
 TaskForm.defaultProps = {
   disabled: false,
   name: '',
   description: '',
+  formMode: 'create',
 };
 
 export default TaskForm;

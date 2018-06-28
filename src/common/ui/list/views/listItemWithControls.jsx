@@ -1,21 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Selectable from '../../interactions/selectable/views/selectable';
 import ListItem from './listItem';
 import '../css/withControls.css';
 
 const Controls = ({
   mainClass, listItemWrapperClass,
   toggleControls, listControlsWrapper, onComplete,
-  onDelete, name, onSelectableChange, on, id, onSelect,
+  onDelete, name, id, onSelect, selected,
 }) =>
   (
     <div
       className={mainClass}
     >
       <div className={listItemWrapperClass}>
-        <Selectable onChange={onSelectableChange} on={on} name={`selectable-${name}`} />
-        <ListItem name={name} id={id} onSelect={onSelect} />
+        <ListItem name={name} id={id} onSelect={onSelect} selected={selected} />
         <button
           className="open-list-control-config list-control-btn"
           onClick={toggleControls}
@@ -41,7 +39,6 @@ Controls.propTypes = {
   onComplete: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   toggleControls: PropTypes.func.isRequired,
-  onSelectableChange: PropTypes.func.isRequired,
   onSelect: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
 
@@ -49,7 +46,7 @@ Controls.propTypes = {
   id: PropTypes.string.isRequired,
   mainClass: PropTypes.string.isRequired,
   listItemWrapperClass: PropTypes.string.isRequired,
-  on: PropTypes.bool.isRequired,
+  selected: PropTypes.bool.isRequired,
 };
 
 export default Controls;

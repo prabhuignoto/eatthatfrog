@@ -2,13 +2,13 @@ import { compose, withStateHandlers } from 'recompose';
 import ToggleSwitch from './index';
 
 const initialState = ({
-  active = false, inActive = true, label, name,
+  active = false, label, name,
 }) => ({
   active,
-  inActive,
+  inActive: !active,
   label,
   name,
-  animationEnabled: false,
+  animationEnabled: active,
 });
 
 const stateHandlers = {

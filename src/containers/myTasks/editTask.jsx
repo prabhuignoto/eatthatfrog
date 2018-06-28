@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { compose, withProps } from 'recompose';
 import AddTask from '../addTask/index';
 
 const mapStateToProps = state => ({
@@ -6,4 +7,9 @@ const mapStateToProps = state => ({
   description: state.Task.selectedTask.description,
 });
 
-export default connect(mapStateToProps, null)(AddTask);
+export default compose(
+  connect(mapStateToProps, null),
+  withProps(() => ({
+    formMode: 'edit',
+  })),
+)(AddTask);

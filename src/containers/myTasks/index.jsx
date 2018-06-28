@@ -1,49 +1,72 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle, withStateHandlers } from 'recompose';
+import uuid from 'uuid-random';
 import MyTasks from '../../components/myTasks/views/myTasks';
-import { getAllTasks, updateLayoutType as UpdateLayout } from '../../actions';
+import { getAllTasks, updateLayoutType as UpdateLayout, getTaskDetails as GetTaskDetails } from '../../actions';
 
 const mapDispatchToProps = dispatch => ({
   getAllTasks: () => dispatch(getAllTasks()),
   updateLayoutType: type => dispatch(UpdateLayout(type)),
+  getTaskDetails: id => dispatch(GetTaskDetails(id)),
 });
 
-const mapStateToProps = state => ({ items: state.Task.allTasks });
+const mapStateToProps = ({ Task }) => {
+  const {
+    name, description, id: selectedTaskId, reminderEnabled, tags: taskTags,
+  } = Task.selectedTask;
+  return {
+    items: Task.allTasks.map((item) => {
+      let result = null;
+      if (item.id === Task.selectedTask.id) {
+        result = Object.assign(item, { selected: true });
+      } else {
+        result = Object.assign(item, { selected: false });
+      }
+      return result;
+    }),
+    selectedTaskId,
+    name,
+    description,
+    reminderEnabled,
+    taskTags,
+  };
+};
 
 const defaultLayouts = [{
-  title: 'List Only',
-  id: 'listonly',
-  selected: false,
-}, {
   title: 'Show All',
   id: 'showall',
-  selected: true,
+  selected: false,
 }, {
   title: 'Hide Filters',
   id: 'withoutfilters',
-  selected: false,
+  selected: true,
 }];
 
-const initialState = ({ layouts = defaultLayouts }) => ({
+const initialState = ({
+  layouts = defaultLayouts,
+  selectedTaskId = uuid(),
+  layoutType = 'withoutfilters',
+}) => ({
   layouts,
+  selectedTaskId,
+  layoutType,
 });
 
 const stateHandlers = {
-  onLayoutChange: ({ layouts }, { updateLayoutType }) => ({ target: { value: layoutType } }) => {
-    updateLayoutType(layoutType);
-    return {
-      layouts: layouts.map((x) => {
-        if (x.id === layoutType) {
-          return Object.assign({}, x, {
-            selected: true,
-          });
-        }
+  onLayoutChange: ({ layouts }) => ({ target: { value: layoutType } }) => ({
+    layouts: layouts.map((x) => {
+      if (x.id === layoutType) {
         return Object.assign({}, x, {
-          selected: false,
+          selected: true,
         });
-      }),
-    };
-  },
+      }
+      return Object.assign({}, x, {
+        selected: false,
+      });
+    }),
+    layoutType,
+  }),
+  onListItemSelected: (state, { getTaskDetails }) => id => getTaskDetails(id),
 };
 
 export default compose(

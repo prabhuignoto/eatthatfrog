@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../css/tag.css';
 
-const Tag = props => (
-  <div className="tag-wrapper" id={props.id}>
+const Tag = ({ name, id, remove }) => (
+  <div className="tag-wrapper" id={id}>
     <span className="tag-label">
-      {props.name}
+      {name}
     </span>
-    {!props.isReadOnly ? <button
+    <button
       className="tag-remove"
-      onClick={() => props.remove(props.id)}
-    /> : null}
+      onClick={() => remove(id)}
+    />
   </div>
 );
 
@@ -18,11 +18,9 @@ Tag.propTypes = {
   name: PropTypes.string.isRequired,
   remove: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
-  isReadOnly: PropTypes.bool,
 };
 
 Tag.defaultProps = {
-  isReadOnly: false,
 };
 
 export default Tag;

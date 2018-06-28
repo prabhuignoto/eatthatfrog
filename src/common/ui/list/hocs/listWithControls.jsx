@@ -18,11 +18,12 @@ const stateHandlers = {
 };
 
 const props = ({
-  showControls, animationEnabled, toggleControls, onComplete, onDelete, name, id,
+  showControls, animationEnabled, toggleControls, onComplete, onDelete, name, id, selected,
 }) => ({
   listItemWrapperClass: classNames('list-item-wrapper', {
     'reduce-size': showControls,
     'original-size': !showControls,
+    selected,
   }),
   listControlsWrapper: classNames('list-controls-wrapper', {
     show: showControls,

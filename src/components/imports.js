@@ -1,6 +1,6 @@
 // ui modules
 // import List from '../common/ui/list/views/list';
-import List from '../containers/myTasks/list';
+import List from '../common/ui/list/views/list';
 import Alert from '../common/ui/alert';
 import Popup from '../common/ui/popup/hocs/withEsc';
 import NotificationCenter from '../common/ui/notification/notificationCenter';

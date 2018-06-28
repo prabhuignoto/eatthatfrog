@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../css/listItem.css';
+import classNames from 'classnames';
 
-const ListItem = ({ id, onSelect, name }) => (
+const ListItem = ({
+  id, onSelect, name, selected,
+}) => (
   <div
-    className="ui-list-item"
+    className={classNames('ui-list-item', {
+      selected,
+    })}
     name={`list-item-${id}`}
     role="listitem"
   >
@@ -21,6 +25,11 @@ ListItem.propTypes = {
   name: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
+  selected: PropTypes.bool,
+};
+
+ListItem.defaultProps = {
+  selected: false,
 };
 
 export default ListItem;
