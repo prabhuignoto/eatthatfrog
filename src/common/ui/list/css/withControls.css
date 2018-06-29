@@ -3,7 +3,7 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
-  height: 42px; }
+  height: 45px; }
   .list-with-controls.animation-enabled .list-item-wrapper.reduce-size {
     animation-name: reduce-size;
     left: -80px; }
@@ -36,7 +36,7 @@
   transform: translateY(-50%);
   width: 100%;
   height: 96%;
-  background: #d3d3d3;
+  background: #dbdbdb;
   animation-duration: 250ms;
   animation-timing-function: ease-in;
   display: flex;
@@ -48,7 +48,12 @@
     width: 40px;
     height: 40px; }
   .list-item-wrapper.selected {
-    background: #679267; }
+    background: #9dc183; }
+    .list-item-wrapper.selected .open-list-control-config-icon {
+      background: url(../assets/bars-white.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50% 50%; }
 
 .list-controls-wrapper {
   position: absolute;
@@ -117,7 +122,7 @@
   display: block; }
 
 .open-list-control-config-icon {
-  background: url(../assets/menu.svg);
+  background: url(../assets/bars.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50% 50%; }

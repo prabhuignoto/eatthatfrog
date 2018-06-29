@@ -30,6 +30,21 @@ export default function (state = {
         selectedTask: action.task,
       });
     }
+    case 'DELETE_TASK_COMPLETE': {
+      return Object.assign({}, state, {
+        allTasks: state.allTasks.filter(x => x.id !== action.id),
+      });
+    }
+    case 'FINISH_TASK_COMPLETE': {
+      return Object.assign({}, state, {
+        allTasks: state.allTasks.map((x) => {
+          if (x.id === action.id) {
+            return Object.assign(x, { status: 'complete' });
+          }
+          return x;
+        }),
+      });
+    }
     default:
       return state;
   }

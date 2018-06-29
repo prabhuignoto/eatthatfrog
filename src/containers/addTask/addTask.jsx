@@ -8,8 +8,9 @@ const mapDispatchToProps = dispatch => (({
     description,
     reminderEnabled,
     tags,
+    status,
   ) => {
-    dispatch(saveTask(name, description, reminderEnabled, tags));
+    dispatch(saveTask(name, description, reminderEnabled, tags, status));
   },
 }));
 

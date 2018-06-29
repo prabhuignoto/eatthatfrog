@@ -15,7 +15,7 @@ const taskDeleteBtn = () => (
   </button>
 );
 
-const taskCompleteAlertBtn = withListAlert(taskDeleteBtn)(ConfirmDeletePopdwn);
-const taskDeleteAlertBtn = withListAlert(taskCompleteBtn)(ConfirmTaskPopdwn);
+const taskCompleteAlertBtn = withListAlert(taskCompleteBtn)(ConfirmTaskPopdwn);
+const taskDeleteAlertBtn = withListAlert(taskDeleteBtn)(ConfirmDeletePopdwn);
 
 export { taskCompleteAlertBtn, taskDeleteAlertBtn };

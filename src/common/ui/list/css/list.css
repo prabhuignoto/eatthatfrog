@@ -27,9 +27,34 @@
     margin: 2px 0;
     cursor: pointer;
     font-size: 1em; }
+    .ui-list .ui-list-item i {
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-left: 10px; }
+      .ui-list .ui-list-item i.complete {
+        background: url(../assets/check.svg);
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat; }
+      .ui-list .ui-list-item i.open {
+        background: url(../assets/exclamation.svg);
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat; }
     .ui-list .ui-list-item.selected button {
       color: #fff;
       font-size: 1em; }
+    .ui-list .ui-list-item.selected i.complete {
+      background: url(../assets/check-white.svg);
+      background-size: contain;
+      background-position: 50% 50%;
+      background-repeat: no-repeat; }
+    .ui-list .ui-list-item.selected i.open {
+      background: url(../assets/exclamation-white.svg);
+      background-size: contain;
+      background-position: 50% 50%;
+      background-repeat: no-repeat; }
     .ui-list .ui-list-item button {
       background: none;
       border: none;

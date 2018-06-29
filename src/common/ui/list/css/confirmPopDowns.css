@@ -14,15 +14,15 @@
     .conf-content .conf-button-controls button {
       border: none;
       background: #e4e4e4;
-      border-radius: 3px;
-      padding: 3px 8px;
+      border-radius: 2px;
+      padding: 5px 8px;
       margin: 2px 4px;
       min-width: 50px;
       text-align: center;
       cursor: pointer;
       text-transform: uppercase; }
   .conf-content.conf-task {
-    background: #9dc183;
+    background: #4682B4;
     color: #fff; }
   .conf-content.conf-delete {
     background: #C21807;

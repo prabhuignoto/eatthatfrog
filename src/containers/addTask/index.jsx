@@ -10,7 +10,8 @@ const initialState = ({
   taskTags = [{ name: 'Productivity', id: 'prod' }, { name: 'Excercise', id: 'excercise' }],
   nameValidation = { success: true, error: { reason: '' } },
   descValidation = { success: true, error: { reason: '' } },
-  formMode= 'create',
+  formMode = 'create',
+  status = 'open',
 }) => ({
   disableSaveBtn,
   nameValidationFailed: true,
@@ -22,6 +23,7 @@ const initialState = ({
   nameValidation,
   descValidation,
   formMode,
+  status,
 });
 
 export default compose(
@@ -54,8 +56,9 @@ export default compose(
       description,
       reminderEnabled,
       taskTags,
+      status,
     }, { saveTaskToDB }) => () => {
-      saveTaskToDB(name, description, reminderEnabled, taskTags);
+      saveTaskToDB(name, description, reminderEnabled, taskTags, status);
     },
     onReminderChanged: () => ({ active }) => ({
       reminderEnabled: active,

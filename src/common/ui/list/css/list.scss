@@ -31,10 +31,43 @@
     cursor: pointer;
     font-size: 1em;
 
+    i {
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      &.complete {  
+        background: url(../assets/check.svg);
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+      &.open {
+        background: url(../assets/exclamation.svg);
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+    }
+
     &.selected {
       button {
         color: #fff;
         font-size: 1em;
+      }
+      i {
+        &.complete {
+          background: url(../assets/check-white.svg);
+          background-size: contain;
+          background-position: 50% 50%;
+          background-repeat: no-repeat;
+        }
+        &.open {
+          background: url(../assets/exclamation-white.svg);
+          background-size: contain;
+          background-position: 50% 50%;
+          background-repeat: no-repeat;
+        }
       }
     }
     &:nth-child(odd) {

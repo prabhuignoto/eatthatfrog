@@ -1,10 +1,11 @@
-export function saveTask(name, description, reminderEnabled, tags) {
+export function saveTask(name, description, reminderEnabled, tags, status) {
   return {
     type: 'SAVE_TASK_TO_DB',
     name,
     description,
     reminderEnabled,
     tags,
+    status,
   };
 }
 
@@ -50,3 +51,16 @@ export function updateLayoutType(type) {
   };
 }
 
+export function deleteTask(id) {
+  return {
+    type: 'DELETE_TASK',
+    id,
+  };
+}
+
+export function finishTask(id) {
+  return {
+    type: 'FINISH_TASK',
+    id,
+  };
+}

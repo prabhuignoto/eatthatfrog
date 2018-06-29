@@ -34,13 +34,14 @@ export default class Storage {
    * @param {string} description
    * @memberof Storage
    */
-  addTask(id, name, description, reminderEnabled, tags) {
+  addTask(id, name, description, reminderEnabled, tags, status) {
     this.store.tasks.push({
       id,
       name,
       description,
       reminderEnabled,
       tags,
+      status,
     });
     Helper.saveStore(this.store);
   }
@@ -51,7 +52,17 @@ export default class Storage {
    * @memberof Storage
    */
   deleteTask(id) {
-    this.store.tasks = _.reject(this.store.tasks, item => item === id);
+    this.store.tasks = _.reject(this.store.tasks, item => item.id === id);
+    Helper.saveStore(this.store);
+  }
+
+  finishTask(id) {
+    this.store.tasks = _.map(this.store.tasks, (item) => {
+      if (item.id === id) {
+        return Object.assign({}, item, { status: 'complete' });
+      }
+      return item;
+    });
     Helper.saveStore(this.store);
   }
 

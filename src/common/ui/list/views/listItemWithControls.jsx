@@ -9,8 +9,8 @@ import '../css/withControls.css';
 
 const Controls = ({
   mainClass, listItemWrapperClass,
-  toggleControls, listControlsWrapper, onComplete,
-  onDelete, name, id, onSelect, selected,
+  toggleControls, listControlsWrapper,
+  name, id, onSelect, selected, status,
 }) =>
   (
     <div
@@ -20,7 +20,7 @@ const Controls = ({
       <div
         className={listItemWrapperClass}
       >
-        <ListItem name={name} id={id} onSelect={onSelect} selected={selected} />
+        <ListItem name={name} id={id} onSelect={onSelect} selected={selected} status={status} />
         <button
           className="open-list-control-config list-control-btn"
           onClick={toggleControls}
@@ -31,16 +31,23 @@ const Controls = ({
 
       <div className={listControlsWrapper}>
         <div className="list-controls" >
-          <TaskCompleteBtn portalTarget={`list-controls-${id}`} />
-          <TaskDelBtn portalTarget={`list-controls-${id}`} />
+          {status === 'open' ?
+            <TaskCompleteBtn
+              portalTarget={`list-controls-${id}`}
+              id={id}
+              title="Finish Task."
+            /> : null }
+          <TaskDelBtn
+            portalTarget={`list-controls-${id}`}
+            id={id}
+            title="Delete Task"
+          />
         </div>
       </div>
     </div>
   );
 
 Controls.propTypes = {
-  onComplete: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
   toggleControls: PropTypes.func.isRequired,
   onSelect: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
@@ -50,6 +57,7 @@ Controls.propTypes = {
   mainClass: PropTypes.string.isRequired,
   listItemWrapperClass: PropTypes.string.isRequired,
   selected: PropTypes.bool.isRequired,
+  status: PropTypes.string.isRequired,
 };
 
 export default Controls;

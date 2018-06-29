@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const ListItem = ({
-  id, onSelect, name, selected,
+  id, onSelect, name, selected, status,
 }) => (
   <div
     className={classNames('ui-list-item', {
@@ -12,6 +12,7 @@ const ListItem = ({
     name={`list-item-${id}`}
     role="listitem"
   >
+    <i className={status} />
     <button
       onClick={() => onSelect(id)}
       onKeyPress={onSelect}
@@ -26,6 +27,7 @@ ListItem.propTypes = {
   onSelect: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
   selected: PropTypes.bool,
+  status: PropTypes.string.isRequired,
 };
 
 ListItem.defaultProps = {

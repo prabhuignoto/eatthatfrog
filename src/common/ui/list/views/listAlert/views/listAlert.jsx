@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import '../css/listalert.css';
 
 const ListAlert = ({
-  children, hide, visible, portalTarget,
+  children, hide, visible, portalTarget, removeTask, completeTask,
 }) => {
   const view = (
     <div
@@ -19,7 +19,11 @@ const ListAlert = ({
       <div className="listalert-body">
         {React.Children.map(
           children,
-          child => React.cloneElement(child, { cancel: hide }),
+          child => React.cloneElement(child, {
+            cancel: hide,
+            remove: removeTask,
+            complete: completeTask,
+          }),
         )}
       </div>
     </div>);

@@ -13,8 +13,9 @@ function* watchSaveTaskToDB() {
     description,
     reminderEnabled,
     tags,
+    status,
   }) {
-    Storage.get().addTask(uuid(), name, description, reminderEnabled, tags);
+    Storage.get().addTask(uuid(), name, description, reminderEnabled, tags, status);
     yield put('SAVE_TASK_TO_DB_COMPLETE');
   });
 }
@@ -37,6 +38,26 @@ function* watchGetTaskDetails() {
   });
 }
 
+function* watchDeleteTask() {
+  yield takeEvery('DELETE_TASK', function* deleteTask({ id }) {
+    Storage.get().deleteTask(id);
+    yield put({ type: 'DELETE_TASK_COMPLETE', id });
+  });
+}
+
+function* watchFinishTask() {
+  yield takeEvery('FINISH_TASK', function* finishTask({ id }) {
+    Storage.get().finishTask(id);
+    yield put({ type: 'FINISH_TASK_COMPLETE', id });
+  });
+}
+
 export default function* () {
-  yield all([fork(watchSaveTaskToDB), fork(watchGetTaskDetails), fork(watchEditTask)]);
+  yield all([
+    fork(watchSaveTaskToDB),
+    fork(watchGetTaskDetails),
+    fork(watchEditTask),
+    fork(watchDeleteTask),
+    fork(watchFinishTask),
+  ]);
 }
