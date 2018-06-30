@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import uuid from 'uuid-random';
@@ -6,18 +6,19 @@ import 'bulma/css/bulma.css';
 import Form from '../../../containers/myTasks/editTask';
 import LayoutManager from './layoutManager';
 import { List } from '../../imports';
-import Filters from './filter';
+import Filters from '../../../containers/myTasks/filters';
+import Toolbar from './toolbar';
 import '../css/myTasks.css';
 
 const myTasks = ({
   items, layoutType, layouts, onLayoutChange, onListItemSelected,
-  name, description, reminderEnabled, taskTags,
+  name, description, reminderEnabled, taskTags, showFilters, filtersVisible, onFilterClosed,
 }) => {
   const filterWrapperClass = classNames(
     'mytasks-filter-wrapper',
-    'column',
-    'is-one-fifth-desktop', {
-      'is-hidden': (layoutType === 'withoutfilters'),
+    // 'column',
+    'column', {
+      // 'is-hidden': (layoutType === 'withoutfilters'),
     },
   );
   const listWrapperClass = classNames(
@@ -38,11 +39,13 @@ const myTasks = ({
   );
   return (
     <div className="container mytasks-container">
-      <LayoutManager onLayoutChange={onLayoutChange} layouts={layouts} />
-      <div className="columns is-multiline is-centered is-variable is-3">
-        <div className={filterWrapperClass}>
-          <Filters />
+      <div className="tasks-header">
+        <Toolbar showFilters={showFilters} />
+        <div style={{ marginLeft: 'auto' }}>
+          <LayoutManager onLayoutChange={onLayoutChange} layouts={layouts} />
         </div>
+      </div>
+      <div className="columns is-multiline is-centered is-variable is-3">
         <div className={listWrapperClass}>
           <List items={items} onSelect={onListItemSelected} />
         </div>
@@ -56,6 +59,12 @@ const myTasks = ({
           />
         </div>
       </div>
+
+      <Fragment>
+        <div className={filterWrapperClass}>
+          {filtersVisible ? <Filters onFilterClosed={onFilterClosed} /> : null }
+        </div>
+      </Fragment>
     </div>);
 };
 
@@ -79,6 +88,8 @@ myTasks.propTypes = {
     name: PropTypes.string,
     id: PropTypes.string,
   })).isRequired,
+  showFilters: PropTypes.func.isRequired,
+  filtersVisible: PropTypes.bool.isRequired,
 };
 
 myTasks.defaultProps = {

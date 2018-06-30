@@ -1,0 +1,66 @@
+.toolbar-wrapper {
+  height: 50px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+  .toolbar-wrapper .toolbar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; }
+    .toolbar-wrapper .toolbar .toolbar-item {
+      height: 35px;
+      background: black;
+      border-radius: 4px;
+      margin: 0 4px;
+      font-size: 0.9em;
+      box-shadow: inset 0px 0px 10px 1px rgba(189, 189, 189, 0.5);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer; }
+      .toolbar-wrapper .toolbar .toolbar-item button {
+        border: none;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        width: 40px;
+        height: 30px;
+        outline: none;
+        cursor: pointer; }
+        .toolbar-wrapper .toolbar .toolbar-item button.add-task-btn {
+          background: url(../assets/plus.svg);
+          background-repeat: no-repeat;
+          background-size: 40%;
+          background-position: 50%; }
+        .toolbar-wrapper .toolbar .toolbar-item button.apply-filters-btn {
+          background: url(../assets/filter.svg);
+          background-repeat: no-repeat;
+          background-size: 40%;
+          background-position: 50%; }
+    .toolbar-wrapper .toolbar .searchbox-container {
+      width: 100%; }
+      .toolbar-wrapper .toolbar .searchbox-container .search {
+        margin: 0;
+        padding: 5px 10px;
+        height: 100%;
+        width: 100%;
+        border: none;
+        outline: none; }
+  .toolbar-wrapper .filters-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    top: 102%;
+    z-index: 100;
+    width: 300px;
+    height: 30px;
+    background: #fff; }
+    .toolbar-wrapper .filters-wrapper:after {
+      content: ''; }

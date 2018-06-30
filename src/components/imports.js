@@ -9,6 +9,7 @@ import Button from '../common/ui/controls/button/default';
 import Smartags from '../common/ui/smartags';
 import RadioGroup from '../common/ui/radiogroup/hocs/radioGroup';
 import ToggleSwitch from '../common/ui/toggle-switch/toggle-default';
+import ToggleSwitchSimple from '../common/ui/toggle-switch';
 import SearchBox from '../common/ui/searchbox';
 import Selectable from '../common/ui/interactions/selectable/default';
 import withValidation from '../common/ui/controls/inputs/hocs/validation';
@@ -24,6 +25,7 @@ export { List,
   ToggleSwitch,
   SearchBox,
   Selectable,
+  ToggleSwitchSimple,
 };
 
 const [TextInputWithValidation, TextAreaWithValidation] = [

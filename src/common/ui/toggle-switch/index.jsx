@@ -6,12 +6,12 @@ import './toggle-switch.css';
 const getId = name => `toggle-switch-${name}`;
 
 const ToggleSwitch = ({
-  active, inActive, animationEnabled, label, onToggle, name,
+  active, animationEnabled, label, onToggle, name,
 }) => {
   const id = getId(name);
   const toggleSwitchClass = classNames('toggle-switch-container', {
     on: active,
-    off: inActive,
+    off: !active,
     'animation-enabled': animationEnabled,
   });
   return (
@@ -39,8 +39,11 @@ ToggleSwitch.propTypes = {
   name: PropTypes.string.isRequired,
   onToggle: PropTypes.func.isRequired,
   active: PropTypes.bool.isRequired,
-  inActive: PropTypes.bool.isRequired,
-  animationEnabled: PropTypes.bool.isRequired,
+  animationEnabled: PropTypes.bool,
+};
+
+ToggleSwitch.defaultProps = {
+  animationEnabled: true,
 };
 
 export default ToggleSwitch;

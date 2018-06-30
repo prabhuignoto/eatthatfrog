@@ -12,11 +12,11 @@ const initialState = ({
 });
 
 const stateHandlers = {
-  onToggle: ({ active, inActive }, { onToggleChanged }) => () => {
+  onToggle: ({ active }, { onToggleChanged }) => () => {
     let result = null;
     result = {
       active: !active,
-      inActive: !inActive,
+      inActive: !active,
       animationEnabled: true,
     };
     onToggleChanged(result);

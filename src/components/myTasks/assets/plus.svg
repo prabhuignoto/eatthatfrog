@@ -10,7 +10,7 @@
    viewBox="0 0 448 512"
    version="1.1"
    id="svg4"
-   sodipodi:docname="bars.svg"
+   sodipodi:docname="plus.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <metadata
      id="metadata10">
@@ -39,14 +39,15 @@
      id="namedview6"
      showgrid="false"
      inkscape:zoom="0.4609375"
-     inkscape:cx="-515.79662"
+     inkscape:cx="-145.89831"
      inkscape:cy="256"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4" />
   <path
-     d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+     d="M 416,214.50847 H 272 V 70.508475 c 0,-17.67 -14.33,-32 -32,-32 h -32 c -17.67,0 -32,14.33 -32,32 V 214.50847 H 32 c -17.67,0 -32,14.33 -32,32 v 32 c 0,17.67 14.33,32 32,32 h 144 v 144 c 0,17.67 14.33,32 32,32 h 32 c 17.67,0 32,-14.33 32,-32 v -144 h 144 c 17.67,0 32,-14.33 32,-32 v -32 c 0,-17.67 -14.33,-32 -32,-32 z"
      id="path2"
-     style="fill:#656565;fill-opacity:1" />
+     style="fill:#656565;fill-opacity:1"
+     inkscape:connector-curvature="0" />
 </svg>

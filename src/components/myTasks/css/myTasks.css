@@ -31,41 +31,34 @@
   .mytasks-container .columns {
     height: 100%;
     width: 100%; }
+  .mytasks-container .tasks-header {
+    border: 1p xoslid black;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15px; }
 
 .mytasks-form-wrapper {
   padding: 10px; }
 
 .mytasks-filter-wrapper {
-  position: relative;
-  height: 100%; }
-  .mytasks-filter-wrapper .close-filters {
-    background: none;
-    position: absolute;
-    right: 24px;
-    top: 18px;
-    background: #fff;
-    height: 18px;
-    width: 18px;
-    border: none;
-    padding: 2px; }
-    .mytasks-filter-wrapper .close-filters .close-filters-icon {
-      width: 18px;
-      height: 18px;
-      display: block;
-      background: url(../assets/times.svg);
-      background-position: 50% 50%;
-      background-size: contain;
-      background-repeat: no-repeat;
-      position: absolute;
-      left: 0;
-      right: 0;
-      margin-left: auto;
-      margin-right: auto;
-      top: 50%;
-      transform: translateY(-50%); }
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0; }
 
 .list-wrapper {
   height: 100%; }
 
 .form-wrapper {
   height: 100%; }
+
+.mytasks-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 100;
+  top: 0; }

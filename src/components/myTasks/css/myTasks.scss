@@ -37,6 +37,16 @@
   }
   position: relative;
   background: #9dc183;
+
+  .tasks-header {
+    border:1p xoslid black;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+  }
 }
 
 .mytasks-form-wrapper {
@@ -44,38 +54,14 @@
 }
 
 .mytasks-filter-wrapper {
-  position: relative;
+  // position: relative;
+  // position: absolute;
   height: 100%;
-  .close-filters {
-    background: none;
-    position: absolute;
-    right: 24px;
-    top: 18px;
-    background: #fff;
-    // border-radius: 50%;
-    height: 18px;
-    width: 18px;
-    // box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
-    border: none;
-    padding:2px;
-
-    .close-filters-icon {
-      width: 18px;
-      height: 18px;
-      display: block;
-      background: url(../assets/times.svg);
-      background-position: 50% 50%;
-      background-size: contain;
-      background-repeat: no-repeat;
-      position: absolute;
-      left: 0;
-      right: 0;
-      margin-left: auto;
-      margin-right: auto;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
+  width: 100%;
+  left:0;
+  top:0;
+  // width: 100%;
+  // z-index: 200;
 }
 
 .list-wrapper {
@@ -84,4 +70,13 @@
 
 .form-wrapper {
   height: 100%;
+}
+
+.mytasks-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  z-index: 100;
+  top: 0;
 }

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { compose, lifecycle, withStateHandlers } from 'recompose';
+import { compose, lifecycle, withStateHandlers, defaultProps } from 'recompose';
 import uuid from 'uuid-random';
 import MyTasks from '../../components/myTasks/views/myTasks';
 import { getAllTasks, updateLayoutType as UpdateLayout, getTaskDetails as GetTaskDetails } from '../../actions';
@@ -46,10 +46,12 @@ const initialState = ({
   layouts = defaultLayouts,
   selectedTaskId = uuid(),
   layoutType = 'withoutfilters',
+  filtersVisible = false,
 }) => ({
   layouts,
   selectedTaskId,
   layoutType,
+  filtersVisible,
 });
 
 const stateHandlers = {
@@ -58,7 +60,7 @@ const stateHandlers = {
       if (x.id === layoutType) {
         return Object.assign({}, x, {
           selected: true,
-        });
+      });
       }
       return Object.assign({}, x, {
         selected: false,
@@ -66,7 +68,13 @@ const stateHandlers = {
     }),
     layoutType,
   }),
+  showFilters: () => () => ({
+    filtersVisible: true,
+  }),
   onListItemSelected: (state, { getTaskDetails }) => id => getTaskDetails(id),
+  onFilterClosed: () => () => ({
+    filtersVisible: false,
+  }),
 };
 
 export default compose(
