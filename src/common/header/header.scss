@@ -1,11 +1,12 @@
 .product-header {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    height: 100px;
-
+    align-items: flex-start;
+    justify-content: center;
+    width: 10%;
+    height: 100vh;
+    padding-top: 20px;
+    background: #9dc183;
     .product-title {
         font-size: 1.2em;
         color: #000;
@@ -15,7 +16,12 @@
         align-self: flex-start;
     }
     .product-logo-wrapper {
-        margin-left: auto;
-        margin-right: 20px;
+        // margin-left: auto;
+        // margin-right: 20px;
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: CENTER;
+        }
     }
 }

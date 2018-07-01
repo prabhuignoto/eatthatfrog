@@ -16,17 +16,17 @@ const initialState = ({
 });
 
 const stateHandlers = {
-  onFilterToday: ({ filterToday }) => () => ({
-    filterToday: !filterToday,
+  onTodayChecked: ({ todayEnabled }) => () => ({
+    todayEnabled: !todayEnabled,
   }),
-  onFilterOlder: ({ filterOlder }) => () => ({
-    filterOlder: !filterOlder,
+  onOlderChecked: ({ olderEnabled }) => () => ({
+    olderEnabled: !olderEnabled,
   }),
-  onFilterOpen: ({ filterOpen }) => () => ({
-    filterOpen: !filterOpen,
+  onOpenChecked: ({ openEnabled }) => () => ({
+    openEnabled: !openEnabled,
   }),
-  onFilterCompleted: ({ filterCompleted }) => () => ({
-    filterCompleted: !filterCompleted,
+  onCompletedChecked: ({ completedEnabled }) => () => ({
+    completedEnabled: !completedEnabled,
   }),
   closeFilters: (state, { onFilterClosed }) => () => {
     onFilterClosed();

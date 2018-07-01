@@ -4,15 +4,16 @@ import classNames from 'classnames';
 import uuid from 'uuid-random';
 import 'bulma/css/bulma.css';
 import Form from '../../../containers/myTasks/editTask';
+import AddForm from '../../../containers/addTask/addTask';
 import LayoutManager from './layoutManager';
 import { List } from '../../imports';
-import Filters from '../../../containers/myTasks/filters';
 import Toolbar from './toolbar';
 import '../css/myTasks.css';
 
 const myTasks = ({
   items, layoutType, layouts, onLayoutChange, onListItemSelected,
   name, description, reminderEnabled, taskTags, showFilters, filtersVisible, onFilterClosed,
+  createMode, onAddTask, onBack,
 }) => {
   const filterWrapperClass = classNames(
     'mytasks-filter-wrapper',
@@ -40,31 +41,42 @@ const myTasks = ({
   return (
     <div className="container mytasks-container">
       <div className="tasks-header">
-        <Toolbar showFilters={showFilters} />
+        <Toolbar
+          showFilters={showFilters}
+          onAddTask={onAddTask}
+          showBackButton={createMode}
+          onBack={onBack}
+          filtersVisible={filtersVisible}
+          onFilterClosed={onFilterClosed}
+        />
         <div style={{ marginLeft: 'auto' }}>
           <LayoutManager onLayoutChange={onLayoutChange} layouts={layouts} />
         </div>
       </div>
       <div className="columns is-multiline is-centered is-variable is-3">
-        <div className={listWrapperClass}>
-          <List items={items} onSelect={onListItemSelected} />
-        </div>
-        <div className={formWrapperClass}>
-          <Form
-            name={name}
-            description={description}
-            reminderEnabled={reminderEnabled}
-            taskTags={taskTags}
-            key={uuid()}
-          />
-        </div>
+        { !createMode ?
+          <Fragment>
+            <div className={listWrapperClass}>
+              <List items={items} onSelect={onListItemSelected} />
+            </div>
+            <div className={formWrapperClass}>
+              <Form
+                name={name}
+                description={description}
+                reminderEnabled={reminderEnabled}
+                taskTags={taskTags}
+                key={uuid()}
+              />
+            </div>
+          </Fragment> :
+          <div className="column is-half-desktop">
+            <div className="add-form-wrapper">
+              <AddForm />
+            </div>
+          </div>
+        }
       </div>
 
-      <Fragment>
-        <div className={filterWrapperClass}>
-          {filtersVisible ? <Filters onFilterClosed={onFilterClosed} /> : null }
-        </div>
-      </Fragment>
     </div>);
 };
 
@@ -100,3 +112,4 @@ myTasks.defaultProps = {
 };
 
 export default myTasks;
+

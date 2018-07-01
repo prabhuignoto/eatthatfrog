@@ -4,9 +4,9 @@ import './header.css';
 
 const Header = () => (
   <div className="product-header">
-    <span className="product-title">Eat That Frog</span>
     <div className="product-logo-wrapper">
       <Logo size="l" />
+      <span className="product-title">Eat That Frog</span>
     </div>
   </div>
 );

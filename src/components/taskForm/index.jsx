@@ -102,14 +102,13 @@ TaskForm.propTypes = {
   disableSaveBtn: PropTypes.bool.isRequired,
 
   disabled: PropTypes.bool,
-  formMode: PropTypes.string,
+  formMode: PropTypes.string.isRequired,
 };
 
 TaskForm.defaultProps = {
   disabled: false,
   name: '',
   description: '',
-  formMode: 'create',
 };
 
 export default TaskForm;

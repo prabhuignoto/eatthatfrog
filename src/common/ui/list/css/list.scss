@@ -33,17 +33,17 @@
 
     i {
       display: block;
-      width: 20px;
-      height: 20px;
+      width: 14px;
+      height: 14px;
       margin-left: 10px;
       &.complete {  
-        background: url(../assets/check.svg);
+        background: url(../assets/circle-green.svg);
         background-size: contain;
         background-position: 50% 50%;
         background-repeat: no-repeat;
       }
       &.open {
-        background: url(../assets/exclamation.svg);
+        background: url(../assets/circle-amber.svg);
         background-size: contain;
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -57,16 +57,16 @@
       }
       i {
         &.complete {
-          background: url(../assets/check-white.svg);
-          background-size: contain;
-          background-position: 50% 50%;
-          background-repeat: no-repeat;
+          // background: url(../assets/check-white.svg);
+          // background-size: contain;
+          // background-position: 50% 50%;
+          // background-repeat: no-repeat;
         }
         &.open {
-          background: url(../assets/exclamation-white.svg);
-          background-size: contain;
-          background-position: 50% 50%;
-          background-repeat: no-repeat;
+          // background: url(../assets/exclamation-white.svg);
+          // background-size: contain;
+          // background-position: 50% 50%;
+          // background-repeat: no-repeat;
         }
       }
     }

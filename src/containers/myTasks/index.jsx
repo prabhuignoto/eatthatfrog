@@ -47,11 +47,13 @@ const initialState = ({
   selectedTaskId = uuid(),
   layoutType = 'withoutfilters',
   filtersVisible = false,
+  createMode = false,
 }) => ({
   layouts,
   selectedTaskId,
   layoutType,
   filtersVisible,
+  createMode,
 });
 
 const stateHandlers = {
@@ -60,7 +62,7 @@ const stateHandlers = {
       if (x.id === layoutType) {
         return Object.assign({}, x, {
           selected: true,
-      });
+        });
       }
       return Object.assign({}, x, {
         selected: false,
@@ -74,6 +76,12 @@ const stateHandlers = {
   onListItemSelected: (state, { getTaskDetails }) => id => getTaskDetails(id),
   onFilterClosed: () => () => ({
     filtersVisible: false,
+  }),
+  onAddTask: () => () => ({
+    createMode: true,
+  }),
+  onBack: () => () => ({
+    createMode: false,
   }),
 };
 

@@ -1,73 +1,69 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import 'bulma/css/bulma.css';
 import { ToggleSwitchSimple as ToggleSwitch } from '../../imports';
 import '../css/filter.css';
 
+const ListItem = ({ onChecked, selected, label }) => (
+  <li
+    className={classNames('filters-list-item', {
+            selected,
+    })}
+    onClick={onChecked}
+    tabIndex="0"
+    onKeyUp={(ev) => {
+    if (ev.which === 13) {
+      onChecked();
+    }
+  }}
+  ><i className="filters-list-item-icon" /><span className="filters-list-item-label">{label}</span>
+  </li>);
+
+ListItem.propTypes = {
+  onChecked: PropTypes.func.isRequired,
+  selected: PropTypes.bool.isRequired,
+  label: PropTypes.string.isRequired,
+};
+
+
 const filter = ({
-  onFilterToday, onFilterOlder, filterToday, filterOlder,
-  filterOpen, filterCompleted, onFilterOpen, onFilterCompleted, closeFilters, show,
-}) => (show ?
-  <Fragment>
-    <div className="filters-overlay">
-      <div className="container filters-main">
-        <div className="filters-container columns">
-          <div className="filters-wrapper column is-half-desktop">
-            <div className="filters">
-              <h2>Time</h2>
-              <div className="filters-grp-container">
-                <ToggleSwitch
-                  name="days-filter-today"
-                  label="Todays"
-                  onToggle={onFilterToday}
-                  active={filterToday}
-                />
-                <ToggleSwitch
-                  name="days-filter-older"
-                  label="Older"
-                  onToggle={onFilterOlder}
-                  active={filterOlder}
-                />
-              </div>
-            </div>
-            <br />
-            <div className="filters">
-              <h2>Status</h2>
-              <div className="filters-grp-container">
-                <ToggleSwitch
-                  name="status-filter-open"
-                  label="Open"
-                  onToggle={onFilterOpen}
-                  active={filterOpen}
-                />
-                <ToggleSwitch
-                  name="status-filter-completed"
-                  label="Completed"
-                  onToggle={onFilterCompleted}
-                  active={filterCompleted}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="filters-wrapper column is-half-desktop">
-            <div className="filters filter-tags"></div>
-          </div>
+  closeFilters, show, onTodayChecked, onOlderChecked, onOpenChecked, onCompletedChecked,
+  todayEnabled, olderEnabled, openEnabled, completedEnabled,
+}) => (
+  show ?
+    <Fragment>
+      <div className="filters-container">
+        <div className="filters">
+          <h2>Time</h2>
+          <ul className="filters-list">
+            <ListItem label="Today" onChecked={onTodayChecked} selected={todayEnabled} />
+            <ListItem label="Older" onChecked={onOlderChecked} selected={olderEnabled} />
+          </ul>
+        </div>
+        <div className="filters">
+          <h2>Status</h2>
+          <ul className="filters-list">
+            <ListItem label="Open" onChecked={onOpenChecked} selected={openEnabled} />
+            <ListItem label="Completed" onChecked={onCompletedChecked} selected={completedEnabled} />
+          </ul>
         </div>
         <button className="close-filters" onClick={closeFilters} />
       </div>
-    </div>
-  </Fragment> : null
+    </Fragment> : null
 );
 
 filter.propTypes = {
-  onFilterOlder: PropTypes.func.isRequired,
-  onFilterToday: PropTypes.func.isRequired,
-  filterToday: PropTypes.bool.isRequired,
-  filterOlder: PropTypes.bool.isRequired,
-  onFilterOpen: PropTypes.func.isRequired,
-  onFilterCompleted: PropTypes.func.isRequired,
-  filterOpen: PropTypes.bool.isRequired,
-  filterCompleted: PropTypes.bool.isRequired,
+  onTodayChecked: PropTypes.bool.isRequired,
+  onOlderChecked: PropTypes.bool.isRequired,
+  onOpenChecked: PropTypes.bool.isRequired,
+  onCompletedChecked: PropTypes.bool.isRequired,
+
+  todayEnabled: PropTypes.bool.isRequired,
+  olderEnabled: PropTypes.bool.isRequired,
+  openEnabled: PropTypes.bool.isRequired,
+  completedEnabled: PropTypes.bool.isRequired,
+
   closeFilters: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
 };
