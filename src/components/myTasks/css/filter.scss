@@ -1,29 +1,23 @@
-
 .filters-container {
   // padding: 3px;
-  border-radius: 5px;
-  background: #fff;
-  // box-shadow: inset 0px 0px 25px 3px rgba(0, 0, 0, 0.2);
+  background: #fff; // box-shadow: inset 0px 0px 25px 3px rgba(0, 0, 0, 0.2);
   height: 100%;
-  border-radius: 3px;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-
   &::after {
     content: '';
     display: block;
     width: 40px;
     height: 40px;
     position: absolute;
-    left:0;
+    left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    top:-24px;
+    top: -24px;
     background: url(../assets/caret-up.svg);
     background-size: contain;
     background-position: 50%;
@@ -40,81 +34,81 @@
 }
 
 .filters {
-  align-items: center;
-  // justify-content: center;
+  align-items: center; // justify-content: center;
   color: #000;
-  border-radius: 5px;
   height: 100px;
   width: 100%;
   display: flex;
   flex-direction: column;
-   h2 {
-     align-self: flex-start;
-     background: #dbdbdb;
-      height: 30px;
-      line-height: 30px;
+  &:first-child {
+    h2 {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+  }
+  h2 {
+    align-self: flex-start;
+    background: #dbdbdb;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    padding-left: 10px;
+    text-transform: uppercase;
+    
+  }
+  .filters-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    .filters-list-item {
+      margin: 0;
       width: 100%;
-      padding-left: 10px;
-      text-transform: uppercase;
-
-      &:first-child {
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
+      height: 32px;
+      line-height: 32px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: flex-start;
+      outline: none;
+      &::hover {
+        color: #000;
       }
-   }
-   .filters-list {
-     list-style-type: none;
-     padding: 0;
-     width: 100%;
-     .filters-list-item {
-        margin: 0;
-        width: 100%;
-        height: 32px;
-        line-height: 32px;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: flex-start;
-        outline: none;
-        &::hover {
-          color: #000;
-        }
+      .filters-list-item-icon {
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        width: 14px;
+        height: 14px;
+        margin-left: 10px;
+        margin-right: 3px;
+        display: block;
+      }
+      .filters-list-item-label {
+        padding-left: 6px;
+        user-select: none;
+        font-size: 0.9em;
+      }
+      &.selected {
         .filters-list-item-icon {
-          background-size: contain;
-          background-position: 50% 50%;
-          background-repeat: no-repeat;
-          width: 14px;
-          height: 14px;
-          margin-left: 10px;
-          margin-right: 3px;
-          display: block;
+          background: url(../assets/tick.svg);
         }
-        .filters-list-item-label {
-          padding-left: 6px;
-          user-select: none;
-          font-size: 0.9em;
-        }
-        &.selected {
-         .filters-list-item-icon {
-           background: url(../assets/tick.svg);
-         } 
-        }
-     }
-   }
+      }
+    }
+  }
 }
 
 .close-filters {
-  background: url(../assets/times.svg);
+  background: url(/static/media/times.9ee149e7.svg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 50%;
   background-position: 50%;
   border: none;
   position: absolute;
-  right: 7px;
-  top: 6px;
-  width: 15px;
-  height: 15px;
+  right: 2px;
+  top: 1px;
+  width: 25px;
+  height: 25px;
   outline: none;
   cursor: pointer;
 }

@@ -4,6 +4,12 @@ export default function (state = {
     name: '',
     description: '',
   },
+  filter: {
+    today: true,
+    older: false,
+    open: true,
+    completed: false,
+  },
 }, action) {
   switch (action.type) {
     case 'ADD_TASK':
@@ -43,6 +49,16 @@ export default function (state = {
           }
           return x;
         }),
+      });
+    }
+    case 'UPDATE_FILTERS': {
+      return Object.assign({}, state, {
+        filter: action.filter,
+      });
+    }
+    case 'FINISH_UPDATE_FILTERS': {
+      return Object.assign({}, state, {
+        filter: action.filter,
       });
     }
     default:

@@ -16,6 +16,7 @@ const Controls = ({
     <div
       className={mainClass}
       id={`list-controls-${id}`}
+      key={`list-controls-${id}`}
     >
       <div
         className={listItemWrapperClass}

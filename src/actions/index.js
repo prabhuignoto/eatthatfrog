@@ -64,3 +64,10 @@ export function finishTask(id) {
     id,
   };
 }
+
+export function updateFilters(filter) {
+  return {
+    type: 'UPDATE_FILTERS',
+    filter,
+  };
+}

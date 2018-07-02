@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { compose, lifecycle, withStateHandlers, defaultProps } from 'recompose';
+import { compose, lifecycle, withStateHandlers } from 'recompose';
 import uuid from 'uuid-random';
+import getAllTasksSelector from '../../selectors/myTasks';
 import MyTasks from '../../components/myTasks/views/myTasks';
 import { getAllTasks, updateLayoutType as UpdateLayout, getTaskDetails as GetTaskDetails } from '../../actions';
 
@@ -15,15 +16,7 @@ const mapStateToProps = ({ Task }) => {
     name, description, id: selectedTaskId, reminderEnabled, tags: taskTags,
   } = Task.selectedTask;
   return {
-    items: Task.allTasks.map((item) => {
-      let result = null;
-      if (item.id === Task.selectedTask.id) {
-        result = Object.assign(item, { selected: true });
-      } else {
-        result = Object.assign(item, { selected: false });
-      }
-      return result;
-    }),
+    items: getAllTasksSelector(Task),
     selectedTaskId,
     name,
     description,
@@ -87,10 +80,10 @@ const stateHandlers = {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
+  withStateHandlers(initialState, stateHandlers),
   lifecycle({
     componentDidMount() {
       this.props.getAllTasks();
     },
   }),
-  withStateHandlers(initialState, stateHandlers),
 )(MyTasks);

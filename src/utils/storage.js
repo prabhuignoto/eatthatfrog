@@ -66,6 +66,11 @@ export default class Storage {
     Helper.saveStore(this.store);
   }
 
+  setFilters(filter) {
+    this.store.filter = filter;
+    Helper.saveStore(this.store);
+  }
+
   /**
    * Deletes all the tasks from the storage.
    * @memberof Storage

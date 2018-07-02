@@ -45,7 +45,11 @@ const filter = ({
           <h2>Status</h2>
           <ul className="filters-list">
             <ListItem label="Open" onChecked={onOpenChecked} selected={openEnabled} />
-            <ListItem label="Completed" onChecked={onCompletedChecked} selected={completedEnabled} />
+            <ListItem
+              label="Completed"
+              onChecked={onCompletedChecked}
+              selected={completedEnabled}
+            />
           </ul>
         </div>
         <button className="close-filters" onClick={closeFilters} />
@@ -54,10 +58,10 @@ const filter = ({
 );
 
 filter.propTypes = {
-  onTodayChecked: PropTypes.bool.isRequired,
-  onOlderChecked: PropTypes.bool.isRequired,
-  onOpenChecked: PropTypes.bool.isRequired,
-  onCompletedChecked: PropTypes.bool.isRequired,
+  onTodayChecked: PropTypes.func.isRequired,
+  onOlderChecked: PropTypes.func.isRequired,
+  onOpenChecked: PropTypes.func.isRequired,
+  onCompletedChecked: PropTypes.func.isRequired,
 
   todayEnabled: PropTypes.bool.isRequired,
   olderEnabled: PropTypes.bool.isRequired,

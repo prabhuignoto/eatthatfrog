@@ -6,6 +6,7 @@ export default class StorageHelper {
       Store.set('etf', {
         _id: `etf_${new Date().getMilliseconds()}`,
         tasks: [],
+        filter: {},
       });
     }
     return Store.get('etf');

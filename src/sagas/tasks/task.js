@@ -52,6 +52,13 @@ function* watchFinishTask() {
   });
 }
 
+function* watchUpdateFilters() {
+  yield takeEvery('UPDATE_FILTERS', function* updateFilters({ filter }) {
+    Storage.get().setFilters(filter);
+    yield put({ type: 'FINISH_UPDATE_FILTERS', filter });
+  });
+}
+
 export default function* () {
   yield all([
     fork(watchSaveTaskToDB),
@@ -59,5 +66,6 @@ export default function* () {
     fork(watchEditTask),
     fork(watchDeleteTask),
     fork(watchFinishTask),
+    fork(watchUpdateFilters),
   ]);
 }

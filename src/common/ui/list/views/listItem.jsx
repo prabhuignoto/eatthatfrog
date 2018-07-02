@@ -11,6 +11,7 @@ const ListItem = ({
     })}
     name={`list-item-${id}`}
     role="listitem"
+    key={id}
   >
     <i className={status} />
     <button

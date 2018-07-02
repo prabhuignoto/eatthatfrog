@@ -14,13 +14,13 @@ const toolbar = ({
             <li className="toolbar-item add-task-container">
               <button className="toolbar-button add-task-btn" onClick={onAddTask}>
                 <i className="add-task-btn-ico add-task" />
-                <span>Add Task</span>
+                <span>Add</span>
               </button>
             </li>
             <li className="toolbar-item apply-filters-container">
               <button className="toolbar-button apply-filters-btn" onClick={showFilters}>
                 <i className="add-task-btn-ico apply-filters" />
-                <span>Filters</span>
+                <span>Filter</span>
               </button>
               {filtersVisible ?
                 <div className="filters-wrapper">
