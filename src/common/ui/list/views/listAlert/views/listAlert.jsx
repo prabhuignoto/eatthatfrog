@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import '../css/listalert.css';
 
 const ListAlert = ({
-  children, hide, visible, portalTarget, removeTask, completeTask,
+  children, hide, visible, portalTarget, removeTask, completeTask, restoreTask
 }) => {
   const view = (
     <div
@@ -23,6 +23,7 @@ const ListAlert = ({
             cancel: hide,
             remove: removeTask,
             complete: completeTask,
+            restore: restoreTask,
           }),
         )}
       </div>

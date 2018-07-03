@@ -15,6 +15,8 @@
   overflow-y: hidden;
   background: transparent;
   border-radius: 2px;
+  max-height: 500px;
+  overflow-y: auto;
   cursor: pointer; }
   .ui-list .ui-list-item {
     width: 100%;
@@ -32,6 +34,13 @@
       width: 14px;
       height: 14px;
       margin-left: 10px; }
+      .ui-list .ui-list-item i::after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 15px;
+        border: 2px solid #fff;
+        border-radius: 50%; }
       .ui-list .ui-list-item i.complete {
         background: url(../assets/circle-green.svg);
         background-size: contain;
@@ -51,4 +60,6 @@
       width: 100%;
       height: 100%;
       cursor: pointer;
-      outline: none; }
+      outline: none;
+      font-family: 'Open Sans';
+      font-size: 0.9em; }

@@ -5,7 +5,7 @@
   padding: 4px 0;
   margin: 5px 25px 5px 0px; }
   .toggle-switch-container.on .toggle-switch-input-wrapper::after {
-    background: #679267;
+    background: #2D3956;
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 60%; }
@@ -74,13 +74,13 @@
     background: #ddd; }
   100% {
     left: 50%;
-    background: #679267;
+    background: #2D3956;
     box-shadow: none; } }
 
 @keyframes move-to-left {
   0% {
     left: 50%;
-    background: #679267; }
+    background: #2D3956; }
   100% {
     left: 4px;
     background: #ddd; } }

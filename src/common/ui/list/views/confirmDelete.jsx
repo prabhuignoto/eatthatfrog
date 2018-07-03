@@ -13,8 +13,12 @@ const removeTask = ({ cancel, remove }) => (
 );
 
 removeTask.propTypes = {
-  remove: PropTypes.func.isRequired,
-  cancel: PropTypes.func.isRequired,
+  remove: PropTypes.func,
+  cancel: PropTypes.func,
 };
 
+removeTask.defaultProps = {
+  remove: () => {},
+  cancel: () => {},
+};
 export default removeTask;

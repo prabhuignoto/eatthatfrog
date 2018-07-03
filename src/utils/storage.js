@@ -66,6 +66,16 @@ export default class Storage {
     Helper.saveStore(this.store);
   }
 
+  redoTask(id) {
+    this.store.tasks = _.map(this.store.tasks, (item) => {
+      if (item.id === id) {
+        return Object.assign({}, item, { status: 'open' });
+      }
+      return item;
+    });
+    Helper.saveStore(this.store);
+  }
+
   setFilters(filter) {
     this.store.filter = filter;
     Helper.saveStore(this.store);

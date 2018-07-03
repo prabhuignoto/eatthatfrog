@@ -17,7 +17,7 @@ const App = () => (
   <Router>
     <Fragment>
       <div className="App">
-        <Header />
+        {/* <Header /> */}
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/add" component={() => <AddTask heading="Add Task" />} />
         <Route path="/completed" component={CompletedFrogs} />

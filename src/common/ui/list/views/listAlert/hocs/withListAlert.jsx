@@ -5,7 +5,7 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import '../css/withListAlert.css';
 import ListAlert from '../views/listAlert';
-import { deleteTask as DeleteTask, finishTask as FinishTask } from '../../../../../../actions';
+import { deleteTask as DeleteTask, finishTask as FinishTask, restoreTask as RestoreTask } from '../../../../../../actions';
 
 
 export default function withListAlert(BaseComponent) {
@@ -39,6 +39,7 @@ export default function withListAlert(BaseComponent) {
     const mapDispatchToProps = dispatch => ({
       deleteTask: id => dispatch(DeleteTask(id)),
       finishTask: id => dispatch(FinishTask(id)),
+      restoreTask: id => dispatch(RestoreTask(id)),
     });
 
     const initialState = ({ visible = false, id = null }) => ({
@@ -66,6 +67,12 @@ export default function withListAlert(BaseComponent) {
       },
       completeTask: (state, { finishTask, id }) => () => {
         finishTask(id);
+        return {
+          visible: false,
+        };
+      },
+      restoreTask: (state, { restoreTask, id }) => () => {
+        restoreTask(id);
         return {
           visible: false,
         };

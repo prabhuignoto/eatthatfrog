@@ -8,6 +8,7 @@ import AddForm from '../../../containers/addTask/addTask';
 import LayoutManager from './layoutManager';
 import { List } from '../../imports';
 import Toolbar from './toolbar';
+import DashboardStats from './dashboardStats';
 import '../css/myTasks.css';
 
 const myTasks = ({
@@ -26,7 +27,7 @@ const myTasks = ({
     'list-wrapper',
     'column', {
       'is-two-fifths-desktop': (layoutType === 'showall'),
-      'is-half-desktop': (layoutType === 'withoutfilters'),
+      // 'is-two-fifths-desktop': (layoutType === 'withoutfilters'),
       // 'is-four-fifths': (layoutType === 'listonly'),
     },
   );
@@ -34,7 +35,7 @@ const myTasks = ({
     'mytasks-form-wrapper',
     'column', {
       'is-two-fifths-desktop': (layoutType === 'showall'),
-      'is-half-desktop': (layoutType === 'withoutfilters'),
+      // 'is-one-third-desktop': (layoutType === 'withoutfilters'),
       // 'is-hidden': (layoutType === 'listonly'),
     },
   );
@@ -49,13 +50,14 @@ const myTasks = ({
           filtersVisible={filtersVisible}
           onFilterClosed={onFilterClosed}
         />
-        <div style={{ marginLeft: 'auto' }}>
+        {/* <div style={{ marginLeft: 'auto' }}>
           <LayoutManager onLayoutChange={onLayoutChange} layouts={layouts} />
-        </div>
+        </div> */}
       </div>
       <div className="columns is-multiline is-centered is-variable is-3">
         { !createMode ?
           <Fragment>
+            <div className="column is-one-fifth"><DashboardStats /></div>
             <div className={listWrapperClass}>
               <List items={items} onSelect={onListItemSelected} />
             </div>

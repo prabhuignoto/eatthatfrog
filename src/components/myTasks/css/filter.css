@@ -1,5 +1,4 @@
 .filters-container {
-  background: #fff;
   height: 100%;
   border-radius: 6px;
   display: flex;
@@ -31,17 +30,18 @@
 
 .filters {
   align-items: center;
-  color: #000;
+  color: #E0E9E9;
   height: 100px;
   width: 100%;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  border-radius: 5px; }
   .filters:first-child h2 {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px; }
   .filters h2 {
     align-self: flex-start;
-    background: #dbdbdb;
+    background: #2D3956;
     height: 30px;
     line-height: 30px;
     width: 100%;
@@ -62,8 +62,8 @@
       flex-direction: row;
       justify-content: flex-start;
       outline: none; }
-      .filters .filters-list .filters-list-item::hover {
-        color: #000; }
+      .filters .filters-list .filters-list-item:hover {
+        background: #E0E9E9; }
       .filters .filters-list .filters-list-item .filters-list-item-icon {
         background-size: contain;
         background-position: 50% 50%;
@@ -76,20 +76,21 @@
       .filters .filters-list .filters-list-item .filters-list-item-label {
         padding-left: 6px;
         user-select: none;
-        font-size: 0.9em; }
+        font-size: 0.9em;
+        color: #2D3956; }
       .filters .filters-list .filters-list-item.selected .filters-list-item-icon {
         background: url(../assets/tick.svg); }
 
 .close-filters {
-  background: url(/static/media/times.9ee149e7.svg);
+  background: url(../assets/times.svg);
   background-repeat: no-repeat;
   background-size: 50%;
   background-position: 50%;
   border: none;
   position: absolute;
   right: 2px;
-  top: 1px;
-  width: 25px;
-  height: 25px;
+  top: 3px;
+  width: 22px;
+  height: 22px;
   outline: none;
   cursor: pointer; }

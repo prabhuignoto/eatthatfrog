@@ -2,7 +2,11 @@
   display: flex;
   flex-direction: row;
   font-family: 'Open Sans';
-  height: 100%; }
+  height: 100%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcfff4+0,dfe5d7+40,b3bead+100;Wax+3D+%233 */
+  background: #E7E7E7;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+  /* IE6-9 */ }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -25,3 +29,16 @@
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
+
+body::-webkit-scrollbar {
+  width: 1em; }
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey; }
+
+html, body, #root {
+  height: 100%; }

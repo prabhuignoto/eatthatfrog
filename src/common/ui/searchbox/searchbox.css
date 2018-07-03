@@ -4,11 +4,10 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  margin: 10px 0 5px 0;
+  height: 100%;
   padding: 5px 2px;
   background: #fff;
-  border-radius: 2px;
-  border: 1px solid #ccc; }
+  border-radius: 2px; }
   .searchbox-container .searchbox-icon {
     flex: 1;
     display: block;

@@ -65,6 +65,13 @@ export function finishTask(id) {
   };
 }
 
+export function restoreTask(id) {
+  return {
+    type: 'RESTORE_TASK',
+    id,
+  };
+}
+
 export function updateFilters(filter) {
   return {
     type: 'UPDATE_FILTERS',

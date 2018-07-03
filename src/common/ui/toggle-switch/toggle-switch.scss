@@ -8,7 +8,7 @@
   &.on {
     .toggle-switch-input-wrapper {
       &::after {
-        background: #679267;
+        background: #2D3956;
         // background-image: url(./assets/check.svg);
         background-repeat: no-repeat;
         background-position: 50%;
@@ -30,7 +30,7 @@
           left: 50%;
           animation-name: move-to-right;
           box-shadow: none;
-          // border: 2px solid #679267;
+          // border: 2px solid #2D3956;
         }
       }
     }
@@ -125,7 +125,7 @@
   }
   100% {
     left: 50%;
-    background: #679267;
+    background: #2D3956;
     box-shadow: none;
   }
 }
@@ -133,7 +133,7 @@
 @keyframes move-to-left {
   0% {
     left: 50%;
-    background: #679267;
+    background: #2D3956;
   }
   100% {
     left: 4px;

@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   h5 {
-    font-size: 1em;
+    font-size: 0.85em;
     margin-left: 10px;
   }
   .conf-button-controls {
@@ -31,6 +31,10 @@
   }
   &.conf-delete {
     background: #C21807;
+    color: #fff;
+  }
+  &.conf-restore {
+    background: #4682B4;
     color: #fff;
   }
 }

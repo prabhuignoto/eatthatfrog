@@ -13,8 +13,13 @@ const finishTask = ({ complete, cancel }) => (
 );
 
 finishTask.propTypes = {
-  complete: PropTypes.func.isRequired,
-  cancel: PropTypes.func.isRequired,
+  complete: PropTypes.func,
+  cancel: PropTypes.func,
+};
+
+finishTask.defaultProps = {
+  complete: () => {},
+  cancel: () => {},
 };
 
 export default finishTask;

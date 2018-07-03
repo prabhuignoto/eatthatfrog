@@ -48,12 +48,16 @@
   transform: translateY(-50%);
   width: 100%;
   height: 96%;
-  background: #dbdbdb;
+  // background: #dbdbdb;
+  background: #E0E9E9;
   animation-duration: 250ms;
   animation-timing-function: ease-in;
   display: flex;
   flex-direction: row;
   align-items: center;
+  &:hover {
+    background: #E7E7E7;
+  }
   .open-list-control-config {
     background: none;
     border: none;
@@ -61,7 +65,8 @@
     height: 40px;
   }
   &.selected {
-    background: #9dc183;
+    // background: #9dc183;
+    background: #2D3956;
 
     .open-list-control-config-icon {
       background: url(../assets/bars-white.svg);
@@ -134,8 +139,12 @@
     background-size: contain;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
+  }
+  &.list-control-restore {
+    background: url(../assets/undo.svg);
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
   }
   &.mark-as-complete {
     background: url(../assets/tick.svg);

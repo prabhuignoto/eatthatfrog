@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Filter from '../views/../../../containers/myTasks/filters';
+import { SearchBox } from '../../imports';
 import '../css/toolbar.css';
 
 const toolbar = ({
@@ -27,6 +28,9 @@ const toolbar = ({
                   <Filter onFilterClosed={onFilterClosed} />
                 </div> : null
               }
+            </li>
+            <li className="toolbar-item toolbar-search-wrapper">
+              <SearchBox />
             </li>
           </Fragment>
           :

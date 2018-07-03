@@ -4,6 +4,7 @@ import ListItem from './listItem';
 import {
   taskCompleteAlertBtn as TaskCompleteBtn,
   taskDeleteAlertBtn as TaskDelBtn,
+  taskRestoreAlertBtn as TasRestoreBtn,
 } from './listItemButtons';
 import '../css/withControls.css';
 
@@ -38,6 +39,14 @@ const Controls = ({
               id={id}
               title="Finish Task."
             /> : null }
+          {status === 'complete' ?
+            <TasRestoreBtn
+              id={id}
+              title="Restore Task"
+              portalTarget={`list-controls-${id}`}
+            />
+            :
+          null}
           <TaskDelBtn
             portalTarget={`list-controls-${id}`}
             id={id}

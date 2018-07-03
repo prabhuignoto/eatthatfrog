@@ -52,6 +52,13 @@ function* watchFinishTask() {
   });
 }
 
+function* watchRedoTask() {
+  yield takeEvery('RESTORE_TASK', function* finishTask({ id }) {
+    Storage.get().redoTask(id);
+    yield put({ type: 'RESTORE_TASK_COMPLETE', id });
+  });
+}
+
 function* watchUpdateFilters() {
   yield takeEvery('UPDATE_FILTERS', function* updateFilters({ filter }) {
     Storage.get().setFilters(filter);
@@ -67,5 +74,6 @@ export default function* () {
     fork(watchDeleteTask),
     fork(watchFinishTask),
     fork(watchUpdateFilters),
+    fork(watchRedoTask),
   ]);
 }

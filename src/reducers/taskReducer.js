@@ -36,6 +36,15 @@ export default function (state = {
         selectedTask: action.task,
       });
     }
+    case 'RESTORE_TASK_COMPLETE':
+      return Object.assign({}, state, {
+        allTasks: state.allTasks.map((x) => {
+          if (x.id === action.id) {
+            return Object.assign({}, x, { status: 'open' });
+          }
+          return x;
+        }),
+      });
     case 'DELETE_TASK_COMPLETE': {
       return Object.assign({}, state, {
         allTasks: state.allTasks.filter(x => x.id !== action.id),
