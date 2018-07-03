@@ -26,6 +26,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: 50%;
   margin-top: auto;
   margin-bottom: auto;
   padding: 30px 25px 35px 25px;
@@ -86,11 +87,94 @@
 }
 
 .add-form-wrapper {
-  // position: absolute;
+  position: absolute;
   // background: rgba(0,0,0,0.5);
-  width: 100%;
-  height: 100%;
+  width: 45%;
   top:0;
   left:0;
-  position: relative;
+  right:0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 10px solid rgba(69, 83, 114, 0.75);
+  border-radius: 5px;
+
+  &::after {
+    // content: '';
+    // display: block;
+    // width: 100%;
+    // height: 100%;
+    // background: rgba(0,0,0,0.5);
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // margin-left: auto;
+    // margin-right: auto;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // position: absolute;
+  }
+}
+
+.create-mode {
+  animation-name: scale-down;
+  animation-duration: 300ms;
+  animation-timing-function: ease-in;
+  transform: scale(0.75);
+  filter: grayscale(90%);
+  opacity:0.1;
+}
+
+.default-mode {
+  animation-name: scale-up;
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+  transform: scale(1);
+  filter: grayscale(0%);
+  opacity:1;
+}
+
+@keyframes scale-down {
+  0% {
+    transform: scale(1);
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.75);
+    filter: grayscale(90%);
+    opacity: 0.1;
+  }
+}
+@keyframes scale-up {
+  0% {
+    transform: scale(0.75);
+    filter: grayscale(90%);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1);
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+}
+
+.add-form-transition-enter {
+  opacity: 0.01;
+}
+
+.add-form-transition-enter.add-form-transition-enter-active {
+  opacity: 1;
+  transition: opacity 400ms ease-in;
+}
+
+.add-form-transition-leave {
+  opacity: 1;
+}
+
+.add-form-transition-leave.add-form-transition-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

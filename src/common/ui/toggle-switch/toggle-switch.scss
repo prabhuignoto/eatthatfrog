@@ -19,7 +19,7 @@
   &.off {
     .toggle-switch-input-wrapper {
       &::after {
-        background: #ccc;
+        background: #E7E7E7;
       }
     }
   }
@@ -47,7 +47,7 @@
       .toggle-switch-input-wrapper {
         &::before {
           // background: #ddd;
-          box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.2);
+          // box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.2);
         }
       }
     }
@@ -96,6 +96,7 @@
         animation-duration: 0.25s;
         animation-timing-function: ease-in;
         left: 4px;
+        box-shadow: 0 0 4px 1px rgba(0,0,0,0.5);
         // box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);
       }
 
@@ -107,9 +108,11 @@
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        box-shadow: inset 0 0 4px 1px rgba(0, 0, 0, 0.2);
+        // box-shadow: inset 0 0 4px 1px rgba(0, 0, 0, 0.2);
         // border: 1px solid rgba(0,0,0,0.1);
         // background: #ededed;
+        border: 1px solid #cfcfcf;
+        background: #E7E7E7;
         border-radius: 12px;
         position: absolute;
         height: 100%;

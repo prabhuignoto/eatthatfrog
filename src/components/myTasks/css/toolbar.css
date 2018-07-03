@@ -24,6 +24,8 @@
       align-items: center;
       justify-content: center;
       cursor: pointer; }
+      .toolbar-wrapper .toolbar .toolbar-item.back-btn-wrapper {
+        margin-right: auto; }
       .toolbar-wrapper .toolbar .toolbar-item button.toolbar-button {
         border: none;
         margin: 0;
