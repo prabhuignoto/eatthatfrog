@@ -57,8 +57,9 @@ export default compose(
       reminderEnabled,
       taskTags,
       status,
-    }, { saveTaskToDB }) => () => {
+    }, { saveTaskToDB, onSaved }) => () => {
       saveTaskToDB(name, description, reminderEnabled, taskTags, status);
+      onSaved();
     },
     onReminderChanged: () => ({ active }) => ({
       reminderEnabled: active,

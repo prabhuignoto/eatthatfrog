@@ -1,43 +1,32 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 import classNames from 'classnames';
-import uuid from 'uuid-random';
+import uuid from 'uniqid';
 import 'bulma/css/bulma.css';
 import Form from '../../../containers/myTasks/editTask';
 import AddForm from '../../../containers/addTask/addTask';
-import LayoutManager from './layoutManager';
 import { List } from '../../imports';
 import Toolbar from './toolbar';
-import DashboardStats from './dashboardStats';
+import NoTasksView from './noTasksView';
+import DashboardStats from '../../../containers/myTasks/dashboardStats';
 import '../css/myTasks.css';
 
+
 const myTasks = ({
-  items, layoutType, layouts, onLayoutChange, onListItemSelected,
-  name, description, reminderEnabled, taskTags, showFilters, filtersVisible, onFilterClosed,
-  createMode, onAddTask, onBack,
+  items, onListItemSelected,
+  name, description, reminderEnabled, taskTags,
+  showFilters, filtersVisible, onFilterClosed,
+  createMode, onAddTask, onBack, onSaved, tasksAvailable,
 }) => {
-  const filterWrapperClass = classNames(
-    'mytasks-filter-wrapper',
-    // 'column',
-    'column', {
-      // 'is-hidden': (layoutType === 'withoutfilters'),
-    },
-  );
   const listWrapperClass = classNames(
     'list-wrapper',
-    'column', {
-      'is-two-fifths-desktop': (layoutType === 'showall'),
-      // 'is-two-fifths-desktop': (layoutType === 'withoutfilters'),
-      // 'is-four-fifths': (layoutType === 'listonly'),
-    },
+    'column',
+    'is-half-desktop',
   );
   const formWrapperClass = classNames(
     'mytasks-form-wrapper',
-    'column', {
-      'is-two-fifths-desktop': (layoutType === 'showall'),
-      // 'is-one-third-desktop': (layoutType === 'withoutfilters'),
-      // 'is-hidden': (layoutType === 'listonly'),
-    },
+    'column',
   );
   return (
     <div className="container mytasks-container">
@@ -49,15 +38,19 @@ const myTasks = ({
           onBack={onBack}
           filtersVisible={filtersVisible}
           onFilterClosed={onFilterClosed}
+          tasksAvailable={tasksAvailable}
         />
-        {/* <div style={{ marginLeft: 'auto' }}>
-          <LayoutManager onLayoutChange={onLayoutChange} layouts={layouts} />
-        </div> */}
       </div>
-      <div className="columns is-multiline is-centered is-variable is-3">
-        { !createMode ?
+      {tasksAvailable ?
+        <div className={classNames(
+      'columns is-multiline is-centered is-variable is-3',
+      { 'create-mode': createMode, 'default-mode': !createMode },
+      )}
+        >
           <Fragment>
-            <div className="column is-one-fifth"><DashboardStats /></div>
+            <div className={classNames('column is-2')}>
+              <DashboardStats />
+            </div>
             <div className={listWrapperClass}>
               <List items={items} onSelect={onListItemSelected} />
             </div>
@@ -70,15 +63,18 @@ const myTasks = ({
                 key={uuid()}
               />
             </div>
-          </Fragment> :
-          <div className="column is-half-desktop">
-            <div className="add-form-wrapper">
-              <AddForm />
-            </div>
-          </div>
-        }
-      </div>
-
+          </Fragment>
+        </div> : <NoTasksView /> }
+      <CSSTransitionGroup
+        transitionName="add-form-transition"
+        transitionEnterTimeout={400}
+        transitionLeaveTimeout={300}
+      >
+        {createMode ?
+          <div className="add-form-wrapper">
+            <AddForm onSaved={onSaved} />
+          </div> : null}
+      </CSSTransitionGroup>
     </div>);
 };
 
@@ -87,17 +83,15 @@ myTasks.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
   })),
-  layoutType: PropTypes.string.isRequired,
-  onLayoutChange: PropTypes.func.isRequired,
   onListItemSelected: PropTypes.func.isRequired,
-  layouts: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    id: PropTypes.string,
-    selected: PropTypes.bool,
-  })).isRequired,
+  onAddTask: PropTypes.func.isRequired,
+  onBack: PropTypes.func.isRequired,
+  onSaved: PropTypes.func.isRequired,
+  onFilterClosed: PropTypes.func.isRequired,
   name: PropTypes.string,
   description: PropTypes.string,
   reminderEnabled: PropTypes.bool,
+  createMode: PropTypes.bool.isRequired,
   taskTags: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     id: PropTypes.string,

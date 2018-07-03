@@ -1,8 +1,11 @@
+import _ from 'lodash';
+
 export default function (state = {
   allTasks: [],
   selectedTask: {
     name: '',
     description: '',
+    id: '',
   },
   filter: {
     today: true,
@@ -69,6 +72,22 @@ export default function (state = {
       return Object.assign({}, state, {
         filter: action.filter,
       });
+    }
+    case 'ADD_TASK_TO_DB_COMPLETE': {
+      const itemExistsAlready = _.some(state.allTasks, item => item.id === action.task.id);
+      let tasks = [];
+      if (itemExistsAlready) {
+        tasks = state.allTasks.slice(0);
+      } else {
+        tasks = [].concat.call([], state.allTasks, [action.task]);
+      }
+      return Object.assign({}, state, {
+        allTasks: tasks,
+        selectedTask: Object.assign({}, action.task),
+      });
+    }
+    case 'ADD_TASK_TO_DB': {
+      return Object.assign({}, state);
     }
     default:
       return state;

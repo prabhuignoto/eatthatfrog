@@ -1,5 +1,5 @@
 import { compose, withStateHandlers } from 'recompose';
-import uuid from 'uuid-random';
+import uuid from 'uniqid';
 import RadioGroup from '../index';
 
 const initialState = ({ foxes = [] }) => ({

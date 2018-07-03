@@ -4,19 +4,30 @@ import {
   all,
   fork,
 } from 'redux-saga/effects';
-import uuid from 'uuid-random';
+import uuid from 'uniqid';
 import Storage from '../../utils/storage';
 
-function* watchSaveTaskToDB() {
-  yield takeEvery('SAVE_TASK_TO_DB', function* saveTask({
+function* watchAddTaskToDB() {
+  yield takeEvery('ADD_TASK_TO_DB', function* saveTask({
     name,
     description,
     reminderEnabled,
     tags,
     status,
   }) {
-    Storage.get().addTask(uuid(), name, description, reminderEnabled, tags, status);
-    yield put('SAVE_TASK_TO_DB_COMPLETE');
+    const id = uuid();
+    Storage.get().addTask(id, name, description, reminderEnabled, tags, status);
+    yield put.resolve({
+      type: 'ADD_TASK_TO_DB_COMPLETE',
+      task: {
+        id,
+        name,
+        description,
+        tags,
+        status,
+        reminderEnabled,
+      },
+    });
   });
 }
 
@@ -68,7 +79,7 @@ function* watchUpdateFilters() {
 
 export default function* () {
   yield all([
-    fork(watchSaveTaskToDB),
+    fork(watchAddTaskToDB),
     fork(watchGetTaskDetails),
     fork(watchEditTask),
     fork(watchDeleteTask),

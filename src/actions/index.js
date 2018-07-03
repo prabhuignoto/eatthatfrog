@@ -9,6 +9,17 @@ export function saveTask(name, description, reminderEnabled, tags, status) {
   };
 }
 
+export function addTask(name, description, reminderEnabled, tags, status) {
+  return {
+    type: 'ADD_TASK_TO_DB',
+    name,
+    description,
+    reminderEnabled,
+    tags,
+    status,
+  };
+}
+
 export function editTask(name, description, reminderEnabled, tags) {
   return {
     type: 'EDIT_TASK',

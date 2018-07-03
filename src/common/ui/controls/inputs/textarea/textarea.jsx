@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uniqid';
 import './textarea.css';
 
+const id = uuid('textarea-');
+
 const TextArea = ({
-  name, label, id, value, disabled, onChange, required,
+  label, value, disabled, onChange, required,
 }) => (
   <div className="textarea-wrapper">
-    <label className="textarea-label" htmlFor={`text-input-${name}`}>{label}
+    <label className="textarea-label" htmlFor={id}>{label}
       <div className="textarea-label-wrapper">
         <textarea
           className="textarea"
-          name={id}
-          id={`text-input-${name}`}
+          id={id}
           value={value}
           disabled={disabled}
           onChange={onChange}
@@ -24,10 +26,8 @@ const TextArea = ({
 
 TextArea.propTypes = {
   label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
 };

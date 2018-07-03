@@ -42,8 +42,17 @@ export default class Storage {
       reminderEnabled,
       tags,
       status,
+      createdDate: new Date(),
     });
     Helper.saveStore(this.store);
+    return {
+      id,
+      name,
+      description,
+      reminderEnabled,
+      tags,
+      status,
+    };
   }
 
   /**

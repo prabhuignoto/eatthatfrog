@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import uuid from 'uniqid';
 import './toggle-switch.css';
 
-const getId = name => `toggle-switch-${name}`;
+const getId = () => `toggle-switch-${uuid().replace('-', '')}`;
 
 const ToggleSwitch = ({
-  active, animationEnabled, label, onToggle, name,
+  active, animationEnabled, label, onToggle,
 }) => {
-  const id = getId(name);
+  const id = getId();
   const toggleSwitchClass = classNames('toggle-switch-container', {
     on: active,
     off: !active,
@@ -36,7 +37,6 @@ const ToggleSwitch = ({
 
 ToggleSwitch.propTypes = {
   label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
   onToggle: PropTypes.func.isRequired,
   active: PropTypes.bool.isRequired,
   animationEnabled: PropTypes.bool,

@@ -22,7 +22,10 @@
     margin-top: 8px;
     border: 1px solid rgba(97, 106, 127, 0.5);
     background: #fff;
-    padding: 8px 6px;
+    padding: 4px 6px 20px 6px;
+    min-height: 80px;
+    max-height: 125px;
+    overflow-y: auto;
     .smartags-input {
       border: none;
       width: 30%;

@@ -1,5 +1,5 @@
 import { compose, withStateHandlers, defaultProps } from 'recompose';
-import uuid from 'uuid-random';
+import uuid from 'uniqid';
 import Smartag from './views/tags';
 
 const initialState = ({ tags = [], input = '', disableInput = false }) => ({

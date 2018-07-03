@@ -5,7 +5,7 @@ import { SearchBox } from '../../imports';
 import '../css/toolbar.css';
 
 const toolbar = ({
-  onAddTask, showFilters, showBackButton, onBack, filtersVisible, onFilterClosed,
+  onAddTask, showFilters, showBackButton, onBack, filtersVisible, onFilterClosed, tasksAvailable,
 }) => (
   <Fragment>
     <div className="toolbar-wrapper">
@@ -18,29 +18,35 @@ const toolbar = ({
                 <span>Add</span>
               </button>
             </li>
-            <li className="toolbar-item apply-filters-container">
-              <button className="toolbar-button apply-filters-btn" onClick={showFilters}>
-                <i className="add-task-btn-ico apply-filters" />
-                <span>Filter</span>
-              </button>
-              {filtersVisible ?
-                <div className="filters-wrapper">
-                  <Filter onFilterClosed={onFilterClosed} />
-                </div> : null
-              }
-            </li>
-            <li className="toolbar-item toolbar-search-wrapper">
-              <SearchBox />
-            </li>
+            {tasksAvailable ?
+              <Fragment>
+                <li className="toolbar-item apply-filters-container">
+                  <button className="toolbar-button apply-filters-btn" onClick={showFilters}>
+                    <i className="add-task-btn-ico apply-filters" />
+                    <span>Filter</span>
+                  </button>
+                  {filtersVisible ?
+                    <div className="filters-wrapper">
+                      <Filter onFilterClosed={onFilterClosed} />
+                    </div> : null
+                  }
+                </li>
+                <li className="toolbar-item toolbar-search-wrapper">
+                  <SearchBox />
+                </li>
+              </Fragment> : null}
           </Fragment>
           :
-          <li className="toolbar-item">
+          <li className="toolbar-item back-btn-wrapper">
             <button className="toolbar-button back-btn" onClick={onBack} >
               <i className="back-btn-icon" />
               <span>Back</span>
             </button>
           </li>
         }
+        <li className="toolbar-item app-title-wrapper">
+          <h3 className="app-title">eat that frog</h3>
+        </li>
       </ul>
     </div>
   </Fragment>

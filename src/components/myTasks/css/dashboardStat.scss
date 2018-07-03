@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   height: 100%;
   width: 100%;
   // border: 1px solid #FF1A00;
@@ -15,6 +15,7 @@
     position: relative;
     // border: 3px solid #FF1A00;
     position: relative;
+    margin: 25px 0 25px 0;
 
     &.open {
       box-shadow: inset 0 0 20px 0px #FF1A00;

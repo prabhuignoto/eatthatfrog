@@ -33,4 +33,29 @@ const getAllTasksFiltered = createSelector(
   },
 );
 
-export default getAllTasksFiltered;
+const getTaskAvailability = createSelector(
+  [getAllTasks],
+  tasks => tasks.length > 0,
+);
+
+const getOpenTasks = createSelector(
+  [getAllTasks],
+  tasks => tasks.filter(x => x.status === 'open').length,
+);
+
+const getCompletedTasks = createSelector(
+  [getAllTasks],
+  tasks => tasks.filter(x => x.status === 'complete').length,
+);
+
+const getReminders = createSelector(
+  [getAllTasks],
+  tasks => tasks.filter(x => x.reminderEnabled === true).length,
+);
+
+export { getAllTasksFiltered,
+  getTaskAvailability,
+  getOpenTasks,
+  getCompletedTasks,
+  getReminders,
+};

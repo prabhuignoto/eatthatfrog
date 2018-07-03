@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center; }
     .toolbar-wrapper .toolbar .toolbar-item {
-      height: 35px;
+      height: 40px;
       background: black;
       border-radius: 2px;
       margin: 0 4px;
@@ -26,6 +26,15 @@
       cursor: pointer; }
       .toolbar-wrapper .toolbar .toolbar-item.back-btn-wrapper {
         margin-right: auto; }
+      .toolbar-wrapper .toolbar .toolbar-item.app-title-wrapper {
+        margin-left: auto;
+        background: transparent;
+        align-self: flex-start; }
+        .toolbar-wrapper .toolbar .toolbar-item.app-title-wrapper h3.app-title {
+          text-transform: uppercase;
+          padding: 5px;
+          font-size: 1.5em;
+          color: #E7E7E7; }
       .toolbar-wrapper .toolbar .toolbar-item button.toolbar-button {
         border: none;
         margin: 0;

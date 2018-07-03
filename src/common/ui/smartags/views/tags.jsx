@@ -1,7 +1,7 @@
 import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import uuid from 'uuid-random';
+import uuid from 'uniqid';
 import '../css/smartags.css';
 import Tag from './tag';
 

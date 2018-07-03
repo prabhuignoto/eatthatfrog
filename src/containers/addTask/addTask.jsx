@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { saveTask } from '../../actions';
+import { addTask } from '../../actions';
 import AddTask from './index';
 
 const mapDispatchToProps = dispatch => (({
@@ -10,7 +10,7 @@ const mapDispatchToProps = dispatch => (({
     tags,
     status,
   ) => {
-    dispatch(saveTask(name, description, reminderEnabled, tags, status));
+    dispatch(addTask(name, description, reminderEnabled, tags, status));
   },
 }));
 
