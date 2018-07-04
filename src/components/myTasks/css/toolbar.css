@@ -18,7 +18,6 @@
       height: 40px;
       background: black;
       border-radius: 2px;
-      margin: 0 4px;
       font-size: 0.9em;
       display: flex;
       align-items: center;
@@ -29,7 +28,8 @@
       .toolbar-wrapper .toolbar .toolbar-item.app-title-wrapper {
         margin-left: auto;
         background: transparent;
-        align-self: flex-start; }
+        align-self: flex-start;
+        margin: 0 4px; }
         .toolbar-wrapper .toolbar .toolbar-item.app-title-wrapper h3.app-title {
           text-transform: uppercase;
           padding: 5px;
@@ -37,7 +37,6 @@
           color: #E7E7E7; }
       .toolbar-wrapper .toolbar .toolbar-item button.toolbar-button {
         border: none;
-        margin: 0;
         height: 100%;
         width: 100%;
         border-radius: 2px;
@@ -75,6 +74,11 @@
           background-repeat: no-repeat;
           background-size: 40%;
           background-position: 50%; }
+        .toolbar-wrapper .toolbar .toolbar-item button.toolbar-button.invoke-reminder-btn i {
+          background: url(../assets/bell.svg);
+          background-repeat: no-repeat;
+          background-size: 50%;
+          background-position: 50%; }
     .toolbar-wrapper .toolbar .searchbox-container {
       width: 100%; }
       .toolbar-wrapper .toolbar .searchbox-container .search {
@@ -85,7 +89,16 @@
         border: none;
         outline: none; }
     .toolbar-wrapper .toolbar .apply-filters-container {
-      position: relative; }
+      position: relative;
+      margin: 0 4px; }
+    .toolbar-wrapper .toolbar .add-task-container {
+      margin: 0 4px; }
+      .toolbar-wrapper .toolbar .add-task-container.no-tasks {
+        margin-right: auto; }
+    .toolbar-wrapper .toolbar .smartreminder-btn-container {
+      margin: 0 4px;
+      width: 40px;
+      height: 40px; }
   .toolbar-wrapper .filters-wrapper {
     position: absolute;
     margin-left: auto;
@@ -97,4 +110,6 @@
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
     background: #fff; }
   .toolbar-wrapper .toolbar-search-wrapper {
-    width: 40%; }
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto; }

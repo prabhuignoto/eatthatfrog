@@ -3,11 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #E0E9E9;
+  background: #fff;
   padding: 15px;
   border-radius: 4px;
   font-family: 'Open Sans';
-  box-shadow: inset 0px 0px 25px 3px rgba(0, 0, 0, 0.2); }
+  box-shadow: inset 0px 0px 25px 3px rgba(0, 0, 0, 0.3); }
   .form-container .form-header {
     width: 95%;
     display: flex;

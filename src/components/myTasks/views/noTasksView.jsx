@@ -5,8 +5,9 @@ const noTasksView = () => (
     color: '#E0E9E9',
     fontFamily: 'Open Sans',
     textAlign: 'center',
-    fontSize: '1.5em',
+    fontSize: '1.75em',
     width: '450px',
+    marginBottom: 'auto',
   }}
   >
     <span>You dont have any tasks.</span><br /> <span>Create one using the Add button.</span>

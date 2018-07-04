@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+
   .toolbar {
     list-style-type: none;
     padding: 0;
@@ -14,11 +15,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
     .toolbar-item {
       height: 40px;
       background: black;
       border-radius: 2px;
-      margin: 0 4px;
       font-size: 0.9em;
       display: flex;
       align-items: center;
@@ -31,6 +32,7 @@
         margin-left: auto;
         background: transparent;
         align-self: flex-start;
+        margin: 0 4px;
         h3.app-title {
           text-transform: uppercase;
           padding: 5px;
@@ -40,7 +42,6 @@
       }
       button.toolbar-button {
         border: none;
-        margin: 0;
         height: 100%;
         width: 100%;
         border-radius: 2px; // width: 40px;
@@ -89,6 +90,14 @@
             background-position: 50%;
           }
         }
+        &.invoke-reminder-btn {
+          i {
+            background: url(../assets/bell.svg);
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-position: 50%;
+          }
+        }
       }
     }
     .searchbox-container {
@@ -104,6 +113,18 @@
     }
     .apply-filters-container {
       position: relative;
+      margin: 0 4px;
+    }
+    .add-task-container {
+      margin: 0 4px;
+      &.no-tasks {
+        margin-right: auto;
+      }
+    }
+    .smartreminder-btn-container {
+      margin: 0 4px;
+      width: 40px;
+      height: 40px;
     }
   }
   .filters-wrapper {
@@ -119,5 +140,7 @@
   }
   .toolbar-search-wrapper {
     width: 40%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

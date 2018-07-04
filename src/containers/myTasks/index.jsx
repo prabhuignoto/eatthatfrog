@@ -12,8 +12,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = ({ Task }) => {
-  // debugger;
-  // var result = getTaskAvailability(Task);
   const {
     name, description, id: selectedTaskId, reminderEnabled, tags: taskTags,
   } = Task.selectedTask;

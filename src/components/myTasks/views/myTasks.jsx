@@ -22,11 +22,12 @@ const myTasks = ({
   const listWrapperClass = classNames(
     'list-wrapper',
     'column',
-    'is-half-desktop',
+    'is-two-fifth-desktop',
   );
   const formWrapperClass = classNames(
     'mytasks-form-wrapper',
     'column',
+    'is-two-fifth-desktop',
   );
   return (
     <div className="container mytasks-container">
@@ -43,7 +44,7 @@ const myTasks = ({
       </div>
       {tasksAvailable ?
         <div className={classNames(
-      'columns is-multiline is-centered is-variable is-3',
+      'columns is-multiline is-centered is-variable is-8',
       { 'create-mode': createMode, 'default-mode': !createMode },
       )}
         >

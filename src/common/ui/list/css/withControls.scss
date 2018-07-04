@@ -132,33 +132,27 @@
   align-items: center;
   justify-content: center;
   outline: none;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   &.list-control-delete {
     background: url(../assets/cancel.svg);
-    background-size: contain;
+    background-size: 60%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
   }
   &.list-control-restore {
     background: url(../assets/undo.svg);
-    background-size: contain;
+    background-size: 60%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
   }
   &.mark-as-complete {
     background: url(../assets/tick.svg);
-    background-size: contain;
+    background-size: 70%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
   }
   &:hover {
-    &.mark-as-complete {
-      // background: url(../assets/check-circle.svg);
-      background-size: contain;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-    }
   }
 }
 

@@ -1,18 +1,24 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Filter from '../views/../../../containers/myTasks/filters';
+import SmartReminderBtn from '../views/../../../containers/myTasks/smartReminderBtn';
 import { SearchBox } from '../../imports';
 import '../css/toolbar.css';
 
 const toolbar = ({
-  onAddTask, showFilters, showBackButton, onBack, filtersVisible, onFilterClosed, tasksAvailable,
+  onAddTask, onBack, onFilterClosed,
+  showFilters, showBackButton, filtersVisible, tasksAvailable,
 }) => (
   <Fragment>
     <div className="toolbar-wrapper">
       <ul className="toolbar">
         {!showBackButton ?
           <Fragment>
-            <li className="toolbar-item add-task-container">
+            <li className={classNames('toolbar-item', 'add-task-container', {
+              'no-tasks': !tasksAvailable,
+            })}
+            >
               <button className="toolbar-button add-task-btn" onClick={onAddTask}>
                 <i className="add-task-btn-ico add-task" />
                 <span>Add</span>
@@ -31,6 +37,12 @@ const toolbar = ({
                     </div> : null
                   }
                 </li>
+                <li className="toolbar-item smartreminder-btn-container">
+                  {/* <button className="toolbar-button invoke-reminder-btn">
+                    <i className="invoke-reminder-btn-ico" />
+                  </button> */}
+                  <SmartReminderBtn additionalText="You have reminders" icon="bell" />
+                </li>
                 <li className="toolbar-item toolbar-search-wrapper">
                   <SearchBox />
                 </li>
@@ -45,7 +57,7 @@ const toolbar = ({
           </li>
         }
         <li className="toolbar-item app-title-wrapper">
-          <h3 className="app-title">eat that frog</h3>
+          <h3 className="app-title">TODOEUR</h3>
         </li>
       </ul>
     </div>
@@ -59,6 +71,7 @@ toolbar.propTypes = {
   onBack: PropTypes.func.isRequired,
   showBackButton: PropTypes.bool.isRequired,
   filtersVisible: PropTypes.bool.isRequired,
+  tasksAvailable: PropTypes.bool.isRequired,
 };
 
 export default toolbar;

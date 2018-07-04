@@ -3,7 +3,7 @@
   background: #fff;
   border-radius: 4px;
   padding: 10px 0;
-  box-shadow: inset 0px 0px 25px 3px rgba(0, 0, 0, 0.2); }
+  box-shadow: inset 0px 0px 25px 3px rgba(0, 0, 0, 0.3); }
 
 .ui-list {
   list-style: none;
@@ -14,8 +14,8 @@
   height: 100%;
   overflow-y: hidden;
   background: transparent;
-  border-radius: 2px;
-  max-height: 500px;
+  border-radius: 4px;
+  height: 525px;
   overflow-y: auto;
   cursor: pointer; }
   .ui-list .ui-list-item {
