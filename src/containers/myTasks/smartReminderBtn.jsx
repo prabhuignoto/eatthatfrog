@@ -19,6 +19,9 @@ const stateHandlers = {
   toggleAdditionalText: ({ showAdditionalText }, { remindersAvailable }) => () => ({
     showAdditionalText: remindersAvailable ? !showAdditionalText : false,
   }),
+  onSmartClick: (state, { onShowNotificationCenter }) => () => {
+    onShowNotificationCenter();
+  },
 };
 
 export default compose(

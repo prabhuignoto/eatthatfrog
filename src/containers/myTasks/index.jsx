@@ -42,12 +42,14 @@ const initialState = ({
   layoutType = 'withoutfilters',
   filtersVisible = false,
   createMode = false,
+  notificationCenterVisible = false,
 }) => ({
   layouts,
   selectedTaskId,
   layoutType,
   filtersVisible,
   createMode,
+  notificationCenterVisible,
 });
 
 const stateHandlers = {
@@ -79,6 +81,12 @@ const stateHandlers = {
   }),
   onSaved: () => () => ({
     createMode: false,
+  }),
+  showNotificationCenter: () => () => ({
+    notificationCenterVisible: true,
+  }),
+  closeNotificationCenter: () => () => ({
+    notificationCenterVisible: false,
   }),
 };
 

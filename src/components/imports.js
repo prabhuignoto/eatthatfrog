@@ -1,7 +1,6 @@
 // ui modules
 // import List from '../common/ui/list/views/list';
 import List from '../common/ui/list/views/list';
-import Alert from '../common/ui/alert';
 import Popup from '../common/ui/popup/hocs/withEsc';
 import NotificationCenter from '../common/ui/notification/notificationCenter';
 
@@ -11,12 +10,11 @@ import RadioGroup from '../common/ui/radiogroup/hocs/radioGroup';
 import ToggleSwitch from '../common/ui/toggle-switch/toggle-default';
 import ToggleSwitchSimple from '../common/ui/toggle-switch';
 import SearchBox from '../common/ui/searchbox';
-import Selectable from '../common/ui/interactions/selectable/default';
 import withValidation from '../common/ui/controls/inputs/hocs/validation';
 import { TextInput, TextArea } from '../common/ui/exports';
 
-export { List,
-  Alert,
+export {
+  List,
   NotificationCenter,
   Button,
   Popup,
@@ -24,7 +22,6 @@ export { List,
   RadioGroup,
   ToggleSwitch,
   SearchBox,
-  Selectable,
   ToggleSwitchSimple,
 };
 
@@ -32,4 +29,6 @@ const [TextInputWithValidation, TextAreaWithValidation] = [
   withValidation(TextInput),
   withValidation(TextArea),
 ];
-export { TextInput, TextArea, TextInputWithValidation, TextAreaWithValidation };
+export {
+  TextInput, TextArea, TextInputWithValidation, TextAreaWithValidation,
+};

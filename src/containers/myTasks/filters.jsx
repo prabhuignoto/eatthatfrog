@@ -1,7 +1,8 @@
-import { compose, withStateHandlers, defaultProps } from 'recompose';
+import { compose, withStateHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import { updateFilters as UpdateFilters } from '../../actions';
 import Filters from '../../components/myTasks/views/filter';
+import { getFilter } from '../../selectors/myTasks';
 
 const initialState = ({
   todayEnabled = false,
@@ -26,7 +27,6 @@ const initialState = ({
 
 const stateHandlers = {
   onTodayChecked: ({ todayEnabled, filter }, { updateFilters }) => () => {
-
     updateFilters(Object.assign(filter, { today: !todayEnabled }));
     return {
       todayEnabled: !todayEnabled,
@@ -60,17 +60,22 @@ const mapDispatchToProps = dispatch => ({
   updateFilters: filter => dispatch(UpdateFilters(filter)),
 });
 
-const mapStateToProps = ({ filter }) => ({
-  filter,
-});
+const mapStateToProps = ({ Task }) => {
+  const {
+    today: todayEnabled,
+    older: olderEnabled,
+    open: openEnabled,
+    completed: completedEnabled,
+  } = getFilter(Task);
+  return {
+    todayEnabled,
+    olderEnabled,
+    openEnabled,
+    completedEnabled,
+  };
+};
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  defaultProps({
-    todayEnabled: true,
-    olderEnabled: false,
-    openEnabled: true,
-    completedEnabled: false,
-  }),
   withStateHandlers(initialState, stateHandlers),
 )(Filters);

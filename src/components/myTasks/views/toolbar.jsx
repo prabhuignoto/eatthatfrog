@@ -4,11 +4,13 @@ import classNames from 'classnames';
 import Filter from '../views/../../../containers/myTasks/filters';
 import SmartReminderBtn from '../views/../../../containers/myTasks/smartReminderBtn';
 import { SearchBox } from '../../imports';
+import LayoutManager from './layoutManager';
 import '../css/toolbar.css';
 
 const toolbar = ({
   onAddTask, onBack, onFilterClosed,
   showFilters, showBackButton, filtersVisible, tasksAvailable,
+  showNotificationCenter, layouts, layoutType, onLayoutChange
 }) => (
   <Fragment>
     <div className="toolbar-wrapper">
@@ -38,10 +40,11 @@ const toolbar = ({
                   }
                 </li>
                 <li className="toolbar-item smartreminder-btn-container">
-                  {/* <button className="toolbar-button invoke-reminder-btn">
-                    <i className="invoke-reminder-btn-ico" />
-                  </button> */}
-                  <SmartReminderBtn additionalText="You have reminders" icon="bell" />
+                  <SmartReminderBtn
+                    additionalText="You have reminders"
+                    icon="bell"
+                    onShowNotificationCenter={showNotificationCenter}
+                  />
                 </li>
                 <li className="toolbar-item toolbar-search-wrapper">
                   <SearchBox />
@@ -56,9 +59,12 @@ const toolbar = ({
             </button>
           </li>
         }
-        <li className="toolbar-item app-title-wrapper">
-          <h3 className="app-title">TODOEUR</h3>
+        <li className="toolbar-item tbar-layoutmanager-wrapper">
+          <LayoutManager layouts={layouts} layoutType={layoutType} onLayoutChange={onLayoutChange} />
         </li>
+        {/* <li className="toolbar-item app-title-wrapper">
+          <h3 className="app-title">TODOEUR</h3>
+        </li> */}
       </ul>
     </div>
   </Fragment>
@@ -68,6 +74,7 @@ toolbar.propTypes = {
   onAddTask: PropTypes.func.isRequired,
   showFilters: PropTypes.func.isRequired,
   onFilterClosed: PropTypes.func.isRequired,
+  showNotificationCenter: PropTypes.func.isRequired,
   onBack: PropTypes.func.isRequired,
   showBackButton: PropTypes.bool.isRequired,
   filtersVisible: PropTypes.bool.isRequired,

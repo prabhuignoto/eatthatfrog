@@ -1,4 +1,6 @@
-function containsAllowedCharacters(val) {
+//@flow
+
+function containsAllowedCharacters(val: string) {
   return /^[a-zA-Z0-9 ]*$/.test(val);
 }
 

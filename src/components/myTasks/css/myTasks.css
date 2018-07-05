@@ -24,7 +24,7 @@
   min-height: 50%;
   margin-top: auto;
   margin-bottom: auto;
-  padding: 20px 25px 35px 25px;
+  padding: 20px;
   z-index: 1;
   position: relative;
   background: #616A7F;
@@ -62,11 +62,11 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 100;
   top: 0; }
 
-.add-form-wrapper {
+.add-form-wrapper, .notification-center-container {
   position: absolute;
   width: 45%;
   top: 0;
@@ -77,17 +77,23 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  border: 10px solid rgba(69, 83, 114, 0.75);
+  border: 10px solid rgba(69, 83, 114, 0.8);
   border-radius: 5px; }
 
-.create-mode {
+.notification-center-container {
+  height: 70%;
+  width: 70%;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.8); }
+
+.create-mode, .notification-center-open {
   animation-name: scale-down;
   animation-duration: 300ms;
   animation-timing-function: ease-in;
-  transform: scale(0.75);
+  transform: scale(0.7);
   filter: grayscale(90%);
   opacity: 0.1;
-  margin-top: 20px; }
+  pointer-events: none; }
 
 .default-mode {
   animation-name: scale-up;
@@ -96,7 +102,15 @@
   transform: scale(1);
   filter: grayscale(0%);
   opacity: 1;
-  margin-top: 20px; }
+  margin-top: 10px; }
+
+.main-container {
+  background: rgba(45, 57, 86, 0.3);
+  padding: 20px;
+  border-radius: 3px;
+  margin-top: 20px;
+  box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  z-index: -5; }
 
 @keyframes scale-down {
   0% {
@@ -104,13 +118,13 @@
     filter: grayscale(0%);
     opacity: 1; }
   100% {
-    transform: scale(0.75);
+    transform: scale(0.7);
     filter: grayscale(90%);
     opacity: 0.1; } }
 
 @keyframes scale-up {
   0% {
-    transform: scale(0.75);
+    transform: scale(0.7);
     filter: grayscale(90%);
     opacity: 0.1; }
   100% {
@@ -118,16 +132,17 @@
     filter: grayscale(0%);
     opacity: 1; } }
 
-.add-form-transition-enter {
-  opacity: 0.01; }
+.mytasks-transition-enter {
+  opacity: 0.01;
+  transform-origin: bottom; }
 
-.add-form-transition-enter.add-form-transition-enter-active {
+.mytasks-transition-enter.mytasks-transition-enter-active {
   opacity: 1;
-  transition: opacity 400ms ease-in; }
+  transition: opacity 400ms ease-in, transform 400ms ease-in; }
 
-.add-form-transition-leave {
+.mytasks-transition-leave {
   opacity: 1; }
 
-.add-form-transition-leave.add-form-transition-leave-active {
+.mytasks-transition-leave.mytasks-transition-leave-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in; }
+  transition: opacity transform 300ms ease-in, transform 300ms ease-in; }

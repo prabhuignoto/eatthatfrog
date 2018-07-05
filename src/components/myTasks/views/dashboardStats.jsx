@@ -7,7 +7,7 @@ const dashboardStats = ({ openCount, completedCount, remindersCount }) => (
   <div className="dashboard-stats-wrapper">
     <DashboardStat count={openCount} label="Open" type="open" />
     <DashboardStat count={completedCount} label="Complete" type="complete" />
-    {/* <DashboardStat count={remindersCount} label="Reminders" type="reminder" /> */}
+    <DashboardStat count={remindersCount} label="Reminders" type="reminder" />
   </div>
 );
 

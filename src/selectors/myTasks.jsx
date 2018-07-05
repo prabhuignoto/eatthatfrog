@@ -5,6 +5,7 @@ const getSelectedTask = state => state.selectedTask;
 const getAllTasks = state => state.allTasks;
 const getOpen = state => state.filter.open;
 const getCompleted = state => state.filter.completed;
+const getFilter = state => state.filter;
 
 const getAllTasksWithSelection = createSelector(
   [getSelectedTask, getAllTasks],
@@ -58,4 +59,5 @@ export { getAllTasksFiltered,
   getOpenTasks,
   getCompletedTasks,
   getReminders,
+  getFilter,
 };

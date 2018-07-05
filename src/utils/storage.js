@@ -1,3 +1,4 @@
+// @flow
 import _ from 'lodash';
 import Helper from './storageHelper';
 
@@ -14,7 +15,7 @@ export default class Storage {
    * @returns
    * @memberof Storage
  */
-  getTaskById(id) {
+  getTaskById(id: string) {
     return _.find(this.store.tasks, item => item.id === id);
   }
 
@@ -34,7 +35,7 @@ export default class Storage {
    * @param {string} description
    * @memberof Storage
    */
-  addTask(id, name, description, reminderEnabled, tags, status) {
+  addTask(id: string, name: string , description: string, reminderEnabled: bool, tags, status) {
     this.store.tasks.push({
       id,
       name,
