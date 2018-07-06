@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import { element, func, bool } from 'prop-types';
 import '../css/listalert.css';
 
 const ListAlert = ({
-  children, hide, visible, portalTarget, removeTask, completeTask, restoreTask
+  children, hide, visible, portalTarget, removeTask, completeTask, restoreTask,
 }) => {
   const view = (
     <div
       className={classNames('listalert-wrapper', {
-      visible,
-      hidden: !visible,
-    })}
+        visible,
+        hidden: !visible,
+      })}
       role="button"
       tabIndex="0"
     >
@@ -32,9 +32,9 @@ const ListAlert = ({
 };
 
 ListAlert.propTypes = {
-  children: PropTypes.element.isRequired,
-  visible: PropTypes.bool,
-  hide: PropTypes.func.isRequired,
+  children: element.isRequired,
+  visible: bool,
+  hide: func.isRequired,
 };
 
 ListAlert.defaultProps = {

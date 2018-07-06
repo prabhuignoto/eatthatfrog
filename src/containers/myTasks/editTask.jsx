@@ -6,10 +6,13 @@ import { editTask } from '../../actions';
 
 const mapStateToProps = ({ Task }) => {
   const {
-    name, description, id, taskTags = [],
+    name, description, id, tags: taskTags = [],
   } = getSelectedTask(Task);
   return {
-    name, description, id, tags: taskTags,
+    name,
+    description,
+    id,
+    tags: taskTags,
   };
 };
 

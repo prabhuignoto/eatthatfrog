@@ -5,14 +5,13 @@ const noTasksView = () => (
   <div className="no-tasks-view">
     <div className="notasks-img-wrapper">
       <div className="notasks-img" role="img" />
-      <div className="notasks-img fallen-cone" role="img" />
     </div>
     <div className="notasks-msg-wrapper">
       <span>
-        {'You dont have any tasks.'}
+        {'Hey there, Welcome to Todoeur '}
       </span>
-      <span>
-        {'Create one using the Add button.'}
+      <span className="notasks-msg-subtext">
+        {/* {'You dont seem to have any tasks at the moment.'} */}
       </span>
     </div>
   </div>

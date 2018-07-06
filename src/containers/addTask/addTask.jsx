@@ -1,3 +1,4 @@
+import { compose, defaultProps } from 'recompose';
 import { connect } from 'react-redux';
 import { addTask } from '../../actions';
 import AddTask from './index';
@@ -14,4 +15,9 @@ const mapDispatchToProps = dispatch => (({
   },
 }));
 
-export default connect(null, mapDispatchToProps)(AddTask);
+export default compose(
+  connect(null, mapDispatchToProps),
+  defaultProps({
+    taskTags: [{ name: 'swimming', id: 'swim' }, { name: 'running', id: 'run' }],
+  }),
+)(AddTask);

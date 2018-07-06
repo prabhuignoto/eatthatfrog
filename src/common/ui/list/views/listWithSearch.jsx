@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// import List from '../index';
-// import ListControls from '../components/list-edit/list-edit';
+import { func } from 'prop-types';
 import SearchBox from '../../searchbox';
 
 const style = {
@@ -21,8 +19,8 @@ const controlStyles = {
 };
 
 export default function withSearch(BaseComponent) {
-  const ListWithSearch = props => (
-    <div className="list-withsearch-wrapper" style={style} >
+  const ListWithSearch = ({ props }) => (
+    <div className="list-withsearch-wrapper" style={style}>
       <div className="list-withsearch-n-controls" style={controlStyles}>
         <SearchBox
           onChange={props.onSearchboxChange}
@@ -35,8 +33,8 @@ export default function withSearch(BaseComponent) {
   );
 
   ListWithSearch.propTypes = {
-    onSearchboxChange: PropTypes.func.isRequired,
-    onSearchboxComplete: PropTypes.func.isRequired,
+    onSearchboxChange: func.isRequired,
+    onSearchboxComplete: func.isRequired,
   };
 
   return ListWithSearch;

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, func, bool } from 'prop-types';
 import classNames from 'classnames';
 import uuid from 'uniqid';
 import './toggle-switch.css';
@@ -36,10 +36,10 @@ const ToggleSwitch = ({
 };
 
 ToggleSwitch.propTypes = {
-  label: PropTypes.string.isRequired,
-  onToggle: PropTypes.func.isRequired,
-  active: PropTypes.bool.isRequired,
-  animationEnabled: PropTypes.bool,
+  label: string.isRequired,
+  onToggle: func.isRequired,
+  active: bool.isRequired,
+  animationEnabled: bool,
 };
 
 ToggleSwitch.defaultProps = {

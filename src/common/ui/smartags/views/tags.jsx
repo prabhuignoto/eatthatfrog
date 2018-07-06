@@ -1,7 +1,8 @@
 import React, { createRef } from 'react';
-import PropTypes from 'prop-types';
+import {
+  string, func, arrayOf, shape, bool,
+} from 'prop-types';
 import classNames from 'classnames';
-import uuid from 'uniqid';
 import '../css/smartags.css';
 import Tag from './tag';
 
@@ -19,13 +20,15 @@ const Smartags = ({
     className="smartags-wrapper"
     onClick={handleWrapperClick}
     onKeyPress={() => (ev) => {
-        if (ev.keyCode === 13) {
-          handleWrapperClick();
-        }
-        return null;
-      }}
+      if (ev.keyCode === 13) {
+        handleWrapperClick();
+      }
+      return null;
+    }}
   >
-    <label>{label}</label>
+    <span>
+      {label}
+    </span>
     <div className="smartags-container">
       {tags.map(({ name, id }) => (
         <Tag
@@ -35,13 +38,13 @@ const Smartags = ({
           remove={onRemoveTagById}
           isReadOnly={isReadOnly}
         />
-        ))}
+      ))}
       <input
         ref={inputRef}
         type="text"
         className={classNames('smartags-input', {
-            disabled: disableInput,
-          })}
+          disabled: disableInput,
+        })}
         value={input}
         onChange={onKeyInput}
         onKeyUp={onAddOrRemoveTag}
@@ -51,17 +54,16 @@ const Smartags = ({
   </div>);
 
 Smartags.propTypes = {
-  onRemoveTagById: PropTypes.func.isRequired,
-  onAddOrRemoveTag: PropTypes.func.isRequired,
-  onKeyInput: PropTypes.func.isRequired,
-  input: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    id: PropTypes.string,
+  onRemoveTagById: func.isRequired,
+  onAddOrRemoveTag: func.isRequired,
+  onKeyInput: func.isRequired,
+  input: string.isRequired,
+  tags: arrayOf(shape({
+    name: string.isRequired,
+    id: string,
   })).isRequired,
-  disableInput: PropTypes.bool,
-  isReadOnly: PropTypes.bool,
-  label: PropTypes.string,
+  disableInput: bool,
+  isReadOnly: bool,
 };
 
 Smartags.defaultProps = {

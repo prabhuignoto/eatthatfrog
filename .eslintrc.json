@@ -8,6 +8,7 @@
         "linebreak-style": 0,
         "jsx-a11y/no-noninteractive-element-interactions": 0,
         "jsx-a11y/no-noninteractive-tabindex": 0,
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-one-expression-per-line": 0
     }
 }

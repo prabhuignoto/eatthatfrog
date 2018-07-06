@@ -5,7 +5,7 @@ import Smartag from './views/tags';
 const initialState = ({ tags = [], input = '', disableInput = false }) => ({
   tags: tags.length > 0 ? tags.map(x => Object.assign(x, {
     id: `smartags${uuid().replace(/-/g, '')}`,
-  })) : null,
+  })) : tags,
   input,
   disableInput,
 });
@@ -25,13 +25,14 @@ const stateHandlers = {
         tags: lTags,
         disableInput: false,
       };
-      onTagsEdited(result);
+      onTagsEdited(result.tags);
     } else if (ev.keyCode === 8 && !value) {
       const oldTags = tags;
       const newTags = oldTags.slice(0, oldTags.length - 1);
       result = {
         tags: newTags,
       };
+      onTagsEdited(result.tags);
     }
     return result;
   },

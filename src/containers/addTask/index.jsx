@@ -6,7 +6,7 @@ const initialState = ({
   reminderEnabled = false,
   name = '',
   description = '',
-  taskTags = [{ name: 'Productivity', id: 'prod' }, { name: 'Excercise', id: 'excercise' }],
+  taskTags = [],
   nameValidation = { success: true, error: { reason: '' } },
   descValidation = { success: true, error: { reason: '' } },
   formMode = 'create',
@@ -49,8 +49,8 @@ export default compose(
     description,
   })),
   withStateHandlers(initialState, {
-    onTagsEdited: () => tagsData => ({
-      taskTags: tagsData.tags.map(x => x),
+    onTagsEdited: () => tags => ({
+      taskTags: tags.map(x => x),
     }),
     handleSave: ({
       name,

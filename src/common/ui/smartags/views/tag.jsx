@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, func } from 'prop-types';
 import '../css/tag.css';
 
 const Tag = ({ name, id, remove }) => (
@@ -10,14 +10,15 @@ const Tag = ({ name, id, remove }) => (
     <button
       className="tag-remove"
       onClick={() => remove(id)}
+      type="button"
     />
   </div>
 );
 
 Tag.propTypes = {
-  name: PropTypes.string.isRequired,
-  remove: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
+  name: string.isRequired,
+  remove: func.isRequired,
+  id: string.isRequired,
 };
 
 Tag.defaultProps = {

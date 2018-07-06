@@ -1,8 +1,9 @@
 .dashboard-stats-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   height: 100%;
   width: 100%;
   // border: 1px solid #FF1A00;
@@ -21,7 +22,7 @@
       box-shadow: inset 0 0 20px 0px #EB9605;
     }
     &.complete {
-      box-shadow: inset 0 0 20px 0px #9dc183;
+      box-shadow: inset 0 0 20px 0px #9dc183; 
     }
     &.reminder {
       box-shadow: inset 0 0 20px 0px #0080FF;

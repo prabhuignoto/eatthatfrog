@@ -1,5 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {
+  func, string, shape, arrayOf,
+} from 'prop-types';
 import ListItem from '../hocs/listWithControls';
 import '../css/list.css';
 
@@ -14,12 +16,12 @@ const List = ({ items, onSelect }) => (
 
 // prop types
 List.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    description: PropTypes.string,
-    id: PropTypes.string.isRequired,
+  items: arrayOf(shape({
+    name: string,
+    description: string,
+    id: string.isRequired,
   })),
-  onSelect: PropTypes.func.isRequired,
+  onSelect: func.isRequired,
 };
 
 // default props
@@ -28,4 +30,3 @@ List.defaultProps = {
 };
 
 export default List;
-
