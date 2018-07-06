@@ -20,13 +20,15 @@ export function addTask(name, description, reminderEnabled, tags, status) {
   };
 }
 
-export function editTask(name, description, reminderEnabled, tags) {
+export function editTask(name, id, description, reminderEnabled, tags, status) {
   return {
     type: 'EDIT_TASK',
     name,
+    id,
     description,
     reminderEnabled,
     tags,
+    status,
   };
 }
 

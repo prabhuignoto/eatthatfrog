@@ -34,12 +34,14 @@ function* watchAddTaskToDB() {
 function* watchEditTask() {
   yield takeEvery('EDIT_TASK', function* editTask({
     name,
+    id,
     description,
     reminderEnabled,
     tags,
+    status,
   }) {
-    Storage.get().editTask(uuid(), name, description, reminderEnabled, tags);
-    yield put({ type: 'EDIT_TASK_COMPLETE' });
+    const task = Storage.get().editTask(name, id, description, reminderEnabled, tags, status);
+    yield put({ type: 'EDIT_TASK_COMPLETE', task });
   });
 }
 

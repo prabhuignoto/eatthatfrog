@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle, withStateHandlers } from 'recompose';
 import uuid from 'uniqid';
-import { getAllTasksFiltered, getTaskAvailability } from '../../selectors/myTasks';
+import { getAllTasksFiltered, getTaskAvailability, getSelectedTask } from '../../selectors/myTasks';
 import MyTasks from '../../components/myTasks/views/myTasks';
 import { getAllTasks, updateLayoutType as UpdateLayout, getTaskDetails as GetTaskDetails } from '../../actions';
 
@@ -12,9 +12,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = ({ Task }) => {
+  const selectedTask = getSelectedTask(Task);
   const {
     name, description, id: selectedTaskId, reminderEnabled, tags: taskTags,
-  } = Task.selectedTask;
+  } = selectedTask;
   return {
     items: getAllTasksFiltered(Task),
     selectedTaskId,

@@ -89,6 +89,17 @@ export default function (state = {
     case 'ADD_TASK_TO_DB': {
       return Object.assign({}, state);
     }
+    case 'EDIT_TASK_COMPLETE': {
+      return Object.assign({}, state, {
+        allTasks: state.allTasks.map((x) => {
+          if (x.id === action.task.id) {
+            return Object.assign({}, action.task);
+          }
+          return x;
+        }),
+        selectedTask: Object.assign({}, action.task),
+      });
+    }
     default:
       return state;
   }

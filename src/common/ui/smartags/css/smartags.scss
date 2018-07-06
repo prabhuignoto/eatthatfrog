@@ -15,7 +15,7 @@
   .smartags-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 100%;
@@ -23,8 +23,7 @@
     border: 1px solid rgba(97, 106, 127, 0.5);
     background: #fff;
     padding: 4px 6px 20px 6px;
-    min-height: 80px;
-    max-height: 125px;
+    height: 100px;
     overflow-y: auto;
     .smartags-input {
       border: none;
@@ -33,6 +32,8 @@
       flex-wrap: nowrap;
       margin-left: 3px;
       background: transparent;
+      align-self: center;
+      margin-bottom: 20px;
       height: 20px;
       display: block;
       &.disabled {

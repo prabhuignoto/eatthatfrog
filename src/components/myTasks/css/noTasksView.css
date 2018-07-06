@@ -1,0 +1,41 @@
+.no-tasks-view {
+  color: #E0E9E9;
+  font-family: Open Sans;
+  text-align: center;
+  font-size: 1.75em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.notasks-msg-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  margin-left: 30px;
+  min-height: 250px; }
+
+.notasks-img-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 200px; }
+
+.notasks-img {
+  background: url(../assets/cone.svg);
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  margin-bottom: 10px; }
+  .notasks-img.fallen-cone {
+    transform: rotate(110deg);
+    background-position: 50% 50%;
+    position: absolute;
+    bottom: -30px;
+    left: -50px; }

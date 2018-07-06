@@ -1,16 +1,20 @@
 import React from 'react';
+import '../css/noTasksView.css';
 
 const noTasksView = () => (
-  <div style={{
-    color: '#E0E9E9',
-    fontFamily: 'Open Sans',
-    textAlign: 'center',
-    fontSize: '1.75em',
-    width: '450px',
-    marginBottom: 'auto',
-  }}
-  >
-    <span>You dont have any tasks.</span><br /> <span>Create one using the Add button.</span>
+  <div className="no-tasks-view">
+    <div className="notasks-img-wrapper">
+      <div className="notasks-img" role="img" />
+      <div className="notasks-img fallen-cone" role="img" />
+    </div>
+    <div className="notasks-msg-wrapper">
+      <span>
+        {'You dont have any tasks.'}
+      </span>
+      <span>
+        {'Create one using the Add button.'}
+      </span>
+    </div>
   </div>
 );
 

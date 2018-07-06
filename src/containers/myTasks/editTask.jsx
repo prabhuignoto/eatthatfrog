@@ -1,15 +1,32 @@
 import { connect } from 'react-redux';
 import { compose, withProps } from 'recompose';
-import AddTask from '../addTask/index';
+import { getSelectedTask } from '../../selectors/myTasks';
+import EditTask from '../addTask/index';
+import { editTask } from '../../actions';
 
-const mapStateToProps = state => ({
-  name: state.Task.selectedTask.name,
-  description: state.Task.selectedTask.description,
+const mapStateToProps = ({ Task }) => {
+  const {
+    name, description, id, taskTags = [],
+  } = getSelectedTask(Task);
+  return {
+    name, description, id, tags: taskTags,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  saveTaskToDB: (
+    name,
+    id,
+    description,
+    reminderEnabled,
+    tags,
+    status,
+  ) => dispatch(editTask(name, id, description, reminderEnabled, tags, status)),
 });
 
 export default compose(
-  connect(mapStateToProps, null),
+  connect(mapStateToProps, mapDispatchToProps),
   withProps(() => ({
     formMode: 'edit',
   })),
-)(AddTask);
+)(EditTask);

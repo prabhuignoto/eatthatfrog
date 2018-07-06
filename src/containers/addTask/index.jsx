@@ -3,7 +3,6 @@ import Form from '../../components/taskForm';
 import Validation from '../../utils/validation';
 
 const initialState = ({
-  disableSaveBtn = true,
   reminderEnabled = false,
   name = '',
   description = '',
@@ -12,10 +11,11 @@ const initialState = ({
   descValidation = { success: true, error: { reason: '' } },
   formMode = 'create',
   status = 'open',
+  id,
 }) => ({
-  disableSaveBtn,
-  nameValidationFailed: true,
-  descriptionValidationFailed: true,
+  nameValidationFailed: !name,
+  descriptionValidationFailed: !description,
+  disableSaveBtn: !name && !description,
   taskTags,
   reminderEnabled,
   name,
@@ -24,6 +24,7 @@ const initialState = ({
   descValidation,
   formMode,
   status,
+  id,
 });
 
 export default compose(
@@ -57,9 +58,15 @@ export default compose(
       reminderEnabled,
       taskTags,
       status,
-    }, { saveTaskToDB, onSaved }) => () => {
-      saveTaskToDB(name, description, reminderEnabled, taskTags, status);
-      onSaved();
+    }, { saveTaskToDB, onSaved, id }) => () => {
+      if (id) {
+        saveTaskToDB(name, id, description, reminderEnabled, taskTags, status);
+      } else {
+        saveTaskToDB(name, description, reminderEnabled, taskTags, status);
+      }
+      if (onSaved) {
+        onSaved();
+      }
     },
     onReminderChanged: () => ({ active }) => ({
       reminderEnabled: active,

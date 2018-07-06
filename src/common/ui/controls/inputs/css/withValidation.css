@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  margin: 5px 0 15px; }
+  margin: 5px 0 30px; }
   .with-validation.error input[type="text"], .with-validation.error textarea {
     background: rgba(204, 0, 0, 0.1);
     border-color: rgba(204, 0, 0, 0.4); }
@@ -18,7 +18,8 @@
     font-style: normal;
     font-size: 0.8em;
     color: rgba(204, 0, 0, 0.94);
-    user-select: none; }
+    user-select: none;
+    position: absolute; }
     .with-validation .error-info:after {
       content: '';
       width: 25px;

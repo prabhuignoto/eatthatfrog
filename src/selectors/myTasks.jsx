@@ -1,7 +1,12 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash';
 
-const getSelectedTask = state => state.selectedTask;
+const getSelectedTask = (state) => {
+  if (!state.selectedTask.name && state.allTasks.length > 0) {
+    return _.first(state.allTasks);
+  }
+  return state.selectedTask;
+};
 const getAllTasks = state => state.allTasks;
 const getOpen = state => state.filter.open;
 const getCompleted = state => state.filter.completed;
@@ -54,10 +59,12 @@ const getReminders = createSelector(
   tasks => tasks.filter(x => x.reminderEnabled === true).length,
 );
 
-export { getAllTasksFiltered,
+export {
+  getAllTasksFiltered,
   getTaskAvailability,
   getOpenTasks,
   getCompletedTasks,
   getReminders,
   getFilter,
+  getSelectedTask,
 };

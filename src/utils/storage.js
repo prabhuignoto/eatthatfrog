@@ -35,7 +35,7 @@ export default class Storage {
    * @param {string} description
    * @memberof Storage
    */
-  addTask(id: string, name: string , description: string, reminderEnabled: bool, tags, status) {
+  addTask(id, name , description, reminderEnabled, tags, status) {
     this.store.tasks.push({
       id,
       name,
@@ -54,6 +54,16 @@ export default class Storage {
       tags,
       status,
     };
+  }
+
+  editTask(name, id, description, reminderEnabled, tags, status) {   
+    const index = _.chain(this.store.tasks).findIndex(item => item.id === id).value();
+    let updatedTask = {
+      name, id, description, reminderEnabled, tags, status,
+    };
+    this.store.tasks.splice(index, 1, updatedTask);
+    Helper.saveStore(this.store);
+    return  updatedTask;
   }
 
   /**
