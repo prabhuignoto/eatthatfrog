@@ -8,15 +8,15 @@ import '../css/filter.css';
 const ListItem = ({ onChecked, selected, label }) => (
   <li
     className={classNames('filters-list-item', {
-            selected,
+      selected,
     })}
     onClick={onChecked}
     tabIndex="0"
     onKeyUp={(ev) => {
-    if (ev.which === 13) {
-      onChecked();
-    }
-  }}
+      if (ev.which === 13) {
+        onChecked();
+      }
+    }}
   ><i className="filters-list-item-icon" /><span className="filters-list-item-label">{label}</span>
   </li>);
 
@@ -31,30 +31,32 @@ const filter = ({
   closeFilters, show, onTodayChecked, onOlderChecked, onOpenChecked, onCompletedChecked,
   todayEnabled, olderEnabled, openEnabled, completedEnabled,
 }) => (
-  show ?
-    <Fragment>
-      <div className="filters-container">
-        <div className="filters">
-          <h2>Time</h2>
-          <ul className="filters-list">
-            <ListItem label="Today" onChecked={onTodayChecked} selected={todayEnabled} />
-            <ListItem label="Older" onChecked={onOlderChecked} selected={olderEnabled} />
-          </ul>
+  show
+    ? (
+      <Fragment>
+        <div className="filters-container">
+          <div className="filters">
+            <h2>Time</h2>
+            <ul className="filters-list">
+              <ListItem label="Today" onChecked={onTodayChecked} selected={todayEnabled} />
+              <ListItem label="Older" onChecked={onOlderChecked} selected={olderEnabled} />
+            </ul>
+          </div>
+          <div className="filters">
+            <h2>Status</h2>
+            <ul className="filters-list">
+              <ListItem label="Open" onChecked={onOpenChecked} selected={openEnabled} />
+              <ListItem
+                label="Completed"
+                onChecked={onCompletedChecked}
+                selected={completedEnabled}
+              />
+            </ul>
+          </div>
+          <button className="close-filters" onClick={closeFilters} type="button"/>
         </div>
-        <div className="filters">
-          <h2>Status</h2>
-          <ul className="filters-list">
-            <ListItem label="Open" onChecked={onOpenChecked} selected={openEnabled} />
-            <ListItem
-              label="Completed"
-              onChecked={onCompletedChecked}
-              selected={completedEnabled}
-            />
-          </ul>
-        </div>
-        <button className="close-filters" onClick={closeFilters} />
-      </div>
-    </Fragment> : null
+      </Fragment>
+    ) : null
 );
 
 filter.propTypes = {
@@ -65,7 +67,7 @@ filter.propTypes = {
 
   todayEnabled: PropTypes.bool.isRequired,
   olderEnabled: PropTypes.bool.isRequired,
-  openEnabled: PropTypes.bool.isRequired,
+  openEnabled: PropTypes.bool.isRequired, 
   completedEnabled: PropTypes.bool.isRequired,
 
   closeFilters: PropTypes.func.isRequired,

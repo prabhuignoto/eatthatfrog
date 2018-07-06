@@ -96,6 +96,14 @@
             background-position: 50%;
           }
         }
+        &.settings {
+          i {
+            background: url(../assets/cog.svg);
+            background-repeat: no-repeat;
+            background-size: 70%;
+            background-position: 50%;
+          }
+        }
       }
     }
     .searchbox-container {
@@ -138,7 +146,7 @@
   }
   .toolbar-search-wrapper {
     width: 40%;
-    margin-left: auto;
+    margin-left: 20px;
     margin-right: auto;
   }
 }

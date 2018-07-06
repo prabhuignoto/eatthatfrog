@@ -5,12 +5,14 @@
     justify-content: center;
     flex-shrink: 1;
     background: rgba(255, 191, 0,0.4);
+    // color: #455372;
     color: #455372;
+    text-shadow: 0 0 1px #fff;
     border: 1px solid rgba(84, 84, 84, 0.2);
     box-shadow: inset 0px 0px 10px 1px rgba(235, 150, 5, 0.25);
     border-radius: 2px;
     padding: 8px 6px;
-    margin: 4px;
+    margin: 2px 3px;
     min-width: 50px;
     position: relative;
     font-size: 1em;
@@ -27,7 +29,6 @@
     font-size: 0.8em;
     white-space: nowrap;
     text-align: center;
-    // padding-left: 4px;
     width: 100%;
     text-transform: capitalize;
     margin-left: 1px;

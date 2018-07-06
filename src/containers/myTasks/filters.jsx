@@ -23,6 +23,7 @@ const initialState = ({
   completedEnabled,
   show,
   filter,
+  displayStatusMessage: false,
 });
 
 const stateHandlers = {
@@ -54,6 +55,9 @@ const stateHandlers = {
     onFilterClosed();
     return { show: false };
   },
+  toggleStatusMessage: ({ displayStatusMessage }) => () => ({
+    displayStatusMessage: !displayStatusMessage,
+  }),
 };
 
 const mapDispatchToProps = dispatch => ({

@@ -36,11 +36,15 @@ const stateHandlers = {
     }
     return result;
   },
-  onRemoveTagById: ({ tags }) => id => ({
-    input: '',
-    tags: tags.filter(x => x.id !== id),
-    disableInput: false,
-  }),
+  onRemoveTagById: ({ tags }, { onTagsEdited }) => (id) => {
+    const updatedTags = tags.filter(x => x.id !== id);
+    onTagsEdited(updatedTags);
+    return {
+      input: '',
+      tags: updatedTags,
+      disableInput: false,
+    };
+  },
 };
 
 const props = {

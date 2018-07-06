@@ -14,6 +14,7 @@ import NoTasksView from './noTasksView';
 import DashboardStats from '../../../containers/myTasks/dashboardStats';
 import '../css/myTasks.css';
 import NotificationCenter from '../../../containers/myTasks/notificationCenter';
+import FilterStatus from '../../../containers/myTasks/filterStatus';
 
 
 const myTasks = ({
@@ -35,81 +36,82 @@ const myTasks = ({
     'is-two-fifths-desktop',
   );
   return (
-    <div className="container mytasks-container">
-      <div className="tasks-header">
-        <Toolbar
-          showFilters={showFilters}
-          onAddTask={onAddTask}
-          showBackButton={createMode}
-          onBack={onBack}
-          filtersVisible={filtersVisible}
-          onFilterClosed={onFilterClosed}
-          tasksAvailable={tasksAvailable}
-          showNotificationCenter={showNotificationCenter}
-          layouts={layouts}
-          layoutType={layoutType}
-          onLayoutChange={onLayoutChange}
-        />
+    <Fragment>
+      <div className="container mytasks-container">
+        <div className="tasks-header">
+          <Toolbar
+            showFilters={showFilters}
+            onAddTask={onAddTask}
+            showBackButton={createMode}
+            onBack={onBack}
+            filtersVisible={filtersVisible}
+            onFilterClosed={onFilterClosed}
+            tasksAvailable={tasksAvailable}
+            showNotificationCenter={showNotificationCenter}
+            layouts={layouts}
+            layoutType={layoutType}
+            onLayoutChange={onLayoutChange}
+          />
+        </div>
+        {tasksAvailable
+          ? (
+            <div className={classNames('columns main-container is-multiline is-centered is-variable is-5', {
+              'create-mode': createMode,
+              'default-mode': (!createMode && !notificationCenterVisible),
+              'notification-center-open': notificationCenterVisible,
+            })}
+            >
+              <Fragment>
+                <div className={classNames('column is-2')}>
+                  <DashboardStats />
+                </div>
+                <div className={listWrapperClass}>
+                  <List items={items} onSelect={onListItemSelected} />
+                </div>
+                <div className={formWrapperClass}>
+                  <Form
+                    name={name}
+                    description={description}
+                    reminderEnabled={reminderEnabled}
+                    taskTags={taskTags}
+                    key={uuid()}
+                  />
+                </div>
+              </Fragment>
+            </div>
+          ) : <NoTasksView /> }
+
+        {/* Add Task form */}
+        <CSSTransitionGroup
+          transitionName="mytasks-transition"
+          transitionEnterTimeout={400}
+          transitionLeaveTimeout={300}
+        >
+          {createMode
+            ? (
+              <div className="add-form-wrapper">
+                <AddForm onSaved={onSaved} />
+              </div>
+            ) : null}
+        </CSSTransitionGroup>
+        {/* Add Task form */}
+
+        {/* Notification center */}
+        <CSSTransitionGroup
+          transitionName="mytasks-transition"
+          transitionEnterTimeout={400}
+          transitionLeaveTimeout={300}
+        >
+          {notificationCenterVisible
+            ? (
+              <div className="notification-center-container">
+                <NotificationCenter onClose={closeNotificationCenter} />
+              </div>
+            ) : null }
+        </CSSTransitionGroup>
+        <FilterStatus key={uuid()} hide={(createMode || !tasksAvailable)} />
       </div>
-      {tasksAvailable
-        ? (
-          <div className={classNames('columns main-container is-multiline is-centered is-variable is-5', {
-            'create-mode': createMode,
-            'default-mode': (!createMode && !notificationCenterVisible),
-            'notification-center-open': notificationCenterVisible,
-          })}
-          >
-            <Fragment>
-              <div className={classNames('column is-2')}>
-                <DashboardStats />
-              </div>
-              <div className={listWrapperClass}>
-                <List items={items} onSelect={onListItemSelected} />
-              </div>
-              <div className={formWrapperClass}>
-                <Form
-                  name={name}
-                  description={description}
-                  reminderEnabled={reminderEnabled}
-                  taskTags={taskTags}
-                  key={uuid()}
-                />
-              </div>
-            </Fragment>
-          </div>
-        ) : <NoTasksView /> }
-
-      {/* Add Task form */}
-      <CSSTransitionGroup
-        transitionName="mytasks-transition"
-        transitionEnterTimeout={400}
-        transitionLeaveTimeout={300}
-      >
-        {createMode
-          ? (
-            <div className="add-form-wrapper">
-              <AddForm onSaved={onSaved} />
-            </div>
-          ) : null}
-      </CSSTransitionGroup>
-      {/* Add Task form */}
-
-      {/* Notification center */}
-      <CSSTransitionGroup
-        transitionName="mytasks-transition"
-        transitionEnterTimeout={400}
-        transitionLeaveTimeout={300}
-      >
-        {notificationCenterVisible
-          ? (
-            <div className="notification-center-container">
-              <NotificationCenter onClose={closeNotificationCenter} />
-            </div>
-          ) : null }
-      </CSSTransitionGroup>
-      {/* Notification center */}
-
-    </div>);
+    </Fragment>);
 };
 
 myTasks.propTypes = {

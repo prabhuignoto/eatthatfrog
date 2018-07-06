@@ -77,6 +77,11 @@
           background-repeat: no-repeat;
           background-size: 50%;
           background-position: 50%; }
+        .toolbar-wrapper .toolbar .toolbar-item button.toolbar-button.settings i {
+          background: url(../assets/cog.svg);
+          background-repeat: no-repeat;
+          background-size: 70%;
+          background-position: 50%; }
     .toolbar-wrapper .toolbar .searchbox-container {
       width: 100%; }
       .toolbar-wrapper .toolbar .searchbox-container .search {
@@ -109,5 +114,5 @@
     background: #fff; }
   .toolbar-wrapper .toolbar-search-wrapper {
     width: 40%;
-    margin-left: auto;
+    margin-left: 20px;
     margin-right: auto; }

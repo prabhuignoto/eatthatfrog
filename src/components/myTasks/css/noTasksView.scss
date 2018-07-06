@@ -44,10 +44,11 @@
   margin-left: auto;
   margin-right: auto;
   animation-name: sunrise;
-  animation-delay: 500ms;
+  animation-delay: 250ms;
   animation-duration: 40s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  transform: rotate(0deg);
 }
 
 .notasks-msg-subtext {

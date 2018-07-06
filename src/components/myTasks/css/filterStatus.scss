@@ -1,0 +1,9 @@
+.filter-status-wrapper {
+  color: #fff;
+  width: 100%;
+  font-size: 0.9em;
+
+  &.hide {
+    visibility: hidden;
+  }
+}

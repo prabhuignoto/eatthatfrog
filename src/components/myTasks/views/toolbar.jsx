@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Filter from '../../../containers/myTasks/filters';
 import SmartReminderBtn from '../../../containers/myTasks/smartReminderBtn';
-import { SearchBox } from '../../imports';
 import LayoutManager from './layoutManager';
+import { SearchBox } from '../../imports';
 import '../css/toolbar.css';
 
 const Tools = ({
@@ -14,7 +14,7 @@ const Tools = ({
     <li className="toolbar-item apply-filters-container">
       <button className="toolbar-button apply-filters-btn" type="button" onClick={showFilters}>
         <i className="add-task-btn-ico apply-filters" />
-        <span>
+        <span className="is-hidden-touch">
           {'Filter'}
         </span>
       </button>
@@ -62,7 +62,7 @@ const toolbar = ({
               >
                 <button className="toolbar-button add-task-btn" onClick={onAddTask} type="button">
                   <i className="add-task-btn-ico add-task" />
-                  <span>
+                  <span className="is-hidden-touch">
                     {'Add'}
                   </span>
                 </button>
@@ -89,16 +89,18 @@ const toolbar = ({
               </button>
             </li>)
         }
-        {/* <li className="toolbar-item tbar-layoutmanager-wrapper">
-          <LayoutManager
+        <li className="toolbar-item tbar-layoutmanager-wrapper">
+          {/* <LayoutManager
             layouts={layouts}
             layoutType={layoutType}
             onLayoutChange={onLayoutChange}
-          />
-        </li> */}
-        {/* <li className="toolbar-item app-title-wrapper">
-          <h3 className="app-title">TODOEUR</h3>
-        </li> */}
+          /> */}
+        </li>
+        <li className="toolbar-item app-title-wrapper">
+          <button className="toolbar-button settings" type="button">
+            <i className="settings-btn-icon" />
+          </button>
+        </li>
       </ul>
     </div>
   </Fragment>
