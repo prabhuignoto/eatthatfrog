@@ -15,7 +15,7 @@ export default class Storage {
    * @returns
    * @memberof Storage
  */
-  getTaskById(id: string) {
+  getTaskById(id) {
     return _.find(this.store.tasks, item => item.id === id);
   }
 
@@ -36,6 +36,7 @@ export default class Storage {
    * @memberof Storage
    */
   addTask(id, name , description, reminderEnabled, tags, status) {
+    const createdDate = new Date();
     this.store.tasks.push({
       id,
       name,
@@ -43,7 +44,7 @@ export default class Storage {
       reminderEnabled,
       tags,
       status,
-      createdDate: new Date(),
+      createdDate,
     });
     Helper.saveStore(this.store);
     return {
@@ -53,17 +54,18 @@ export default class Storage {
       reminderEnabled,
       tags,
       status,
+      createdDate,
     };
   }
 
   editTask(name, id, description, reminderEnabled, tags, status) {   
     const index = _.chain(this.store.tasks).findIndex(item => item.id === id).value();
-    let updatedTask = {
+    let updatedTask =  Object.assign({}, this.store.tasks[index], {
       name, id, description, reminderEnabled, tags, status,
-    };
+    });
     this.store.tasks.splice(index, 1, updatedTask);
     Helper.saveStore(this.store);
-    return  updatedTask;
+    return  this.store.tasks[index];
   }
 
   /**
@@ -108,6 +110,16 @@ export default class Storage {
   deleteAllTasks() {
     this.store.tasks.length = 0;
     Helper.saveStore(this.store);
+  }
+
+  dismissReminder(id) {
+    const index = _.findIndex(this.store.tasks, item => id === item.id);
+    const updatedTask = Object.assign({}, this.store.tasks[index], {
+      reminderEnabled: false,
+    });
+    this.store.tasks.splice(index, 1, updatedTask);
+    Helper.saveStore(this.store);
+    return updatedTask;
   }
 
   /**

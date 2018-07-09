@@ -12,6 +12,8 @@ const getOpen = state => state.filter.open;
 const getCompleted = state => state.filter.completed;
 const getFilter = state => state.filter;
 
+const getAllReminders = state => state.allTasks.filter(item => item.reminderEnabled === true);
+
 const getAllTasksWithSelection = createSelector(
   [getSelectedTask, getAllTasks],
   (selectedTask, allTasks) => allTasks.map((item) => {
@@ -67,4 +69,5 @@ export {
   getReminders,
   getFilter,
   getSelectedTask,
+  getAllReminders,
 };

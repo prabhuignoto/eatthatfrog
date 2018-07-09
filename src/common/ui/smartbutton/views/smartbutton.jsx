@@ -5,7 +5,7 @@ import '../css/smartbutton.css';
 
 const smartbutton = ({
   icon, blink, additionalText,
-  toggleAdditionalText, showAdditionalText, onSmartClick,
+  toggleAdditionalText, showAdditionalText, onSmartClick, name,
 }) => {
   const smartButtonWrapperCls = classNames('smart-button-wrapper', {
     blink,
@@ -18,6 +18,7 @@ const smartbutton = ({
     >
       <button className="smart-button" onClick={onSmartClick} type="button">
         <i className={icon} />
+        <span className="smart-button-label">{name}</span>
       </button>
       <span className="notification-dot" />
       {showAdditionalText
@@ -35,12 +36,14 @@ smartbutton.propTypes = {
   showAdditionalText: bool.isRequired,
   additionalText: string.isRequired,
   icon: string,
+  name: string,
   toggleAdditionalText: func.isRequired,
   onSmartClick: func.isRequired,
 };
 
 smartbutton.defaultProps = {
   icon: '',
+  name: '',
 };
 
 export default smartbutton;

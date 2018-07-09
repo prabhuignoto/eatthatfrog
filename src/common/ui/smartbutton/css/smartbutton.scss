@@ -12,6 +12,8 @@
     border-radius: 2px;
     outline: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 
     i.bell {
       background: url(../assets/bell.svg);
@@ -19,8 +21,16 @@
       background-position: 50% 50%;
       background-size: 60%;
       display: block;
-      width: 100%;
-      height: 100%;
+      width: 30px;
+      height: 30px;
+    }
+
+    .smart-button-label {
+      font-size: 1em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #2D3956;
+      font-family: 'Open Sans';
     }
   }
 
@@ -50,7 +60,7 @@
   }
   .additional-text-wrapper {
     position: absolute;
-    right: -56px;
+    right: -10%;
     top: 130%;
     margin-left: auto;
     margin-right: auto;
@@ -64,6 +74,7 @@
     justify-content: center;
     padding: 2px;
     box-shadow: 0 0 10px 1px rgba(0,0,0,0.3);
+
     span {
       font-size: 0.9em;
       display: flex;

@@ -91,3 +91,10 @@ export function updateFilters(filter) {
     filter,
   };
 }
+
+export function dismissReminder(id) {
+  return {
+    type: 'DISMISS_REMINDER',
+    id,
+  };
+}

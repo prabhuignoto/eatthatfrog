@@ -30,10 +30,8 @@ const Tools = ({
         additionalText="You have reminders"
         icon="bell"
         onShowNotificationCenter={showNotificationCenter}
+        name="Reminders"
       />
-    </li>
-    <li className="toolbar-item toolbar-search-wrapper">
-      <SearchBox />
     </li>
   </Fragment>
 );

@@ -129,8 +129,11 @@
     }
     .smartreminder-btn-container {
       margin: 0 4px;
-      width: 40px;
+      // width: 40px;
       height: 40px;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
     }
   }
   .filters-wrapper {

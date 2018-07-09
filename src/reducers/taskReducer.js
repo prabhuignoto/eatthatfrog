@@ -23,10 +23,10 @@ export default function (state = {
     {
       return Object.assign({}, state);
     }
-    case 'GET_ALL_TASKS':
-    {
-      return Object.assign({}, state);
-    }
+    // case 'GET_ALL_TASKS':
+    // {
+    //   return Object.assign({}, state);
+    // }
     case 'GET_ALL_TASKS_COMPLETE':
     {
       return Object.assign({}, state, {
@@ -99,6 +99,16 @@ export default function (state = {
         }),
         selectedTask: Object.assign({}, action.task),
       });
+    }
+    case 'DISMISS_REMINDER_COMPLETE': {
+      return Object.assign({}, state, {
+        allTasks: state.allTasks.map((x) => {
+          if (x.id === action.task.id) {
+            return Object.assign({}, action.task);
+          }
+          return x;
+        }),
+      })
     }
     default:
       return state;

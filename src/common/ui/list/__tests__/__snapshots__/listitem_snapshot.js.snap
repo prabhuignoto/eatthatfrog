@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render listitem correctly 1`] = `
+<div
+  className="ui-list-item"
+  key="listitem5pxulg2kjjd5bs88"
+  name="list-item-listitem5pxulg2kjjd5bs88"
+  role="listitem"
+>
+  <i
+    className="open"
+  />
+  <button
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    type="button"
+  >
+    ListItemTest
+  </button>
+</div>
+`;
