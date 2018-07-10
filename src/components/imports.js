@@ -3,7 +3,7 @@
 import List from '../common/ui/list/views/list';
 import Popup from '../common/ui/popup/hocs/withEsc';
 import NotificationCenter from '../common/ui/notification/notificationCenter';
-
+import Navigator from '../common/ui/date-navigator';
 import Button from '../common/ui/controls/button/default';
 import Smartags from '../common/ui/smartags';
 import RadioGroup from '../common/ui/radiogroup/hocs/radioGroup';
@@ -23,6 +23,7 @@ export {
   ToggleSwitch,
   SearchBox,
   ToggleSwitchSimple,
+  Navigator,
 };
 
 const [TextInputWithValidation, TextAreaWithValidation] = [

@@ -101,7 +101,6 @@
     .toolbar-wrapper .toolbar .smartreminder-btn-container {
       margin: 0 4px;
       height: 40px;
-      margin-right: auto;
       display: flex;
       align-items: center; }
   .toolbar-wrapper .filters-wrapper {
@@ -114,6 +113,9 @@
     border-radius: 6px;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
     background: #fff; }
+  .toolbar-wrapper .navigator-wrapper {
+    margin-left: 20px;
+    margin-right: auto; }
   .toolbar-wrapper .toolbar-search-wrapper {
     width: 40%;
     margin-left: 20px;

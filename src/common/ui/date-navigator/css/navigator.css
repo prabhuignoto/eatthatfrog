@@ -1,0 +1,41 @@
+.navigator-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 200px; }
+  .navigator-wrapper .nav-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    height: 100%; }
+  .navigator-wrapper .nav-btn-wrapper {
+    width: 25px;
+    height: 35px;
+    background-color: #E0E9E9;
+    border-radius: 3px; }
+  .navigator-wrapper .navigate-back {
+    align-self: flex-start;
+    background: url(../assets/chevron-left.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%; }
+  .navigator-wrapper .navigate-forward {
+    align-self: flex-end;
+    background: url(../assets/chevron-right.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%; }
+  .navigator-wrapper .date-label {
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: #E7E7E7;
+    background: rgba(45, 57, 86, 0.3);
+    padding: 5px 8px;
+    border-radius: 3px;
+    width: 120px;
+    white-space: nowrap;
+    box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.1);
+    margin-top: 2px; }

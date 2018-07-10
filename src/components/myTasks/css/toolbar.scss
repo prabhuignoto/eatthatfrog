@@ -131,7 +131,6 @@
       margin: 0 4px;
       // width: 40px;
       height: 40px;
-      margin-right: auto;
       display: flex;
       align-items: center;
     }
@@ -146,6 +145,10 @@
     border-radius: 6px;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25); // height: 30px;
     background: #fff;
+  }
+  .navigator-wrapper {
+    margin-left: 20px;
+    margin-right: auto;
   }
   .toolbar-search-wrapper {
     width: 40%;

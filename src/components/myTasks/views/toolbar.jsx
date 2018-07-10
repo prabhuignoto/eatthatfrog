@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Filter from '../../../containers/myTasks/filters';
 import SmartReminderBtn from '../../../containers/myTasks/smartReminderBtn';
 import LayoutManager from './layoutManager';
-import { SearchBox } from '../../imports';
+import { SearchBox, Navigator } from '../../imports';
 import '../css/toolbar.css';
 
 const Tools = ({
@@ -87,7 +87,8 @@ const toolbar = ({
               </button>
             </li>)
         }
-        <li className="toolbar-item tbar-layoutmanager-wrapper">
+        <li className="toolbar-item navigator-wrapper">
+          <Navigator />
           {/* <LayoutManager
             layouts={layouts}
             layoutType={layoutType}

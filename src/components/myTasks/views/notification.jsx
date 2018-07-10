@@ -15,6 +15,9 @@ const notification = ({ name, id, createdDate, dismissReminder }) => (
     </div>
     <div className="notification-item-controls">
       <button
+        className="done-notification-btn"
+        onClick={() => dismissReminder(id)} >I'm done with this</button>
+      <button
         className="hide-notification-btn"
         onClick={() => dismissReminder(id)} >Dismiss</button>
     </div>

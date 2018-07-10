@@ -10,7 +10,7 @@ const notificationCenter = ({ onClose, notifications, dismissReminder }) => (
       className="close-notification-center"
       type="button"
       onClick={onClose}
-    />
+    >close</button>
     { notifications.length > 0 ?
       <div className="notification-items-wrapper">
         {notifications.map(notification => 
